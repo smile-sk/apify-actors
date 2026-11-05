@@ -1,0 +1,14 @@
+# Never ship internal notes, data dumps or another Actor's code to the platform.
+actors/
+assets/
+data/
+docs/
+scripts/
+logo.png
+PLAN.md
+RECON.md
+*.bak_*
+*.bak
+__pycache__/
+*.pyc
+.last_run.txt

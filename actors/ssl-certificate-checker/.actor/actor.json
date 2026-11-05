@@ -1,0 +1,21 @@
+{
+    "actorSpecification": 1,
+    "name": "ssl-certificate-checker",
+    "title": "SSL Certificate Checker API - Expiry, Chain & Distrust",
+    "description": "Bulk SSL/TLS certificate checker: validity, expiry, chain, hostname match, plus the 15 Apr 2027 Mozilla root distrust. No run-start fee, unreachable hosts free, cache free.",
+    "version": "0.1",
+    "meta": {
+        "actorId": "ssl-certificate-checker"
+    },
+    "dockerfile": "./Dockerfile",
+    "input": "./input_schema.json",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 512,
+    "defaultMemoryMbytes": 512,
+    "buildTag": "latest",
+    "categories": [
+        "DEVELOPER_TOOLS",
+        "SEO_TOOLS"
+    ],
+    "output": "./dataset_schema.json"
+}

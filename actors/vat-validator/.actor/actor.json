@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "vat-validator",
+  "title": "VAT Validator API - VIES Check, Company Name & Address",
+  "description": "Checks EU VAT numbers against VIES and separates a wrong number from an unregistered one from VIES being unreachable. Most checkers call that silence invalid. Offline checksum first. Unanswered numbers are free.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "BUSINESS"
+  ],
+  "minMemoryMbytes": 128,
+  "maxMemoryMbytes": 1024,
+  "defaultMemoryMbytes": 512
+}

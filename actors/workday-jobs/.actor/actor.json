@@ -1,0 +1,25 @@
+{
+    "actorSpecification": 1,
+    "name": "workday-jobs-api",
+    "title": "Workday Jobs API: Every Opening From Any Career Site",
+    "description": "Every open job from any Workday career site: title, location, country, remote flag, posted date, apply link, optional full description. Paginated by Workday's own 20-per-request limit, real totals reported, no proxies, pay only for delivered jobs.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "python-start"
+    },
+    "dockerfile": "../Dockerfile",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "categories": [
+        "JOBS",
+        "LEAD_GENERATION",
+        "DEVELOPER_TOOLS"
+    ],
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024,
+    "defaultMemoryMbytes": 512
+}

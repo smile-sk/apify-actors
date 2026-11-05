@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "website-contacts-finder",
+  "title": "Website Contact Finder: Emails, Phones & Socials From Any Site",
+  "description": "Give any website and get its real contacts: emails with the exact page each one was found on, phones, 9 social networks and the postal address. No guessed emails, no 'verified' label we cannot prove. Pay only for sites that returned contacts - an empty or blocked site costs nothing.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512
+}

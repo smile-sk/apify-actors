@@ -1,0 +1,66 @@
+{
+    "title": "Website Screenshot API: input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "url": {
+            "title": "URL to screenshot",
+            "type": "string",
+            "description": "Page address, e.g. https://example.com. The baseline for this URL is kept in your own Apify storage.",
+            "editor": "textfield",
+            "prefill": "https://example.com"
+        },
+        "fullPage": {
+            "title": "Full page",
+            "type": "boolean",
+            "description": "true = the whole scrollable page, false = only the visible screen.",
+            "default": true
+        },
+        "width": {
+            "title": "Viewport width",
+            "type": "integer",
+            "description": "Browser window width in CSS pixels. Different widths keep separate baselines.",
+            "default": 1440,
+            "minimum": 320,
+            "maximum": 3840
+        },
+        "height": {
+            "title": "Viewport height",
+            "type": "integer",
+            "description": "Browser window height in CSS pixels. Different heights keep separate baselines.",
+            "default": 900,
+            "minimum": 200,
+            "maximum": 2160
+        },
+        "format": {
+            "title": "Image format",
+            "type": "string",
+            "description": "png keeps pixel-perfect detail, jpeg is smaller. Different formats keep separate baselines.",
+            "enum": ["png", "jpeg"],
+            "default": "png"
+        },
+        "diffPixels": {
+            "title": "Pixel sensitivity",
+            "type": "integer",
+            "description": "How much a channel must change (0-255) for a pixel to count as changed. Higher = ignores soft noise, lower = catches subtle shifts.",
+            "default": 12,
+            "minimum": 0,
+            "maximum": 255
+        },
+        "waitFor": {
+            "title": "Extra wait (ms)",
+            "type": "integer",
+            "description": "Time to wait after load, for animations and lazy images.",
+            "default": 1000,
+            "minimum": 0,
+            "maximum": 30000
+        },
+        "resetBaseline": {
+            "title": "Reset baseline",
+            "type": "boolean",
+            "description": "true = forget the stored screenshot for this URL and treat this run as a new baseline.",
+            "default": false
+        }
+    },
+    "required": ["url"]
+}

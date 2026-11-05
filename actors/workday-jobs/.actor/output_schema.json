@@ -1,0 +1,24 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Workday jobs",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Jobs",
+            "description": "One row per open job. Rows with status FOUND carry the job; NO_JOBS and error rows are free and only appear if you asked for them.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "report": {
+            "type": "string",
+            "title": "Per-board report",
+            "description": "How many jobs each board really has, how many were delivered, whether the run was truncated and whether the answer came from cache.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/BOARD_REPORT"
+        },
+        "summary": {
+            "type": "string",
+            "title": "Run summary",
+            "description": "Totals for the whole run: boards read, boards failed, jobs delivered, cache hits, seconds.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+        }
+    }
+}

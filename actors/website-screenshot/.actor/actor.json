@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "name": "website-screenshot-visual-diff",
+  "title": "Website Screenshot API: Full-Page PNG & Visual Diff",
+  "description": "Full-page website screenshot API with a built-in visual diff: PNG or JPEG of any URL, the changed-pixel ratio and a red diff image against the previous run. Pay per page.",
+  "version": "0.3",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 512,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024,
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
+}

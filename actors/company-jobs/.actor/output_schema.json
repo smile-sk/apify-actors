@@ -1,0 +1,19 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Company Jobs API output",
+  "description": "One record per open job, in the same shape for every ATS, plus a per-company report in the run storage.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Jobs",
+      "description": "Dataset with one row per open job: company, ats, title, department, location, remote, salary, postedAt, apply URL.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "report": {
+      "type": "string",
+      "title": "Company report",
+      "description": "Which ATS each company turned out to use, how many jobs its board holds and why a company could not be resolved.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/COMPANY_REPORT"
+    }
+  }
+}

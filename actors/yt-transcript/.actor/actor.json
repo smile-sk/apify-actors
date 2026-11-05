@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "youtube-transcript-api-fast",
+  "title": "YouTube Transcript API: Bulk Captions, Fast",
+  "description": "YouTube transcript API for many videos in one run: plain text, timestamps, SRT and VTT. Every video gets a row - no silent failures - and you pay only for delivered transcripts.",
+  "version": "0.3",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "categories": [
+    "AUTOMATION",
+    "DEVELOPER_TOOLS",
+    "SOCIAL_MEDIA"
+  ],
+  "minMemoryMbytes": 512,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

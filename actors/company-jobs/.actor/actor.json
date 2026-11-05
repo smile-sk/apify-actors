@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "company-jobs-api",
+  "title": "Company Jobs API: Every Open Role From Any Domain",
+  "description": "Give company domains and get every open job behind them - Greenhouse, Ashby, Lever, Workable, SmartRecruiters, Recruitee - in one schema with salary, location, remote flag and apply URL. No proxies, no cookies, pay only for jobs found.",
+  "version": "0.3",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512
+}

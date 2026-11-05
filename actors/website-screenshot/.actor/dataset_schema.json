@@ -1,0 +1,35 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "url": { "type": "string" },
+        "changed": { "type": "boolean" },
+        "changedRatio": { "type": "number" },
+        "firstRun": { "type": "boolean" },
+        "compareError": { "type": "string" },
+        "sizeBytes": { "type": "integer" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "fullPage": { "type": "boolean" },
+        "screenshotKey": { "type": "string" },
+        "diffKey": { "type": "string" },
+        "checkedAt": { "type": "string" }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["url", "changed", "changedRatio", "firstRun", "checkedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "url": { "label": "URL", "format": "text" },
+                    "changed": { "label": "Changed" },
+                    "changedRatio": { "label": "Share of changed pixels", "format": "number" },
+                    "firstRun": { "label": "First run" },
+                    "checkedAt": { "label": "Checked at", "format": "text" }
+                }
+            }
+        }
+    }
+}

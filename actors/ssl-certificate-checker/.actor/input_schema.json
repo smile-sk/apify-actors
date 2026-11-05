@@ -1,0 +1,54 @@
+{
+    "title": "SSL Certificate Checker API input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "hosts": {
+            "title": "Hosts",
+            "type": "array",
+            "description": "List of hosts or URLs to check. Protocols and paths are removed. Append :port for a non-standard port, e.g. api.example.com:8443. IP addresses are matched against IP SANs. TLS only (port 443 by default); STARTTLS is not supported.",
+            "editor": "stringList",
+            "prefill": [
+                "example.com",
+                "www.gva.es",
+                "1.1.1.1"
+            ]
+        },
+        "cacheMinutes": {
+            "title": "Cache minutes",
+            "type": "integer",
+            "description": "How many minutes a charged host verdict stays cached in the buyer's store. Cache hits are delivered and are NOT charged. 0 disables the cache.",
+            "default": 1440,
+            "minimum": 0,
+            "maximum": 10080,
+            "unit": "minutes"
+        },
+        "maxConcurrency": {
+            "title": "Max concurrency",
+            "type": "integer",
+            "description": "How many TLS checks run in parallel.",
+            "default": 8,
+            "minimum": 1,
+            "maximum": 32
+        },
+        "timeoutSeconds": {
+            "title": "Timeout seconds",
+            "type": "integer",
+            "description": "Connect and handshake timeout per host.",
+            "default": 10,
+            "minimum": 3,
+            "maximum": 30,
+            "unit": "seconds"
+        },
+        "timeBudgetSeconds": {
+            "title": "Time budget seconds",
+            "type": "integer",
+            "description": "Optional: stop the run after this many seconds. Hosts that were not read are listed in the SUMMARY row.",
+            "minimum": 10,
+            "unit": "seconds"
+        }
+    },
+    "required": [
+        "hosts"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "IBAN check results",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Results",
+            "description": "One row per IBAN: whether the mod-97 checksum holds, which country it belongs to, whether that country is in SEPA, and the exact reason a number was rejected.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "type": "string",
+            "title": "Run summary",
+            "description": "Counts by status, how many rows were billable, and how many were stopped by the spending cap.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+        }
+    }
+}

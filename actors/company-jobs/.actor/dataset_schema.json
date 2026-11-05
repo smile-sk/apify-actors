@@ -1,0 +1,47 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "company": { "type": "string", "description": "Company name derived from the domain you passed." },
+        "domain": { "type": "string", "description": "Domain you passed, normalised." },
+        "ats": { "type": "string", "description": "Board provider: greenhouse, ashby, lever, workable, smartrecruiters or recruitee." },
+        "jobId": { "type": "string", "description": "Job identifier inside that ATS." },
+        "jobTitle": { "type": "string", "description": "Job title as published." },
+        "department": { "type": "string", "description": "Department or team, when the board exposes it." },
+        "location": { "type": "string", "description": "All listed locations joined." },
+        "remote": { "type": "boolean", "description": "true when the company marks the job as remote." },
+        "employmentType": { "type": "string", "description": "Full-time, contract, intern and so on." },
+        "salaryMin": { "type": "integer", "description": "Lower bound of the published salary." },
+        "salaryMax": { "type": "integer", "description": "Upper bound of the published salary." },
+        "salaryCurrency": { "type": "string", "description": "Currency of the published salary." },
+        "salaryPeriod": { "type": "string", "description": "YEAR, MONTH or HOUR." },
+        "postedAt": { "type": "string", "description": "Publication or last update time as the ATS reports it." },
+        "url": { "type": "string", "description": "Direct link to the job posting." },
+        "status": { "type": "string", "description": "FOUND for a real job, NO_JOBS for a company that could not be resolved." },
+        "jobDescription": { "type": "string", "description": "Full job description as plain text, only with includeDescription." },
+        "fromCache": { "type": "boolean", "description": "true when this row came from the run cache instead of a live fetch - same data, no extra request to the board." },
+        "fetchedAt": { "type": "string", "description": "When this row was collected." }
+    },
+    "views": {
+        "overview": {
+            "title": "Open jobs",
+            "transformation": {
+                "fields": ["company", "jobTitle", "department", "location", "remote", "salaryMin", "salaryMax", "salaryCurrency", "postedAt", "url"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": { "label": "Company", "format": "text" },
+                    "jobTitle": { "label": "Job title", "format": "text" },
+                    "department": { "label": "Department", "format": "text" },
+                    "location": { "label": "Location", "format": "text" },
+                    "remote": { "label": "Remote", "format": "boolean" },
+                    "salaryMin": { "label": "Salary from", "format": "number" },
+                    "salaryMax": { "label": "Salary to", "format": "number" },
+                    "salaryCurrency": { "label": "Currency", "format": "text" },
+                    "postedAt": { "label": "Posted", "format": "text" },
+                    "url": { "label": "Apply", "format": "link" }
+                }
+            }
+        }
+    }
+}

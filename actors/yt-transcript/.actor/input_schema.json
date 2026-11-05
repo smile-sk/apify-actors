@@ -1,0 +1,57 @@
+{
+    "title": "YouTube Transcript API: input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "videoUrls": {
+            "title": "YouTube URLs or video IDs",
+            "type": "array",
+            "description": "Any YouTube link format works: watch?v=, youtu.be, /shorts/, /embed/, /live/, or a bare 11-character video ID.",
+            "editor": "stringList",
+            "prefill": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+            "items": { "type": "string" }
+        },
+        "language": {
+            "title": "Preferred language",
+            "type": "string",
+            "description": "Language code to prefer, e.g. en, de, uk, es. Empty = the video's original language. If the requested language does not exist, the original track is used.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "preferManualCaptions": {
+            "title": "Prefer human-written captions",
+            "type": "boolean",
+            "description": "true = use the uploader's captions when they exist and auto-generated speech recognition only as a fallback. false = the other way round.",
+            "default": true
+        },
+        "includeSegments": {
+            "title": "Include timestamped segments",
+            "type": "boolean",
+            "description": "true = every caption cue with start time and duration, next to the full plain text.",
+            "default": true
+        },
+        "maxVideos": {
+            "title": "Max videos per run",
+            "type": "integer",
+            "description": "Safety stop: the run never processes more than this many videos.",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "cacheMinutes": {
+            "title": "Reuse a transcript for this many minutes",
+            "type": "integer",
+            "description": "A video already fetched in this window is served from this account's own cache: instant answer, and no second request to YouTube for the same video. 0 = always fetch live. Default 720 (12 hours).",
+            "default": 720,
+            "minimum": 0,
+            "maximum": 20160
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "YouTube rate-limits data-centre addresses. If you see LOGIN_REQUIRED for videos that clearly have captions, switch this on and pick residential proxies.",
+            "editor": "proxy"
+        }
+    },
+    "required": ["videoUrls"]
+}

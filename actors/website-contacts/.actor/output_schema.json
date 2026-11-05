@@ -1,0 +1,19 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Website Contact Finder output",
+  "description": "One record per website with emails, phones, social profiles and address, plus a run summary.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Contacts per website",
+      "description": "Dataset with one row per website: emails with the page each one was found on, foreign emails kept apart, phones, 9 social networks, address, pages scanned and the reason when nothing was found.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "How many sites had contacts, how many were empty, blocked or unreachable, and what was charged.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+    }
+  }
+}

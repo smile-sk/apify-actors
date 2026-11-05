@@ -1,0 +1,62 @@
+{
+    "title": "VAT Validator API - VIES Check, Company Name & Address",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "vatNumbers": {
+            "title": "VAT numbers to check",
+            "type": "string",
+            "description": "One per line, with the country prefix: DE259137088, FR 40 303265045, NL004495445B01. Spaces, dots and dashes are ignored. Up to 4,000 per run.",
+            "editor": "textarea",
+            "prefill": "DE811569869\nFR40303265045\nIT00743110157\nDE811569860\nXX123"
+        },
+        "text": {
+            "title": "Or paste a document (optional)",
+            "type": "string",
+            "description": "Used only when 'VAT numbers to check' is empty: numbers are pulled out of an invoice, an email or any pasted text, in the order they appear. A bare number without a country prefix glued to it is checked but never charged.",
+            "editor": "textarea"
+        },
+        "countryHint": {
+            "title": "Country prefix for bare numbers (optional)",
+            "type": "string",
+            "description": "Two-letter code, used only for numbers that come without a prefix, for example a column of German numbers pasted without DE.",
+            "editor": "textfield"
+        },
+        "checkVies": {
+            "title": "Ask VIES (live registry, recommended)",
+            "type": "boolean",
+            "description": "On by default. Turn it off for a pure offline run: shape and checksum only, no VIES calls, and the status says so.",
+            "default": true,
+            "editor": "checkbox"
+        },
+        "cacheMinutes": {
+            "title": "Cache VIES answers for (minutes)",
+            "type": "integer",
+            "description": "0 turns the cache off. A cached answer is not charged: the number is the same public record, whoever asked first.",
+            "default": 1440,
+            "editor": "number"
+        },
+        "maxConcurrency": {
+            "title": "Parallel VIES requests",
+            "type": "integer",
+            "description": "VIES limits simultaneous requests; 3 is safe, 8 is the ceiling here. One question takes 2 to 6 seconds, so 3 handles roughly 2,000 numbers per hour and 8 roughly 4,000 in most of an hour. Lower it if you see many UNVERIFIED rows.",
+            "default": 3,
+            "editor": "number"
+        },
+        "timeBudgetSeconds": {
+            "title": "Time budget (seconds)",
+            "type": "integer",
+            "description": "The run stops starting new VIES calls after this many seconds and reports the rest as NOT_ATTEMPTED, uncharged. Keep it below timeoutSecs of the run.",
+            "default": 3300,
+            "editor": "number"
+        },
+        "viesTimeoutSeconds": {
+            "title": "VIES timeout (seconds)",
+            "type": "integer",
+            "description": "VIES is often slow. A timeout does not become 'invalid': the row is UNVERIFIED and not charged.",
+            "default": 30,
+            "editor": "number"
+        }
+    },
+    "required": []
+}
