@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Substack posts",
+  "description": "The posts dataset and the run summary.",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "title": "Posts",
+      "type": "string",
+      "template": "https://api.apify.com/v2/datasets/{{datasetId}}/items",
+      "description": "One row per post. Paid rows carry the post fields and billable true; every other row is a free status row with a reason and no post data."
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "template": "https://api.apify.com/v2/key-value-stores/{{storeId}}/records/RUN_SUMMARY-{{runId}}",
+      "description": "Counters of the run: requested, postsDelivered, rowsWritten, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, writeErrors, publicationsEmpty, byStatus, counterMismatch, billingActive, stopReason, datasetNote and firstFailure. It also lands in the default store as RUN_SUMMARY."
+    }
+  }
+}

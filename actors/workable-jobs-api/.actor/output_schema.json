@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Workable jobs output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Postings",
+      "description": "One row per posting: board, boardName, jobId, title, department, function, industry, education, experience, employmentType, remote, country, city, state, locations (all of them, not only the primary one; a posting the board split per city is merged into one row), publishedOn, createdAt, url, applyUrl and, when includeDetails is on, description. Rows that are not postings carry a status instead: NOT_CHECKED_BOARD_NOT_FOUND when Workable has no such board, NOT_CHECKED_BOARD_EMPTY when the board exists and has no open postings, NOT_CHECKED_CAP for a posting the spending cap stopped, NOT_CHECKED_ERROR when the board could not be read or the run had to stop, INVALID_INPUT for a string that is not a board identifier. DELIVERED rows are charged; every NOT_CHECKED_* and INVALID_INPUT row sits in the dataset and costs nothing.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters that close inside the summary: boardsAsked = boardsOk + boardsEmpty + boardsNotFound + boardsInvalid + boardsError + boardsSkipped; jobsOnBoard = jobsUnparsable + postingsMerged + filteredOut + jobsSeen; jobsSeen = jobsNotRead + jobsProcessed; jobsProcessed = delivered + jobsUnverified + jobsNotProcessed. Also postingsRead, postingsMerged, deliveredUncharged, chargeUncertain, jobsUnverified, boardsDeduplicated, truncatedBoards, byBoard, byStatus, stopReason and runId. truncated means only that a board's list is short; truncatedBoards is checked against the per-board counters and prints truncatedMismatch when they disagree. Any sum that does not close prints a *Mismatch field instead of being rounded away.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

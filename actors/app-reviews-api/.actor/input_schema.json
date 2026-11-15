@@ -1,0 +1,80 @@
+{
+  "title": "App reviews input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "apps": {
+      "title": "Apps",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One app per line, both stores in one list: a Play package (com.instagram.android), an App Store id (389801252), or a store link. A line that repeats is free, a line that is not an app comes back as its own free row with the reason.",
+      "prefill": [
+        "com.instagram.android",
+        "389801252"
+      ],
+      "minItems": 1
+    },
+    "countries": {
+      "title": "Storefronts",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Two letter storefront codes, for example us, de, cn. Apple answers 50 reviews a page for 10 pages per storefront, so depth comes from storefronts; Google Play uses the first one. Empty means us.",
+      "prefill": [
+        "us"
+      ]
+    },
+    "maxReviewsPerApp": {
+      "title": "Max reviews per app",
+      "type": "integer",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 5000,
+      "description": "Reviews are sold per row, so this is the ceiling that protects your budget. Rows that go past it are read and come back free with status NOT_CHECKED_LIMIT."
+    },
+    "maxApps": {
+      "title": "Max apps",
+      "type": "integer",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 50,
+      "description": "Apps beyond this limit come back free with status NOT_CHECKED_LIMIT instead of being silently dropped."
+    },
+    "maxPagesPerCountry": {
+      "title": "Max pages per storefront",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Apple serves 10 pages of 50 reviews per storefront and answers page 11 with HTTP 400, so 10 is both the default and the maximum. Lower it to trade depth for speed."
+    },
+    "minRating": {
+      "title": "Only reviews with at least this rating",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Keep the worst reviews by setting 1. Reviews outside the range are read and dropped without a charge."
+    },
+    "maxRating": {
+      "title": "Only reviews with at most this rating",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Reviews outside the range are read and dropped without a charge."
+    },
+    "publishedAfter": {
+      "title": "Only reviews published after",
+      "type": "string",
+      "editor": "textfield",
+      "description": "An ISO date like 2026-11-01. Older reviews are read and then dropped, and the app row counts them, so an incremental run is not charged for what it skips."
+    },
+    "includeReplies": {
+      "title": "Include the developer reply",
+      "type": "boolean",
+      "default": true,
+      "description": "On, each Play review carries the developer reply and its date when one exists. Apple's feed has no reply field at all (measured), so this setting cannot invent one for iOS."
+    }
+  },
+  "required": [
+    "apps"
+  ]
+}

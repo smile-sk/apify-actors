@@ -1,0 +1,107 @@
+{
+  "title": "Broken Link Checker API input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "URLs to check",
+      "type": "array",
+      "description": "Public HTTP(S) URLs or bare domains. Bare domains use HTTPS. Duplicate normalized URLs are checked once. Query strings are kept: two URLs that differ only by query are checked separately.",
+      "editor": "stringList",
+      "prefill": [
+        "https://example.com",
+        "https://apify.com"
+      ]
+    },
+    "sitemapUrl": {
+      "title": "Sitemap URL",
+      "type": "string",
+      "description": "Optional sitemap URL. All links inside it are extracted and checked together with the urls list. Sitemap index files are followed.",
+      "editor": "textfield"
+    },
+    "expectedStatusCodes": {
+      "title": "Expected HTTP status codes",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "A response is healthy only when its final status code is in this list. Leave empty for the default HTTP 200-399 rule.",
+      "editor": "json"
+    },
+    "headers": {
+      "title": "Custom request headers",
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Extra headers sent with every check, for example an Authorization bearer token or an Accept header. This fixes the 403 block: many sites reject the default bot user agent, here you control it.",
+      "editor": "json"
+    },
+    "userAgent": {
+      "title": "User-Agent",
+      "type": "string",
+      "description": "User-Agent header for the checks.",
+      "default": "broken-link-checker/0.1 (Apify Actor)",
+      "editor": "textfield"
+    },
+    "timeoutSec": {
+      "title": "Probe timeout (seconds)",
+      "type": "integer",
+      "description": "Timeout per probe attempt.",
+      "default": 15,
+      "minimum": 3,
+      "maximum": 60
+    },
+    "retries": {
+      "title": "Automatic retries",
+      "type": "integer",
+      "description": "Extra attempts on network errors, timeouts, DNS failures, 429 and 5xx responses before a link is marked broken. A link that answers 200 on a retry is reported healthy, not broken. This is the core fix for false broken links.",
+      "default": 2,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "maxRedirects": {
+      "title": "Maximum redirects",
+      "type": "integer",
+      "description": "Redirect hops followed before the chain is reported as a redirect loop. Zero means redirects are not followed: the first response is the verdict.",
+      "default": 5,
+      "minimum": 0,
+      "maximum": 20
+    },
+    "slowThresholdMs": {
+      "title": "Slow page threshold (ms)",
+      "type": "integer",
+      "description": "Responses slower than this are flagged slow.",
+      "default": 2000,
+      "minimum": 1
+    },
+    "maxItems": {
+      "title": "Maximum URLs to check",
+      "type": "integer",
+      "description": "Input cap: only the first N unique URLs are checked. The coverage summary reports the rest.",
+      "default": 10000,
+      "minimum": 1,
+      "maximum": 100000
+    },
+    "concurrency": {
+      "title": "Concurrent checks",
+      "type": "integer",
+      "description": "How many URLs are checked in parallel.",
+      "default": 8,
+      "minimum": 1,
+      "maximum": 32
+    },
+    "cacheMinutes": {
+      "title": "Cache window (minutes)",
+      "type": "integer",
+      "description": "A fresh verdict from another run within this window is reused for free and marked fromCache. The cache key includes the expected status codes, headers and every probe setting (timeout, retries, redirects, slow threshold). Zero disables the cache.",
+      "default": 60,
+      "minimum": 0
+    },
+    "timeBudgetSeconds": {
+      "title": "Time budget (seconds)",
+      "type": "integer",
+      "description": "Upper bound on the checking phase. When it is exhausted, the coverage summary reports omitted_by_time_budget.",
+      "default": 3300,
+      "minimum": 60
+    }
+  }
+}

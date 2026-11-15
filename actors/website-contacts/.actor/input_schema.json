@@ -1,0 +1,51 @@
+{
+    "title": "Website Contact Finder: input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "websites": {
+            "title": "Websites to check",
+            "type": "array",
+            "description": "One line per website: a domain (apify.com) or a full URL (https://apify.com/contact). A comma or newline separated string works too. Duplicates are dropped by host: one site, one crawl, one event. A site with no contacts is reported with the reason instead of disappearing.",
+            "editor": "stringList",
+            "prefill": ["apify.com", "https://www.simplify.hr/contact"],
+            "items": { "type": "string" }
+        },
+        "maxPagesPerSite": {
+            "title": "Max pages per website",
+            "type": "integer",
+            "description": "How deep to look. Page 1 is always the address you gave; the rest go to contact/about/imprint/support/privacy pages found on it. More pages = more chances to find a hidden email, and a little more run time.",
+            "default": 5,
+            "minimum": 1,
+            "maximum": 20
+        },
+        "includeSocials": {
+            "title": "Collect social profiles",
+            "type": "boolean",
+            "description": "LinkedIn, X, Facebook, Instagram, YouTube, GitHub, TikTok, Telegram, Threads - only the ones actually linked on the site.",
+            "default": true
+        },
+        "includeAddress": {
+            "title": "Collect postal address",
+            "type": "boolean",
+            "description": "Take the company address from the site's schema.org markup (JSON-LD). Empty when the site does not publish one - nothing is filled in from a guess.",
+            "default": true
+        },
+        "cacheMinutes": {
+            "title": "Reuse a recent answer (minutes)",
+            "type": "integer",
+            "description": "A repeated run for the same site inside this window is served from cache: no second crawl, no wasted time. 0 turns the cache off.",
+            "default": 1440,
+            "minimum": 0
+        },
+        "concurrency": {
+            "title": "Sites in parallel",
+            "type": "integer",
+            "description": "How many websites are crawled at the same time. 8 is a good default; raise it only for large lists.",
+            "default": 8,
+            "minimum": 1,
+            "maximum": 20
+        }
+    },
+    "required": ["websites"]
+}

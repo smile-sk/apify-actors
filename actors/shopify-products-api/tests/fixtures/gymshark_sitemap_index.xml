@@ -1,0 +1,32 @@
+
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        
+        <sitemap>
+            <loc>https://www.gymshark.com/sitemap_pages_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/sitemap_collections_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/sitemap_products_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/hreflang_sitemap.xml</loc>
+        </sitemap>
+ 
+        <sitemap>
+            <loc>https://www.gymshark.com/es-US/sitemap_pages_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/es-US/sitemap_collections_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/es-US/sitemap_products_1.xml</loc>
+        </sitemap>
+        <sitemap>
+            <loc>https://www.gymshark.com/es-US/hreflang_sitemap.xml</loc>
+        </sitemap>
+ 
+        <sitemap><loc>https://www.gymshark.com/sitemap_blog.xml</loc></sitemap>
+    </sitemapindex>
+ 

@@ -1,0 +1,2 @@
+apify==4.2.0
+pymupdf==2.1

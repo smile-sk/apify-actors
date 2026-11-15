@@ -1,0 +1,60 @@
+{
+  "title": "YouTube comments input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "videos": {
+      "title": "Video URLs or IDs",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One video per line: a watch url, a youtu.be link, a shorts link or the bare 11 character video id. A line that repeats is free, a line that is not a video comes back as its own free row with the reason.",
+      "prefill": [
+        "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      ]
+    },
+    "maxCommentsPerVideo": {
+      "title": "Max comments per video",
+      "type": "integer",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 2000,
+      "description": "Comments are sold per delivered row, so this is the ceiling that protects your budget. The actor stops reading when it reaches it and says so in the summary."
+    },
+    "sort": {
+      "title": "Comment order",
+      "type": "string",
+      "enum": [
+        "top",
+        "newest"
+      ],
+      "default": "top",
+      "description": "top follows the watch page default (most relevant first), newest asks YouTube for the newest comments first."
+    },
+    "includeReplies": {
+      "title": "Include replies",
+      "type": "boolean",
+      "default": true,
+      "description": "When on, a quarter of maxCommentsPerVideo is held back for replies and they are read after the top level comments, each as its own row with parentCommentId."
+    },
+    "maxCommentsPerThread": {
+      "title": "Max replies per comment",
+      "type": "integer",
+      "default": 20,
+      "minimum": 0,
+      "maximum": 200,
+      "description": "Replies are sold the same way as comments, so this caps each thread. 0 means replies are not read at all."
+    },
+    "maxVideos": {
+      "title": "Max videos",
+      "type": "integer",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 200,
+      "description": "How many distinct videos this run reads. Lines beyond it come back as a free row with the reason, so a long list cannot spend your budget by accident."
+    }
+  },
+  "required": [
+    "videos"
+  ]
+}

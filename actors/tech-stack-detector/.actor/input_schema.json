@@ -1,0 +1,60 @@
+{
+  "title": "Tech stack detector input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Site urls or domains",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One site per line, a full url or a bare domain. Every site is read once: a line that repeats is free, and a line that is not a url comes back as its own free row with the reason.",
+      "prefill": [
+        "https://www.shopify.com",
+        "https://wordpress.org",
+        "https://vercel.com"
+      ]
+    },
+    "maxSites": {
+      "title": "Max sites",
+      "type": "integer",
+      "default": 100,
+      "minimum": 0,
+      "description": "The list is cut here, and sites beyond the limit come back free with status NOT_CHECKED_LIMIT. 0 means the default of 100, and the summary reports the number actually applied."
+    },
+    "onlyIf": {
+      "title": "Only sites using these technologies",
+      "type": "array",
+      "editor": "stringList",
+      "description": "A lead list filter: a site that does not use any of these names comes back free with status FILTERED_OUT. A name matches a part of the technology name, so 'shopify' finds Shopify and 'next' finds Next.js. Empty means every scanned site is delivered.",
+      "prefill": []
+    },
+    "excludeIf": {
+      "title": "Skip sites using these technologies",
+      "type": "array",
+      "editor": "stringList",
+      "description": "The opposite filter: a site that uses any of these names comes back free with status FILTERED_OUT. Useful when WordPress shops are not your market.",
+      "prefill": []
+    },
+    "timeoutSecs": {
+      "title": "Request timeout, seconds",
+      "type": "integer",
+      "default": 20,
+      "minimum": 5,
+      "maximum": 90,
+      "description": "A site that does not answer in this many seconds comes back free with status NOT_CHECKED_TIMEOUT. Raising it costs run time, not money."
+    },
+    "includeEvidence": {
+      "title": "Include the evidence for every detection",
+      "type": "boolean",
+      "default": true,
+      "description": "On, every technology carries the mark that matched it: a response header, a cookie, a script url, a meta tag or a snippet of the markup. Turn it off for a leaner dataset, the names stay."
+    },
+    "userAgent": {
+      "title": "User agent",
+      "type": "string",
+      "editor": "textfield",
+      "description": "An empty value sends a desktop Chrome user agent, which is what a site mostly serves to a visitor. Some sites answer a different stack to a bot, so a custom value is a way to look at that other answer."
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,73 @@
+{
+  "title": "Trustpilot reviews input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "companies": {
+      "title": "Company domains",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One company per line: a domain like amazon.com, a full url, or a Trustpilot profile address. A line that repeats is free, a line that is not a domain comes back as its own free row with the reason.",
+      "prefill": [
+        "amazon.com",
+        "revolut.com"
+      ]
+    },
+    "maxReviewsPerCompany": {
+      "title": "Max reviews per company",
+      "type": "integer",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 920,
+      "description": "Reviews are sold per row, so this is the ceiling that protects your budget. An anonymous run reaches at most 920 reviews per company: 20 from the newest page plus five star listings of nine filtered pages each. 920 is the maximum, not a phrase."
+    },
+    "maxPagesPerCompany": {
+      "title": "Max pages per star filter",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Trustpilot serves an anonymous visitor at most 10 pages per listing (page 11 answers with an empty list), so 10 is both the default and the maximum. A star listing is read from page 2, because its first page ignores the filter. Lower it to trade depth for speed."
+    },
+    "stars": {
+      "title": "Star filters to read",
+      "type": "array",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      },
+      "description": "Which star listings to read. Empty means all five, and each of them has nine filtered pages of its own: that is what lifts the 200 review wall. [1] reads only the worst reviews, which is the usual way to hear the real complaint. A star listing is read from page 2: its first page ignores the filter when the address carries page=1, so every row here carries the bucket it really came from.",
+      "prefill": [
+        "1",
+        "2"
+      ]
+    },
+    "publishedAfter": {
+      "title": "Only reviews published after",
+      "type": "string",
+      "editor": "textfield",
+      "description": "An ISO date, for example 2026-11-01. Older reviews are read and then dropped, and the row that reports the company counts them, so an incremental run is not charged for what it skips."
+    },
+    "language": {
+      "title": "Only reviews in this language",
+      "type": "string",
+      "editor": "textfield",
+      "description": "A two letter language code, for example en. Empty means every language. Reviews in other languages are read and dropped without a charge."
+    },
+    "maxCompanies": {
+      "title": "Max companies",
+      "type": "integer",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 50,
+      "description": "Every company costs a fresh browser navigation, so this is the other budget ceiling. Companies beyond it come back free with status NOT_CHECKED_LIMIT."
+    },
+    "includeReplies": {
+      "title": "Include the company's answer",
+      "type": "boolean",
+      "default": true,
+      "description": "On, each review carries the company's public reply and its date when one exists. Turn it off for a leaner dataset."
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,64 @@
+"""Mozilla website trust bit removals scheduled for 15 April 2027.
+
+Source (primary): https://wiki.mozilla.org/CA/Root_CA_Lifecycles
+(2027 Websites Trust Bit Removals table, page last edited 6 May 2026).
+
+Mozilla Root Store Policy section 7.4: a root CA certificate trusted for
+server authentication loses its websites trust bit when the CA key
+material is more than 15 years old. Key material created 2008-2009 is
+removed on 15 April 2027.
+
+Names are informational only; the SHA-256 hash of the root DER is the
+comparison key.
+"""
+
+REMOVED_ROOTS = [
+    # (name, sha256 hex of the DER)
+    ("COMODO ECC Certification Authority",
+     "1793927A0614549789ADCE2F8F34F7F0B66D0F3AE3A3B84D21EC15DBBA4FADC7"),
+    ("COMODO RSA Certification Authority",
+     "52F0E1C4E58EC629291B60317F074671B85D7EA80D5B07273463534B32B40234"),
+    ("USERTrust ECC Certification Authority",
+     "4FF460D54B9C86DABFBCFC5712E0400D2BED3FBC4D4FBDAA86E06ADCD2A9AD7A"),
+    ("USERTrust RSA Certification Authority",
+     "E793C9B02FD8AA13E21C31228ACCB08119643B749C898964B1746D46C3D4CBD2"),
+    ("TWCA Root Certification Authority",
+     "BFD88FE1101C41AE3E801BF8BE56350EE9BAD1A6B9BD515EDC5C6D5B8711AC44"),
+    ("T-TeleSec GlobalRoot Class 3",
+     "FD73DAD31C644FF1B43BEF0CCDDA96710B9CD9875ECA7E31707AF3E96D522BBD"),
+    ("T-TeleSec GlobalRoot Class 2",
+     "91E2F5788D5810EBA7BA58737DE1548A8ECACD014598BC0B143E041B17052552"),
+    ("Certum Trusted Network CA",
+     "5C58468D55F58E497E743982D2B50010B6D165374ACF83A7D4A32DB768C4408E"),
+    ("AC RAIZ FNMT-RCM",
+     "EBC5570C29018C4D67B1AA127BAF12F703B4611EBC17B7DAB5573894179B93FA"),
+    ("NetLock Arany (Class Gold)",
+     "6C61DAC3A2DEF031506BE036D2A6FE401994FBD13DF9C8D466599274C446EC98"),
+    ("GlobalSign Root CA - R3",
+     "CBB522D7B7F127AD6A0113865BDF1CD4102E7D0759AF635A7CF4720DC963C53B"),
+    ("Autoridad de Certificacion Firmaprofesional CIF A62634068",
+     "04048028BF1F2864D48F9AD4D83294366A828856553F3B14303F90147F5D40EF"),
+    ("Security Communication RootCA2",
+     "513B2CECB810D4CDE5DD85391ADFC6C2DD60D87BB736D2B521484AA47A0EBEF6"),
+    ("Microsec e-Szigno Root CA 2009",
+     "3C5F81FEA5FAB82C64BFA2EAECAFCDE8E077FC8620A7CAE537163DF36EDBF378"),
+    ("Starfield Services Root Certificate Authority - G2",
+     "568D6905A2C88708A4B3025190EDCFEDB1974A606A13C6E5290FCB2AE63EDAB5"),
+    ("Go Daddy Root Certificate Authority - G2",
+     "45140B3247EB9CC8C5B4F0D7B53091F73292089E6E5A63E2749DD3ACA9198EDA"),
+    ("Starfield Root Certificate Authority - G2",
+     "2CE1CB0BF9D2F9E102993FBE215152C3B2DD0CABDE1C68E5319B839154DBB7F5"),
+    ("D-TRUST Root Class 3 CA 2 2009",
+     "49E7A442ACF0EA6287050054B52564B650E4F49E42E348D6AA38E039E957B1C1"),
+    ("D-TRUST Root Class 3 CA 2 EV 2009",
+     "EEC5496B988CE98625B934092EEC2908BED0B0F316C2D4730C84EAF1F3D34881"),
+]
+
+REMOVAL_DATE = "2027-04-15"
+
+_REMOVED_BY_HASH = {h.upper(): name for name, h in REMOVED_ROOTS}
+
+
+def removed_name(sha256_hex):
+    """Return the root name if the hash is in the distrust table, else None."""
+    return _REMOVED_BY_HASH.get((sha256_hex or "").upper())

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "type": "object",
+  "title": "YouTube video input",
+  "properties": {
+    "videos": {
+      "title": "Videos",
+      "type": "array",
+      "description": "YouTube video ids or links. A bare 11 character id, a watch link, a youtu.be link, a /shorts/ link and an /embed/ link are all read.",
+      "editor": "stringList",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "jNQXAC9IVRw",
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      ]
+    },
+    "maxVideos": {
+      "title": "Max videos",
+      "type": "integer",
+      "description": "How many videos one run reads. The rest come back as free status rows with the reason maxVideos.",
+      "editor": "number",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 200
+    },
+    "includeDescription": {
+      "title": "Include the video description",
+      "type": "boolean",
+      "description": "Add the description to every delivered row. It is the largest field, so it is off by default.",
+      "editor": "checkbox",
+      "default": false
+    }
+  },
+  "required": [
+    "videos"
+  ]
+}

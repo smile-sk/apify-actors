@@ -1,0 +1,16 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Image OCR output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Images",
+      "template": "One row per picture: text, mean word confidence, lines, the box of every word, the real format and size, and a status with a plain reason for anything that was not read. Fields: url, input, inputIndex, status, reason, billable, imageFormat, imageWidth, imageHeight, inputWidth, inputHeight, rotated, scaled, language, chars, lines, confidence, text, words."
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "template": "Counters of the run under RUN_SUMMARY-<runId> in the image-ocr-api-summary store: requested, imagesAttempted, imagesProcessed, imagesNotChecked, linesThatAreNotImages, deliveredImages (every picture row that reached the buyer), chargedImages (rows that took money), deliveredUncharged, deliveredUnconfirmed, chargedEvents, billingActive, stopReason, byStatus."
+    }
+  }
+}

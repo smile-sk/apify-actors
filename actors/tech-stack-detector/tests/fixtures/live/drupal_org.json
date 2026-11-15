@@ -1,0 +1,14 @@
+{
+  "url": "https://www.drupal.org/",
+  "status": 200,
+  "contentType": "text/html; charset=utf-8",
+  "bytes": 3038,
+  "headers": {
+    "cache-control": "private, no-store",
+    "content-type": "text/html; charset=utf-8",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-fra-eddf8230215-FRA",
+    "x-cache": "MISS"
+  },
+  "fetchedAt": "2026-11-11"
+}

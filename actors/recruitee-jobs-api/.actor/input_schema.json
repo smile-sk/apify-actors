@@ -1,0 +1,116 @@
+{
+  "title": "Recruitee Jobs API input",
+  "description": "Give one or more Recruitee board slugs.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "boards": {
+      "title": "Boards",
+      "type": "array",
+      "description": "Recruitee boards to read, one per item: a slug like bunq, a host like bunq.recruitee.com or a URL like https://bunq.recruitee.com/. A company that does not exist answers 404 and gets a free NOT_CHECKED_BOARD_NOT_FOUND row instead of a silent empty run.",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "bunq",
+        "channable"
+      ]
+    },
+    "includeDetails": {
+      "title": "Include descriptions",
+      "type": "boolean",
+      "description": "Include the full description and requirements of every offer. On by default: on a live board that is 715 KB of text for 124 offers.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "descriptionFormat": {
+      "title": "Description format",
+      "type": "string",
+      "description": "HTML keeps the employer markup, text strips the tags and keeps the line breaks.",
+      "editor": "select",
+      "enum": [
+        "html",
+        "text"
+      ],
+      "enumTitles": [
+        "Html",
+        "Text"
+      ],
+      "default": "html"
+    },
+    "maxJobsPerBoard": {
+      "title": "Max offers per board",
+      "type": "integer",
+      "description": "How many matching offers to process per board. 0 means no limit. Offers past the limit are counted, never charged.",
+      "default": 0,
+      "minimum": 0,
+      "editor": "number",
+      "prefill": 5
+    },
+    "keywords": {
+      "title": "Keywords",
+      "type": "string",
+      "description": "Comma separated phrases; an offer matches when any phrase occurs in its title, department, category or tags. Example: engineer, data. Empty means no keyword filter.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "department": {
+      "title": "Department contains",
+      "type": "string",
+      "description": "Keep only offers whose department contains this text.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "employmentType": {
+      "title": "Employment type contains",
+      "type": "string",
+      "description": "Keep only offers whose employment type code contains this text, for example fulltime.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "experience": {
+      "title": "Experience contains",
+      "type": "string",
+      "description": "Keep only offers whose experience code contains this text, for example senior.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "category": {
+      "title": "Category contains",
+      "type": "string",
+      "description": "Keep only offers whose category code contains this text, for example banking.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "city": {
+      "title": "Office city contains",
+      "type": "string",
+      "description": "Keep only offers with an office whose city contains this text. Every office of an offer is checked, not only the first one.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "remoteOnly": {
+      "title": "Remote only",
+      "type": "boolean",
+      "description": "Keep only offers the employer marked as remote. Hybrid offers are not remote.",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "publishedAfter": {
+      "title": "Published after",
+      "type": "string",
+      "description": "Keep only offers published after this moment, as YYYY-MM-DD. Empty means no date filter.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout (seconds)",
+      "type": "integer",
+      "description": "How long to wait for one board answer. A big board arrives as one 1.9 MB answer, so do not set this too low.",
+      "default": 60,
+      "minimum": 5,
+      "editor": "number"
+    }
+  }
+}

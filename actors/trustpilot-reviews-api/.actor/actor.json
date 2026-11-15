@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "name": "trustpilot-reviews-api",
+  "title": "Trustpilot Reviews API - Reviews, Ratings & Company Replies",
+  "description": "Trustpilot hands an anonymous reader 200 reviews and a login page, so most scrapers sell a capped list without saying so. This one reads the real page in a live browser, walks every star filter, adds company replies, and never charges for a blocked page.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start",
+    "memoryJustification": "A real Chromium window under Xvfb needs about 700 MB of RSS for one tab; the measured peak of the browser plus python is ~900 MB, so the run starts at 1024."
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "LEAD_GENERATION",
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

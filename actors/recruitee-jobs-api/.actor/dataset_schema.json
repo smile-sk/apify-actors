@@ -1,0 +1,133 @@
+{
+  "actorSpecification": 1,
+  "title": "Recruitee offers",
+  "description": "One row per open offer.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "DELIVERED for a real offer that was charged. Anything else names why the row is not an offer and is free: NOT_CHECKED_BOARD_NOT_FOUND, NOT_CHECKED_BOARD_EMPTY, NOT_CHECKED_NO_MATCH, NOT_CHECKED_CAP, NOT_CHECKED_ERROR, INVALID_INPUT."
+    },
+    "board": {
+      "type": "string",
+      "description": "The Recruitee board slug the row came from."
+    },
+    "jobId": {
+      "type": "string",
+      "description": "Recruitee offer id. One offer is one row, even when it lists several offices."
+    },
+    "title": {
+      "type": "string",
+      "description": "Offer title as the employer wrote it."
+    },
+    "department": {
+      "type": "string",
+      "description": "Department name from the offer."
+    },
+    "location": {
+      "type": "string",
+      "description": "The office line as the employer wrote it, for example Vienna, Wien, Austria."
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the first office."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or region of the first office."
+    },
+    "country": {
+      "type": "string",
+      "description": "Country of the first office."
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Two letter country code of the first office."
+    },
+    "locations": {
+      "type": "array",
+      "description": "Every office of this offer, not only the first one. 27% of live offers carry more than one and each of them stays one row."
+    },
+    "remote": {
+      "type": "boolean",
+      "description": "True when the offer itself is marked remote."
+    },
+    "hybrid": {
+      "type": "boolean",
+      "description": "True when the offer itself is marked hybrid."
+    },
+    "onSite": {
+      "type": "boolean",
+      "description": "True when the offer itself is marked on site."
+    },
+    "employmentType": {
+      "type": "string",
+      "description": "Employment type code, for example fulltime_permanent."
+    },
+    "experience": {
+      "type": "string",
+      "description": "Experience level code, for example mid_level."
+    },
+    "education": {
+      "type": "string",
+      "description": "Education level code when the employer set one."
+    },
+    "category": {
+      "type": "string",
+      "description": "Offer category code, for example banking."
+    },
+    "salaryMin": {
+      "type": "number",
+      "description": "Lower salary bound as a number, null when the employer left it empty. 1,299 and 1.299,00 both arrive as numbers, not as 1.299."
+    },
+    "salaryMax": {
+      "type": "number",
+      "description": "Upper salary bound as a number, null when empty."
+    },
+    "salaryCurrency": {
+      "type": "string",
+      "description": "Currency of the salary, when the employer set one."
+    },
+    "salaryPeriod": {
+      "type": "string",
+      "description": "Salary period, when the employer set one."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags the employer attached to the offer."
+    },
+    "publishedAt": {
+      "type": "string",
+      "description": "Publish time as the feed reports it, for example 2026-10-30 16:32:58 UTC."
+    },
+    "url": {
+      "type": "string",
+      "description": "Public offer page."
+    },
+    "applyUrl": {
+      "type": "string",
+      "description": "Public application form for this offer."
+    },
+    "description": {
+      "type": "string",
+      "description": "Full offer description, HTML by default, plain text with descriptionFormat=text. Null when includeDetails is off."
+    },
+    "requirements": {
+      "type": "string",
+      "description": "Requirements section, HTML by default. Null when includeDetails is off."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why this row is not a delivered offer."
+    },
+    "delivered": {
+      "type": "boolean",
+      "description": "True only for a row that was written as a real offer."
+    },
+    "billable": {
+      "type": "boolean",
+      "description": "What the price list said before the row was written: true when it carries this event, false when billing is off, null when the price could not be read. The money actually taken is chargedEvents in the run summary."
+    }
+  }
+}

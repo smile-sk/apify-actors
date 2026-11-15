@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "type": "object",
+  "title": "App details input",
+  "properties": {
+    "apps": {
+      "title": "Apps",
+      "type": "array",
+      "description": "App Store numeric ids, apps.apple.com links, Google Play package names or play.google.com links. A dotted name that lives in either store is looked up in both.",
+      "editor": "stringList",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "389801252",
+        "com.instagram.android",
+        "https://apps.apple.com/us/app/facebook/id284882215"
+      ]
+    },
+    "country": {
+      "title": "Store country",
+      "type": "string",
+      "description": "Two letter store country, for example us, gb, de. Prices, ratings and availability are reported for this country. A full country name is refused before any store is asked.",
+      "editor": "textfield",
+      "pattern": "^[a-zA-Z]{2}$",
+      "maxLength": 2,
+      "default": "us"
+    },
+    "lang": {
+      "title": "Language",
+      "type": "string",
+      "description": "Language of the Google Play page, for example en or de. The App Store lookup is language neutral.",
+      "editor": "textfield",
+      "default": "en"
+    },
+    "platform": {
+      "title": "Platform for dotted package names",
+      "type": "string",
+      "description": "Which store to try when the input is a dotted name such as com.instagram.android. Numeric ids and store links always say the store themselves. both tries Google Play first, then the App Store bundle id.",
+      "editor": "select",
+      "default": "both",
+      "enum": [
+        "both",
+        "ios",
+        "android"
+      ],
+      "enumTitles": [
+        "Both stores",
+        "iOS only",
+        "Android only"
+      ]
+    },
+    "maxApps": {
+      "title": "Max apps",
+      "type": "integer",
+      "description": "How many apps one run reads. The rest come back as free status rows with the reason maxApps.",
+      "editor": "number",
+      "default": 25,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "includeDescription": {
+      "title": "Include the full store description",
+      "type": "boolean",
+      "description": "Add the long store description to every delivered row. It is the largest field, so it is off by default.",
+      "editor": "checkbox",
+      "default": false
+    }
+  },
+  "required": [
+    "apps"
+  ]
+}

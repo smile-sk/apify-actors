@@ -1,0 +1,20 @@
+{
+  "actorSpecification": 1,
+  "name": "personio-jobs-api",
+  "title": "Personio Jobs API - All Openings, Descriptions, Any Board",
+  "description": "A wrong Personio company name returns an empty feed instead of an error, so most scrapers report a clean run with zero jobs. This Actor tells a dead board from a quiet one, merges every office into one row and returns the full description. 1.50 per 1,000 jobs.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

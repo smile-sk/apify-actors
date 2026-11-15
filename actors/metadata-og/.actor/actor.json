@@ -1,0 +1,19 @@
+{
+  "actorSpecification": 1,
+  "name": "open-graph-meta-tags-api",
+  "title": "Open Graph & Meta Tags API - Link Preview, OG Image",
+  "description": "Link previews come back blank: no title, no image, or a relative /og.png nothing can render. Send a list of pages and get title, description, Open Graph and Twitter tags with every URL absolute, plus JSON-LD types, favicon and a preview verdict. Broken or blocked pages cost nothing.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

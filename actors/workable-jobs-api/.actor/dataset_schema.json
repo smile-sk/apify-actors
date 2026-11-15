@@ -1,0 +1,198 @@
+{
+  "actorSpecification": 1,
+  "title": "Workable posting row",
+  "description": "One open posting from a public Workable board, read from the board's own JSON.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {
+      "title": "Status",
+      "description": "DELIVERED, NOT_CHECKED_BOARD_NOT_FOUND, NOT_CHECKED_BOARD_EMPTY, NOT_CHECKED_ERROR or INVALID_INPUT.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "board": {
+      "title": "Board identifier",
+      "description": "Workable subdomain, as used in apply.workable.com/<board>.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "boardName": {
+      "title": "Board name",
+      "description": "Company name the board reports.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jobId": {
+      "title": "Job id",
+      "description": "Workable shortcode of the posting.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "title": "Title",
+      "description": "Posting title.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "department": {
+      "title": "Department",
+      "description": "Department as published by the employer.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "function": {
+      "title": "Function",
+      "description": "Function as published by the employer.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "industry": {
+      "title": "Industry",
+      "description": "Industry as published by the employer.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "description": "Education requirement as published, null when the employer left it empty.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "description": "Experience level as published.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "employmentType": {
+      "title": "Employment type",
+      "description": "Full-time, Contract and so on.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "remote": {
+      "title": "Remote",
+      "description": "True when the board itself flags the posting as remote.",
+      "type": [
+        "boolean"
+      ]
+    },
+    "country": {
+      "title": "Country",
+      "description": "Primary location country.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "city": {
+      "title": "City",
+      "description": "Primary location city.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "state": {
+      "title": "State",
+      "description": "Primary location region or state.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locations": {
+      "title": "All locations",
+      "description": "Every location of the posting, not only the primary one. Each entry has country, countryCode, city, region.",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "publishedOn": {
+      "title": "Published on",
+      "description": "Date the board reports as publication date (YYYY-MM-DD).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "title": "Created at",
+      "description": "Date the posting was created in Workable (YYYY-MM-DD).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "title": "URL",
+      "description": "Public posting URL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "applyUrl": {
+      "title": "Apply URL",
+      "description": "Application URL as published by the board.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "Posting description when includeDetails is on; html or plain text depending on descriptionFormat.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "title": "Reason",
+      "description": "Human readable reason for a NOT_CHECKED_* or INVALID_INPUT row.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "delivered": {
+      "title": "Delivered",
+      "description": "True only for DELIVERED rows.",
+      "type": [
+        "boolean"
+      ]
+    },
+    "billable": {
+      "title": "Billable",
+      "description": "True only for rows the run charges for.",
+      "type": [
+        "boolean"
+      ]
+    }
+  }
+}

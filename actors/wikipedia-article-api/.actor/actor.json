@@ -1,0 +1,28 @@
+{
+  "actorSpecification": 1,
+  "name": "wikipedia-article-api",
+  "title": "Wikipedia API - Article Text, Summary, Categories & Pageviews",
+  "description": "A Wikipedia scraper built on page HTML breaks when the layout changes and you are still charged for empty rows. This reads the official Wikimedia APIs instead: text, categories, pageviews and Wikidata, charged only per article that landed.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS",
+    "AUTOMATION"
+  ],
+  "defaultMemoryMbytes": 256,
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {}
+    }
+  }
+}

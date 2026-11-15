@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "App reviews results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Reviews",
+      "description": "One row per review. status is OK when the row carries a review, NO_REVIEWS when the app is open and the store carried nothing (free), FILTERED_OUT when reviews were read and your own minRating, maxRating or publishedAfter removed all of them (free), or NOT_CHECKED_* with the reason in plain words: INVALID (the line is not an app or a storefront code is wrong), DUPLICATE (the same app came earlier), LIMIT (beyond maxApps, or a review beyond maxReviewsPerApp), NOT_FOUND (the store does not know this app), BLOCKED_PAGE (a wall answered), HTTP_ERROR (4xx or 5xx), and TIME, CAP, BILLING or ERROR when the run stopped. A review row carries: platform (ios or android), appId, appTitle, appRating, appRatingsTotal, country, reviewId, rating, title, text, author, version, publishedDate, thumbsUp, developerReply, developerReplyDate, url, source (apple-rss or google-play), input and inputIndex (the line it belongs to). On iOS developerReply is null because Apple's feed carries no reply field, not because nobody answered, and url points at the app's review page because Apple has no per review permalink. billable is a claim about the price list; the money actually taken is chargedEvents in the summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. appsRequested always equals appsAttempted plus appsNotAttempted, and an attempted app ends in exactly one of appsRead, appsPartial, appsNotFound, appsBlocked, appsNoReviews, appsFilteredOut, appsFailed (appsStopped marks the ones the run never reached). reviewsSeen counts every review the pages carried, reviewsUnique drops repeats across storefronts, reviewsDelivered counts the rows sold, and chargedEvents is the money really taken. reviewsFiltered was read and dropped by your filters, reviewsDuplicate repeats, reviewsLimited was read and not sold, split into reviewsCapped, reviewsStopped and reviewsUncertain. deliveredUncharged is a batch in the dataset that was not paid for, chargeUncertain a batch whose fate is unknown. byStatus splits the rows by status, pagesFetched counts the pages read. pricePerReview, pricingEventPriced, billingActive and pricingNote say how the run stood with the price; null there means the price could not be read, not that billing is off. counterMismatch is true when the numbers above do not add up, with counterNote naming the gap. stopReason names why the run stopped early, and an empty stopReason means it finished the list.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

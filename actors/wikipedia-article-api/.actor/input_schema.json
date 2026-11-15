@@ -1,0 +1,66 @@
+{
+  "title": "Articles to read",
+  "description": "Send one or more articles: a title, a full article URL, or a lang:title line.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "articles": {
+      "title": "Articles",
+      "type": "array",
+      "description": "Articles: a title such as \"Python (programming language)\", a full URL such as https://de.wikipedia.org/wiki/Berlin, or a lang:title line such as de:Berlin.",
+      "editor": "stringList",
+      "prefill": [
+        "Python (programming language)",
+        "https://de.wikipedia.org/wiki/Berlin",
+        "https://example.com/wiki/Berlin"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "lang": {
+      "title": "Default language",
+      "type": "string",
+      "description": "Wikipedia language code used when the line carries none. Default en.",
+      "editor": "textfield",
+      "default": "en"
+    },
+    "includeFullText": {
+      "title": "Include the whole article text",
+      "type": "boolean",
+      "description": "Return the full plain-text article instead of the lead section only. Off by default.",
+      "default": false
+    },
+    "includePageviews": {
+      "title": "Include pageviews",
+      "type": "boolean",
+      "description": "Add the total and the daily series of views from the Wikimedia pageviews API. On by default.",
+      "default": true
+    },
+    "includeCategories": {
+      "title": "Include categories",
+      "type": "boolean",
+      "description": "Add the visible categories of the article. On by default.",
+      "default": true
+    },
+    "pageviewsDays": {
+      "title": "Pageviews window in days",
+      "type": "integer",
+      "description": "How many days of views to sum. Default 30, maximum 365.",
+      "default": 30,
+      "minimum": 1,
+      "maximum": 365
+    },
+    "maxArticles": {
+      "title": "Maximum articles per run",
+      "type": "integer",
+      "description": "How many lines of the list this run reads. Default and maximum 200; a line past the cap comes back as a free NOT_CHECKED_CAP row that names the cap.",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 200
+    }
+  },
+  "required": [
+    "articles"
+  ]
+}

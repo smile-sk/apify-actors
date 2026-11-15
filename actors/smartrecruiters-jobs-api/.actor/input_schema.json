@@ -1,0 +1,116 @@
+{
+  "title": "SmartRecruiters jobs input",
+  "description": "Which boards to read, what to search inside them, and whether to fetch job descriptions.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "companies": {
+      "title": "Companies or careers URLs",
+      "description": "SmartRecruiters board identifiers (SGS) or careers URLs (https://jobs.smartrecruiters.com/SGS). The identifier is the segment right after the domain in the careers URL. A board typed twice is read once.",
+      "type": "array",
+      "editor": "stringList",
+      "items": {"type": "string"},
+      "default": ["SGS"]
+    },
+    "query": {
+      "title": "Search inside the board",
+      "description": "Sent to the SmartRecruiters search (q=): the server narrows the board before anything is downloaded, which is much cheaper than filtering 4 000 postings locally. Empty reads every open posting.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "country": {
+      "title": "Country code",
+      "description": "Lowercase ISO-2 code such as us, de or pe. Applied by the server. Anything that is not two letters is ignored, and the summary says so instead of pretending the filter worked.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "releasedAfter": {
+      "title": "Released after",
+      "description": "ISO date such as 2026-11-01. Applied by the server, so it is the cheapest way to follow a board daily. An unparsable date is ignored and the summary says so.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "keywords": {
+      "title": "Title contains any of",
+      "description": "Keywords for the job title, matched in code because the API has no title filter. Separate alternatives with commas; a space inside stays one phrase, so 'game designer' does not match 'game artist'. A posting that does not match is counted in filteredOut and is not charged.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "excludeKeywords": {
+      "title": "Title excludes",
+      "description": "Words or phrases that drop a posting by its title. Separate alternatives with commas; a space inside stays one phrase. Dropped postings are counted by reason and cost nothing.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "location": {
+      "title": "Location contains",
+      "description": "A city, region or country word matched as a whole word, so us does not match Australia. Empty keeps every location.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "remoteOnly": {
+      "title": "Remote only",
+      "description": "Keep postings the board marks as remote, or whose location says remote or anywhere.",
+      "type": "boolean",
+      "default": false
+    },
+    "employmentType": {
+      "title": "Employment type contains",
+      "description": "Substring of the label the board publishes, for example full-time or permanent. Filtered in code: the API ignores its own typeOfEmployment parameter, measured 07.11.2026.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "experienceLevel": {
+      "title": "Experience level contains",
+      "description": "Substring of the level the board publishes, for example senior or entry. Filtered in code: the API ignores its own experienceLevel parameter.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "department": {
+      "title": "Department contains",
+      "description": "Substring of the department the board publishes, for example Laboratory. Filtered in code: the API answers HTTP 400 for its own department parameter.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "maxJobsPerCompany": {
+      "title": "Max postings per company",
+      "description": "Hard stop per board. 0 means no limit and the run then walks up to 8 000 postings. Postings the run did not reach are counted in jobsNotProcessed, postings the board has but the run did not read in jobsNotRead, so the sums stay honest.",
+      "type": "integer",
+      "default": 500,
+      "minimum": 0,
+      "maximum": 100000
+    },
+    "includeDetails": {
+      "title": "Fetch job descriptions",
+      "description": "One extra request per delivered posting (about 0.2 s each) that brings jobDescription, qualifications, additionalInformation and companyDescription. Postings whose description fails are still delivered, with detailError set.",
+      "type": "boolean",
+      "default": false
+    },
+    "maxDetails": {
+      "title": "Max descriptions",
+      "description": "Upper bound on description requests in one run, so a 4 000 posting board cannot run for an hour. 0 means no bound. Postings past the bound are delivered without a description and counted in detailsSkipped.",
+      "type": "integer",
+      "default": 300,
+      "minimum": 0,
+      "maximum": 100000
+    },
+    "requestPaceSecs": {
+      "title": "Pause between requests (seconds)",
+      "description": "Polite delay between two list requests. Descriptions use at most 0.1 s. The API answers a page in about 0.3 s, so 0.3 here is roughly one page per second.",
+      "type": "number",
+      "default": 0.3,
+      "minimum": 0,
+      "maximum": 30
+    }
+  },
+  "required": ["companies"]
+}

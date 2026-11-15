@@ -1,0 +1,24 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Image compressor results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Compressed images",
+      "description": "One row per image. status is OK when the row carries a downloadable file, or NOT_CHECKED_* with the reason in plain words: INVALID (the line is not an http url), DUPLICATE (the same url came earlier), LIMIT (past maxImages), PRIVATE_ADDRESS (a host name really answered with a non public address, whether the image host or a redirect hop), DNS_ERROR (the host name does not resolve or is not a valid name), FETCH_ERROR (the file could not be downloaded), TOO_LARGE (bigger than 25 MB), NOT_AN_IMAGE (the bytes are not an image, whatever the url says), DECODE_ERROR (the signature is right but the file cannot be read), TOO_MANY_PIXELS (more than 40 megapixels), UNSUPPORTED_TARGET (the image has no encoder for the asked format), STORE_ERROR (the file could not be written to the key-value store), TIME, CAP, BILLING and ERROR (the run stopped before this image for the reason in the summary). compressed is true when the delivered file is really smaller than the input; when it is false the original bytes are delivered untouched, savedBytes is 0 and the row costs nothing. bytesIn and bytesOut are the sizes before and after delivery, savedPercent their difference, targetKB the weight you asked for, targetReached whether the delivered file fits it, qualityUsed the encoder quality the search landed on and resized whether the pixels were scaled down. width and height are the delivered size, widthIn and heightIn the original one, sourceFormat what the file really was, formatNote says when a format you named could not be honoured, and outputKey is where the file lives in this run key-value store. billable is true only on a row that carries a file this actor really shrank; the money actually taken is in the run summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "files": {
+      "type": "string",
+      "title": "All delivered images as one zip",
+      "description": "Every delivered image in one archive, under the same names as the outputKey fields in the dataset. An image that was refused for any reason is not in the archive and was not charged.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/compressed-images.zip"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. requested is how many lines were sent, uniqueImages is how many different urls were read, linesThatAreNotImages counts the lines that never were an image request (a bad url, a repeat, a blank line, a line past maxImages) and imagesAttempted is the rest. processedImages counts an image that was decoded, even when compressing it failed, and notCheckedImages counts an image this run never reached, so processedImages plus notCheckedImages always equals imagesAttempted and imagesAttempted plus linesThatAreNotImages always equals requested. deliveredImages is how many files were written, compressedImages how many of them really got smaller and alreadySmallImages how many came back unchanged and free; targetMissed counts images that could not be squeezed under targetKB. chargedEvents is how much money was really taken, which is the number to trust when it differs from deliveredImages. bytesInTotal and bytesOutTotal are the sizes before and after, savedBytesTotal and savedPercentTotal their difference. zipKey, zipBytes and imagesInZip describe the archive, and zipError names a failure to build it without touching the delivered files themselves. billingActive and billingReason say whether this run could charge at all; a run with billing off still delivers files and reports chargedEvents 0. stopReason names the reason the run stopped early, and deliveredUncharged counts files in the store without money taken. datasetItemCount is what this run wrote, datasetItemCountApi is what the platform reports and it lags by minutes, so a smaller number there is a lag and not a lost row. The same summary is in the summary store under RUN_SUMMARY-<runId>.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

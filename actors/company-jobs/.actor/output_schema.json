@@ -1,0 +1,25 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Company Jobs API output",
+  "description": "One record per open job, in the same shape for every ATS, plus a per-company report in the run storage.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Jobs",
+      "description": "Dataset with one row per open job: company, ats, title, department, location, remote, salary, postedAt, apply URL.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "report": {
+      "type": "string",
+      "title": "Company report",
+      "description": "Per company: which ATS it uses, how many jobs its board holds, how many were delivered, and the reason when it could not be resolved (FAILED), was never checked (NOT_CHECKED_CAP, NOT_CHECKED_MAX_COMPANIES, NOT_CHECKED_BILLING), was a duplicate board (DUPLICATE_BOARD), or was only partially processed. This is the full list of everything you sent.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/COMPANY_REPORT"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters for the whole run: companiesAsked (distinct companies you sent), companiesDeduplicated (input lines collapsed into those), companiesProcessed, companiesResolved, companiesFailed, companiesWithNoJobs, companiesNotChecked, companiesOverMaxCompanies, companiesPartiallyProcessed, companiesDuplicateBoards, jobsDelivered, jobsMatched, jobsOverMaxJobsPerCompany, jobsFromDuplicateAnswers (jobs only a second input row for the same board carried, which is what makes jobsDelivered exceed jobsMatched), stopped and stopReason (spending-cap, billing-error or billing-not-active), billingActive, cache hits.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+    }
+  }
+}

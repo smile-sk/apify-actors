@@ -1,0 +1,39 @@
+{
+  "title": "arXiv papers to read",
+  "description": "Send arXiv ids or links on arxiv.org. An id with no paper comes back free.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "papers": {
+      "title": "Papers",
+      "type": "array",
+      "description": "arXiv ids (1706.03762, hep-th/9901001) or links on arxiv.org. Versions such as 1706.03762v5 are accepted.",
+      "editor": "stringList",
+      "prefill": [
+        "1706.03762",
+        "https://arxiv.org/abs/2103.00020",
+        "not-an-arxiv-id"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxPapers": {
+      "title": "Max papers",
+      "type": "integer",
+      "description": "How many papers to read and sell. Default 100, maximum 500.",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "includeAbstract": {
+      "title": "Include the abstract",
+      "type": "boolean",
+      "description": "Add the full abstract text to every row. On by default.",
+      "default": true
+    }
+  },
+  "required": [
+    "papers"
+  ]
+}

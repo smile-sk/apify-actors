@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "pdf-ocr-api",
+  "title": "PDF OCR API - Scanned PDF to Text and Word Boxes",
+  "description": "Most PDF OCR actors bill the whole document even when a page carries no text. This one charges per delivered page only: the embedded text layer is used where it exists, Tesseract reads the scans in English, Russian and Ukrainian, and word boxes come with confidence.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "AI",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 8192,
+  "defaultMemoryMbytes": 1024
+}

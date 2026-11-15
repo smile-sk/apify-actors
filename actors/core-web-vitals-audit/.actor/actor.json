@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "core-web-vitals-audit",
+  "title": "Core Web Vitals Audit - LCP, CLS, TBT, No API Key",
+  "description": "PageSpeed actors ask you for a Google API key, or wrap the free API and start failing with 429 the moment it runs out of shared quota. This one measures LCP, CLS, TBT, TTFB and FCP in its own Chromium on emulated mobile hardware: no key, no quota, and a staging URL behind a login is fine too.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 8192,
+  "defaultMemoryMbytes": 4096
+}

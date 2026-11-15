@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "name": "youtube-comments-api",
+  "title": "YouTube Comments API - Replies, Likes & Authors",
+  "description": "Comment scrapers report success on a video whose comments are turned off, so you pay for an empty dataset. This actor reads the watch payload, pages the continuation token and charges only for a comment it delivered.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start",
+    "memoryJustification": "The actor reads YouTube's public innertube endpoint over plain HTTP: measured 2026-11-12 it needs no browser, so the run starts at 512 MB, which holds the JSON pages of a comments listing with room to spare."
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "SOCIAL_MEDIA",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 512
+}

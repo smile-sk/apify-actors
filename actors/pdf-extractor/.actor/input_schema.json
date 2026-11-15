@@ -1,0 +1,49 @@
+{
+  "title": "PDF text extractor input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "PDF links or file names",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One PDF per line: a direct http(s) link, or the name of a file you uploaded to this run's key-value store. Up to 100 documents per run.",
+      "prefill": [
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      ]
+    },
+    "pages": {
+      "title": "Pages (optional)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Leave empty for every page. Use ranges and single pages, for example 1-3,7. At most 500 pages are read per document: pages above that are counted in pagesOverLimit, pages outside the document are counted in pagesDroppedCount and the first 20 of them are listed in pagesDropped."
+    },
+    "includeTables": {
+      "title": "Extract tables",
+      "type": "boolean",
+      "default": true,
+      "description": "Also return tables found on each page, as rows of cells. Table detection works on lined and well-spaced tables; a page with no tables returns an empty list."
+    },
+    "maxCharsPerDocument": {
+      "title": "Max characters per document",
+      "type": "integer",
+      "default": 200000,
+      "minimum": 1000,
+      "description": "Text is cut at this many characters and the row is marked truncated, so one huge PDF cannot break your dataset."
+    },
+    "password": {
+      "title": "Password for encrypted PDFs (optional)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Applied to every document in the run. A PDF that stays locked comes back as ENCRYPTED with a reason and is not charged."
+    },
+    "maxDocuments": {
+      "title": "Max documents",
+      "type": "integer",
+      "default": 100,
+      "minimum": 0,
+      "description": "The list is cut here. Documents beyond the limit come back as rows with status NOT_CHECKED_LIMIT, their own link in source, and are not charged. 0 means no limit, and the summary reports the number actually applied."
+    }
+  },
+  "required": []
+}

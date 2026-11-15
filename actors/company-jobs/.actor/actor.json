@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "company-jobs-api",
+  "title": "Company Jobs API: Every Open Role From Any Domain",
+  "description": "Half of your company list can vanish without a word: no error, no row, and the summary still says every company was checked. This actor reports the ones a cut or the spending cap kept from being read, per company, with the reason. Greenhouse, Lever, Ashby and three more ATS, pay per job found.",
+  "version": "0.9",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512
+}

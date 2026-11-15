@@ -1,0 +1,19 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Email checks",
+  "description": "One row per address, with a verdict or with the reason it could not be checked.",
+  "properties": {
+    "dataset": {
+      "title": "Addresses",
+      "type": "string",
+      "description": "A checked address carries email, normalised, localPart, domain, domainAscii, syntaxValid, domainExists, hasMx, mxHosts, acceptsMail, isDisposable, isRole, isFreeProvider, suggestion and status. There is no valid field: it would only repeat acceptsMail, which is the verdict itself. Rows with status INVALID_SYNTAX, SYNTAX_ONLY, DUPLICATE, NOT_CHECKED_* carry a reason and none of the DNS verdict fields (domainExists, hasMx, mxHosts, acceptsMail stay null), so a free row can never be read as a verdict. A SYNTAX_ONLY row is the one exception that keeps the local fields it really computed (normalised, localPart, domain, domainAscii, syntaxValid, isDisposable, isRole, isFreeProvider, suggestion), because checkDns was switched off rather than the format left unchecked. acceptsMail means the domain publishes a mail server, NOT that the mailbox exists: SMTP is never probed.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "description": "Counters: emailsRequested, emailsAttempted, emailsChecked, emailsAcceptMail (the count of domains that accept mail), emailsInvalidSyntax, emailsNoDomain, emailsNoMailServer, emailsDnsError, emailsDuplicate, emailsLimited, emailsCutByBudget, emailsDelivered, emailsCapped, emailsSyntaxOnly, emailsUnverified, rowsWritten, byStatus, chargedEvents, deliveredUncharged, chargeUncertain, writeErrors, summaryWriteErrors, billingActive, priceEvent, priceNote, checkDns, maxEmails, counterMismatch, stopReason, datasetNote, startedAt, finishedAt. Status codes: OK, INVALID_SYNTAX, SYNTAX_ONLY, NO_SUCH_DOMAIN, NO_MAIL_SERVER, NOT_CHECKED_DNS_ERROR, DUPLICATE, NOT_CHECKED_LIMIT, NOT_CHECKED_TIME, NOT_CHECKED_CAP, NOT_CHECKED_BILLING. Stop reasons: dataset-write-error, billing-price-unknown, spending-cap, charge-error, deadline, unexpected-error. When the dataset counter cannot be read after a failed charge, datasetNote says that delivery and the charge are both unknown and those lines are counted in emailsUnverified and chargeUncertain: the summary never claims that nothing was delivered or nothing was charged.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

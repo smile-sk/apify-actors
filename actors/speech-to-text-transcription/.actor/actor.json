@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "name": "speech-to-text-transcription",
+  "title": "Speech to Text Transcription - Whisper, Audio to Text",
+  "description": "Most transcription actors charge for an error page or an hour of silence and hand back empty text. Here every file gets a row that says what happened, and only a delivered transcript is charged.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start",
+    "memoryJustification": "Whisper small needs 4096 MB on purpose: the SDK derives the worker thread count from memory (memory//4096 gives one thread), and the deadline plan in src/speech.py is measured on one thread. At a smaller memory the same file competes for CPU and a 10 minute recording overruns the run window instead of finishing inside it."
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "AI",
+    "VIDEOS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 4096,
+  "maxMemoryMbytes": 8192,
+  "defaultMemoryMbytes": 4096
+}

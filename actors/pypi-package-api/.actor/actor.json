@@ -1,0 +1,26 @@
+{
+  "actorSpecification": 1,
+  "name": "pypi-package-api",
+  "title": "PyPI Package API - Versions, Dependencies & License",
+  "description": "Tired of package metadata spread across pages? One row per PyPI project: latest version, license, requires-python, release count, first and latest release date, dependencies and file sizes. A name PyPI does not have comes back free with a reason, so you pay only for projects that were really read.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS",
+    "AUTOMATION"
+  ],
+  "defaultMemoryMbytes": 256,
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {}
+    }
+  },
+  "environmentVariables": {}
+}

@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "PDF OCR results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Pages",
+      "description": "One row per page. status is OK when the row carries text, or NOT_CHECKED_* with the reason in plain words: INVALID (the line is not an http url), DUPLICATE (the same url came earlier), LIMIT (beyond maxDocuments), PRIVATE_ADDRESS (a host name really answered with a non public address, whether the document host or a redirect hop), DNS_ERROR (the host name does not resolve or is not a valid host name), FETCH_ERROR (the document could not be downloaded), TOO_LARGE (bigger than 80 MB), NOT_PDF (the bytes are not a pdf, whatever the url says), ENCRYPTED (a password is needed), BROKEN_PDF (the file could not be parsed), NO_TEXT (the page has neither a text layer nor readable print, so it is free), NO_SUCH_PAGE (the pages field named only pages this document does not have), TIME, CAP, BILLING and ERROR (the run stopped before this page for the reason in the summary). source says where the text came from: text for the embedded layer, which is exact and instant, or ocr for Tesseract. chars is the length of that page's text and confidence is the mean word confidence of an OCR page, null for a text layer because it is not an estimate. words is filled only when includeWords is on. pagesInDocument, pageCountRead and pagesLeft say how much of the document this run covered, so a cut document is visible on its own rows. billable is true only on a row that carries text; the money actually taken is in the run summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. requested is how many lines were sent, unique is how many different documents were read, linesThatAreNotDocuments counts the lines that never were a document (a bad url, a repeat, a blank line, a line past maxDocuments) and documentsAttempted is the rest, the lines that really were documents. processed counts a document that was opened and read, even when every page of it carried no text, and notChecked counts a document this run never reached, so processed plus notChecked always equals documentsAttempted and documentsAttempted plus linesThatAreNotDocuments always equals requested. deliveredPages is how many pages were written with text and chargedEvents is how much money was really taken, which is the number to trust when the two differ. pagesWithoutText counts free pages that had nothing to read, pagesCutByLimit counts pages left unread because of maxPagesPerDocument, and pagesNotInDocument counts page numbers from the pages field that the document does not have. billingActive and billingReason say whether this run could charge at all; a run with billing off still delivers rows and reports chargedEvents 0. stopReason names the reason the run stopped early, if it did, and deliveredUncharged counts rows that may be in the dataset without money taken. datasetItemCount is what this run wrote, datasetItemCountApi is what the platform reports and it lags by minutes, so a smaller number there is a lag and not a lost row. The same summary is in the summary store under RUN_SUMMARY-<runId>.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

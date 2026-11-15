@@ -1,0 +1,28 @@
+{
+  "actorSpecification": 1,
+  "name": "substack-posts-api",
+  "title": "Substack Posts API - Newsletter Archive, Likes & Authors",
+  "description": "A publication that does not exist should never look like a paid row. Send a Substack host or subdomain and get title, subtitle, url, date, authors, likes, comments and word count; a host that never answered comes back free with the reason.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "categories": [
+    "SOCIAL_MEDIA",
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS"
+  ],
+  "defaultMemoryMbytes": 256,
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {}
+    }
+  }
+}

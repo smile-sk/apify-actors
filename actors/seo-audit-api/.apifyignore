@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.bak
+*.bak_*
+**/*.bak*
+storage/
+.last_run.txt

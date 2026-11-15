@@ -1,0 +1,27 @@
+{
+  "actorSpecification": 1,
+  "name": "youtube-transcript-api-fast",
+  "title": "YouTube Transcript API: Bulk Captions, Fast",
+  "description": "Transcript runs that die on one video, or bill you for videos with no captions, still report success. Every video gets its own row with the reason when no transcript exists, plain text, timestamps, SRT and VTT, no proxies to set up on your side, and you pay only for delivered rows.",
+  "version": "0.5",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "environmentVariables": {
+    "YT_GATEWAY": "@YT_GATEWAY"
+  },
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "VIDEOS"
+  ],
+  "minMemoryMbytes": 512,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "pump.fun new token monitor output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "New tokens",
+      "description": "One row per pump.fun token creation this run saw, newest last. Fields: mint, name, symbol, uri, creator, createdAt (ISO 8601 UTC, from the on-chain event), ageSeconds at the moment of the row, devBuyTokens and devBuyPercent (what the creator bought in the creation transaction; null when includeDevBuy is false or the transaction could not be read, because unknown is not zero), virtualSolReserves, realSolReserves, curveProgressPercent (real SOL over the 85 SOL the curve fills before migration), creatorTokensThisRun (how many creations by the same creator this run had already seen), signature (the creation transaction), source (stream when it came from the live logs subscription, poll when the run had to fall back to HTTP). Every row is a real creation: tokens the run filtered out or could not parse are counted in the summary, never written as empty rows.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Stored in the named key-value store pump-fun-new-token-monitor-summary as RUN_SUMMARY and as RUN_SUMMARY-<runId>, because one named store is shared by the whole account and two runs at once would overwrite each other. Keys: tokensSeen, rowsDelivered, rowsUndelivered, filteredOut, filteredBy, duplicatesSkipped, reservesUnavailable, devBuyUnknown, skippedUnparsable, unparsableCreations, notifications (what the feed heard, not what became rows), signaturesSeen, signaturesRead, signaturesUnread, chainGapSecs, silentForSecs, queuedNotDelivered, mode (stream or poll), streamFailures, stopReason (duration-reached, max-tokens or spending-cap), elapsedSecs, durationSecs, maxTokens, rpcUrl, rpcWsUrl, rpcPaceSecs, chargedEvents, deliveredUncharged, billingActive, datasetItemCount, datasetItemCountLag, datasetWriteErrors, includeDevBuy, delivery, filters, lastFeedError. Every counter adds up: tokensSeen = rowsDelivered + filteredOut + rowsUndelivered. A run that heard notifications but read no creation, or heard nothing at all, fails with a human status message naming the endpoint instead of ending green with an empty dataset.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

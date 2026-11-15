@@ -1,0 +1,7 @@
+src/__pycache__/
+tests/
+.actor/actor.json.bak*
+*.bak
+*.bak_*
+.pytest_cache/
+*.pyc

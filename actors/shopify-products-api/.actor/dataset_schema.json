@@ -1,0 +1,32 @@
+{
+  "actorSpecification": 1,
+  "title": "Shopify product row",
+  "description": "One product from a Shopify storefront, read from the store's own public endpoints.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {"title": "Status", "description": "DELIVERED, NO_PRICE, NOT_CHECKED_BLOCKED, NOT_CHECKED_PRIVATE_TARGET, NOT_CHECKED_ERROR or INVALID_INPUT.", "type": "string"},
+    "store": {"title": "Store", "description": "Store host as given in the input.", "type": "string"},
+    "handle": {"title": "Handle", "description": "Shopify product handle.", "type": ["string", "null"]},
+    "title": {"title": "Title", "description": "Product title.", "type": ["string", "null"]},
+    "price": {"title": "Price", "description": "Lowest variant price in the store currency. null when the store publishes no price.", "type": ["number", "null"]},
+    "priceMax": {"title": "Price, highest variant", "description": "Highest variant price in the store currency.", "type": ["number", "null"]},
+    "compareAtPrice": {"title": "Compare at price", "description": "Lowest compare-at price the store publishes, the crossed out price.", "type": ["number", "null"]},
+    "currency": {"title": "Currency", "description": "Store currency from /meta.json, or from the product page JSON-LD. null when the store did not say.", "type": ["string", "null"]},
+    "availability": {"title": "Availability", "description": "in_stock when at least one variant is available, out_of_stock when none is.", "type": ["string", "null"]},
+    "variantCount": {"title": "Variants", "description": "How many variants the product has.", "type": ["integer", "null"]},
+    "variants": {"title": "Variant list", "description": "sku, title, price, compareAtPrice, available per variant. Empty when includeVariants is off.", "type": "array"},
+    "productType": {"title": "Product type", "description": "Shopify product type.", "type": ["string", "null"]},
+    "vendor": {"title": "Vendor", "description": "Shopify vendor.", "type": ["string", "null"]},
+    "tags": {"title": "Tags", "description": "Product tags as a list.", "type": "array"},
+    "productUrl": {"title": "Product URL", "description": "Product page address.", "type": ["string", "null"]},
+    "imageUrl": {"title": "Image URL", "description": "First product image.", "type": ["string", "null"]},
+    "updatedAt": {"title": "Updated at", "description": "updated_at from the store when it publishes one, ISO 8601.", "type": ["string", "null"]},
+    "source": {"title": "Source", "description": "json for /products.json, product-json for /products/<handle>.json, page for a product page JSON-LD.", "type": ["string", "null"]},
+    "change": {"title": "Change", "description": "new, price-down, price-up, out-of-stock or back-in-stock. null when onlyChanges is off.", "type": ["string", "null"]},
+    "previousPrice": {"title": "Previous price", "description": "Price in the stored snapshot when this row reports a price change.", "type": ["number", "null"]},
+    "reason": {"title": "Reason", "description": "Why this row is not a delivered product.", "type": ["string", "null"]},
+    "count": {"title": "Count", "description": "How many products the reason covers, for rows that summarise failures.", "type": ["integer", "null"]},
+    "httpStatus": {"title": "HTTP status", "description": "The status the store answered with when the row reports a refusal.", "type": ["integer", "null"]}
+  }
+}

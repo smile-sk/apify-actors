@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "domain-availability-api",
+  "title": "Domain Availability Checker - Bulk RDAP Lookup",
+  "description": "You should not pay for a failed lookup: most availability checkers charge every line, even when the registry never answered. This one returns available, taken or unverified per domain, with registrar and expiry date, and charges only for a verdict the registry actually gave.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 256
+}

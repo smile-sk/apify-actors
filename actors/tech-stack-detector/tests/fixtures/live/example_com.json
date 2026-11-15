@@ -1,0 +1,11 @@
+{
+  "url": "https://example.com/",
+  "status": 200,
+  "contentType": "text/html; charset=utf-8",
+  "bytes": 577,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "server": "cloudflare"
+  },
+  "fetchedAt": "2026-11-11"
+}

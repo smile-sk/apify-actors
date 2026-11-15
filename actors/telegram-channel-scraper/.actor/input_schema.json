@@ -1,0 +1,38 @@
+{
+  "title": "Telegram channel scraper input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "channels": {
+      "title": "Channels",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Public channel usernames or links, one per line: durov, @durov, https://t.me/durov, t.me/s/durov, or t.me/durov/553 (only the channel is taken). Invite links to private chats cannot be read by the web preview and come back as NOT_CHECKED_PRIVATE_INVITE. Up to 20 channels per run unless maxChannels says otherwise.",
+      "prefill": [
+        "durov",
+        "telegram"
+      ]
+    },
+    "maxPostsPerChannel": {
+      "title": "Max posts per channel",
+      "type": "integer",
+      "default": 100,
+      "minimum": 0,
+      "description": "The newest posts are read first, then the walk goes back in time. Posts beyond this number are not delivered and not charged, and the summary reports how many the limit cut. 0 means walk until sinceDate or the end of the channel."
+    },
+    "sinceDate": {
+      "title": "Only posts since (YYYY-MM-DD)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Stop when the walk reaches a post older than this date, UTC. Leave empty for no date floor. A channel with posts, none of them inside the range, comes back as NOT_CHECKED_EMPTY with the date in the reason, not as an empty dataset with no explanation."
+    },
+    "maxChannels": {
+      "title": "Max channels",
+      "type": "integer",
+      "default": 20,
+      "minimum": 0,
+      "description": "The channel list is cut here. Channels beyond the limit come back as a NOT_CHECKED_LIMIT row and are not charged. 0 means no limit."
+    }
+  },
+  "required": []
+}

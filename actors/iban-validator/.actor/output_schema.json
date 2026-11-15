@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "IBAN check results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Results",
+      "description": "One row per IBAN: whether the mod-97 checksum holds, which country it belongs to, whether that country is in SEPA, and the exact reason a number was rejected.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counts by status, how many rows were billable (billableIbans, the price claim) and how many were really charged (chargedEvents), how many were delivered without money (deliveredUncharged), whether the price list was readable (pricingEventPriced) and whether billing was really on (billingActive: true / false / null), how many rows were stopped by the spending cap or by a billing error, whether the run was cancelled and why it stopped (including billing-price-unknown). Written to the named key-value store iban-validator-summary under the run-scoped key RUN_SUMMARY-<runId>, so two runs never overwrite each other; a plain RUN_SUMMARY also sits in this run's own store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

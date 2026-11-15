@@ -1,0 +1,24 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Image converter results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Converted images",
+      "description": "One row per image. status is OK when the row carries a converted file, or NOT_CHECKED_* with the reason in plain words: INVALID (the line is not an http url), DUPLICATE (the same url came earlier), LIMIT (past maxImages), PRIVATE_ADDRESS (a host name really answered with a non public address, whether the image host or a redirect hop), DNS_ERROR (the host name does not resolve or is not a valid name), FETCH_ERROR (the file could not be downloaded), TOO_LARGE (bigger than 25 MB), NOT_AN_IMAGE (the bytes are not an image, whatever the url says), DECODE_ERROR (the signature is right but the file cannot be read), TOO_MANY_PIXELS (more than 60 megapixels), UNSUPPORTED_TARGET (the image has no encoder for the asked format), STORE_ERROR (the converted file could not be written to the key-value store), TIME, CAP, BILLING and ERROR (the run stopped before this image for the reason in the summary). sourceFormat is what the file really was, width and height are the delivered size, widthIn and heightIn the original one, bytesIn and bytesOut the sizes before and after, savedPercent their difference (it can be negative), and outputKey is where the delivered file lives in this run key-value store. billable is true only on a row that carries a converted file; the money actually taken is in the run summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "files": {
+      "type": "string",
+      "title": "All converted images as one zip",
+      "description": "Every delivered image in one archive, under the same names as the outputKey fields in the dataset. An image that was refused for any reason is not in the archive and was not charged.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/converted-images.zip"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. requested is how many lines were sent, uniqueImages is how many different urls were read, linesThatAreNotImages counts the lines that never were an image request (a bad url, a repeat, a blank line, a line past maxImages) and imagesAttempted is the rest, the lines that really were images. processedImages counts an image that was decoded, even when the conversion failed, and notCheckedImages counts an image this run never reached, so processedImages plus notCheckedImages always equals imagesAttempted and imagesAttempted plus linesThatAreNotImages always equals requested. deliveredImages is how many converted files were written and chargedEvents is how much money was really taken, which is the number to trust when the two differ. bytesInTotal and bytesOutTotal are the sizes before and after, savedBytesTotal their difference. zipKey, zipBytes and imagesInZip describe the archive, and zipError names a failure to build it without touching the delivered files themselves. billingActive and billingReason say whether this run could charge at all; a run with billing off still delivers files and reports chargedEvents 0. stopReason names the reason the run stopped early, if it did, and deliveredUncharged counts files that are in the store without money taken. datasetItemCount is what this run wrote, datasetItemCountApi is what the platform reports and it lags by minutes, so a smaller number there is a lag and not a lost row. The same summary is in the summary store under RUN_SUMMARY-<runId>.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Open Graph & Meta Tags API output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Results",
+      "description": "One row per input line, in input order: index (so nothing is lost), source, url, status, reason, statusCode, finalUrl, redirectCount, responseTimeMs, title, description, canonical, lang, charset, openGraph (title, description, image, imageAlt, type, siteName, url, locale, video, all URLs absolute), twitterCard, icons (favicon, appleTouchIcon, manifest), jsonLd (count and types), hreflang, preview (ready plus issues: no_title, no_description, no_image, no_open_graph, image_was_relative, title_longer_than_60, description_longer_than_160), metaCount, billable, and duplicateOf or billingInactive when the row was delivered free. Statuses: EXTRACTED means metadata was delivered and charged. NO_METADATA means the page opened but carries no title, description, Open Graph or JSON-LD, or its only metadata was JSON-LD and includeJsonLd is false: it is an answer and costs nothing. UNREACHABLE, HTTP_ERROR, NOT_HTML, INVALID_URL, PRIVATE_TARGET, REDIRECT and ERROR mean no page was read, nothing was charged and the reason says why; REDIRECT is a 3xx answer that was not followed because maxRedirects is 0 or the answer names no Location. NOT_CHECKED_LIMIT, NOT_CHECKED_CAP, NOT_CHECKED_BILLING and NOT_CHECKED_ERROR mean the page was not read because of maxUrls, the spending cap, billing, or a refused dataset write. Only EXTRACTED rows are charged; money itself is reported in the run summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Stored in the named key-value store open-graph-meta-tags-summary as RUN_SUMMARY and also as RUN_SUMMARY-<runId>, because one named store is shared by the whole account and two runs at once would overwrite each other. Keys: requested, processed, delivered, rowsDelivered, notChecked, chargedEvents, deliveredUncharged, billingActive, byStatus, duplicatesSkipped, maxUrls, cutByMaxUrls, metadataMissing, stopReason, chargeErrors and the dataset counters. requested always equals processed plus notChecked. deliveredUncharged counts every row delivered without a charge: the charge call failed, the platform charged nothing, or the run already knew it could not bill.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

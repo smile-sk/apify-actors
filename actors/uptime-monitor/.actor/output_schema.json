@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Uptime Monitor API results",
+    "description": "One row per URL: up, healthy, healthIssues, statusCode, responseTimeMs, httpStatusExpected, responseTimeOk, sslValid, sslDaysToExpiry, finalUrl, redirected, probes (apify and eu-gate attempts), fromCache, error, errorType. Charged: delivered URL observations (an unreachable public website is a billed observation). Not charged: invalid URLs, non-public targets, cached observations.",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Results",
+            "description": "One row per URL",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

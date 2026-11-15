@@ -1,0 +1,198 @@
+{
+  "actorSpecification": 1,
+  "title": "Personio position row",
+  "description": "One open position from a public Personio board, read from the employer's own XML feed.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {
+      "title": "Status",
+      "description": "DELIVERED, NOT_CHECKED_BOARD_NOT_FOUND, NOT_CHECKED_BOARD_EMPTY, NOT_CHECKED_NO_MATCH, NOT_CHECKED_CAP, NOT_CHECKED_ERROR or INVALID_INPUT.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "board": {
+      "title": "Board identifier",
+      "description": "Personio company name, as used in <board>.jobs.personio.de.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jobId": {
+      "title": "Position id",
+      "description": "Personio id of the position.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "title": "Title",
+      "description": "Position title as published.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "subcompany": {
+      "title": "Company unit",
+      "description": "Legal unit the employer filed the position under, for example a national subsidiary.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "department": {
+      "title": "Department",
+      "description": "Department as published by the employer.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recruitingCategory": {
+      "title": "Recruiting category",
+      "description": "Category the employer picked, for example insurance or engineering.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "employmentType": {
+      "title": "Employment type",
+      "description": "permanent, internship and so on.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seniority": {
+      "title": "Seniority",
+      "description": "Seniority as published.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schedule": {
+      "title": "Schedule",
+      "description": "full-time, part-time or full-or-part-time.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "occupation": {
+      "title": "Occupation",
+      "description": "Personio occupation code, for example acturial_analysis.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "occupationCategory": {
+      "title": "Occupation category",
+      "description": "Personio occupation category code.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "keywords": {
+      "title": "Keywords",
+      "description": "The employer's own keyword list, split on commas.",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "city": {
+      "title": "Main office",
+      "description": "First office of the position.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locations": {
+      "title": "All offices",
+      "description": "Every office of the position, the main one first, each as {\"city\": name}.",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "remote": {
+      "title": "Remote",
+      "description": "True when the office name or the description says remote or homeoffice. The feed has no remote flag, so this is read from the employer's text and is not a guarantee. The description is read even when includeDetails is off, so a display option does not change the value. Null on rows that are not a position.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "title": "Created at",
+      "description": "Creation date as published (ISO 8601 with offset).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "title": "URL",
+      "description": "Public position page.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "applyUrl": {
+      "title": "Apply URL",
+      "description": "Application page. Personio serves the form from the same address as the position page.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "title": "Description",
+      "description": "Description when includeDetails is on: html or plain text depending on descriptionFormat.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "descriptionSections": {
+      "title": "Description sections",
+      "description": "The sections the employer wrote, as a list of {name, value}, when includeDetails is on. Keeps headings such as team, tasks and benefits separable.",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reason": {
+      "title": "Reason",
+      "description": "Human readable reason for any row that is not DELIVERED.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "delivered": {
+      "title": "Delivered",
+      "description": "True only for DELIVERED rows.",
+      "type": "boolean"
+    },
+    "billable": {
+      "title": "Billable",
+      "description": "What the price list said before the row was written: true when it carries this event, false when billing is off, null when the price could not be read. The money actually taken is chargedEvents in the run summary; a row can land uncharged and is then counted in deliveredUncharged.",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    }
+  }
+}

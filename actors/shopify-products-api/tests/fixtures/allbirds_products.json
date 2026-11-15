@@ -1,0 +1,175 @@
+{
+ "products": [
+  {
+   "id": 7366895894608,
+   "title": "Women's Wool Runner - Natural Grey (Light Grey Sole)",
+   "handle": "womens-wool-runners-natural-grey",
+   "product_type": "Shoes",
+   "vendor": "Allbirds",
+   "tags": [
+    "allbirds::carbon-score => 7.07",
+    "allbirds::cfId => color-womens-wool-runners",
+    "allbirds::complete => true",
+    "allbirds::edition => classic",
+    "allbirds::gender => womens",
+    "allbirds::hue => grey",
+    "allbirds::master => womens-wool-runners",
+    "allbirds::material => wool",
+    "allbirds::price-tier => tier-4",
+    "allbirds::silhouette => runner",
+    "allbirdskit::kit-discount-2c1bmbSUmqIAxb6DrSxejL => 9",
+    "allbirdskit::kit-id => 2c1bmbSUmqIAxb6DrSxejL",
+    "allbirdskit::kit-size-2c1bmbSUmqIAxb6DrSxejL => 2",
+    "bfcm-womens",
+    "DNAM BRANDS",
+    "FINAL SALE",
+    "SF OUTLET INVENTORY",
+    "shoprunner",
+    "tier-4",
+    "WRENTHAM OUTLETS",
+    "YCRF_womens-move-shoes",
+    "YGroup_ygroup_womens-wool-runners"
+   ],
+   "updated_at": "2026-11-06T13:47:29-08:00",
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/1104/4168/files/WR3WNCW_SHOE_LEFT_GLOBAL_WOMENS_WOOL_RUNNER_GREY_LIGHT_GREY_bc7cc3a6-43a0-4dde-8f9e-48a8d80499df.png?v=1779819025"
+    }
+   ],
+   "variants": [
+    {
+     "sku": "WR3WNCW050",
+     "title": "5",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": true
+    },
+    {
+     "sku": "WR3WNCW060",
+     "title": "6",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    },
+    {
+     "sku": "WR3WNCW070",
+     "title": "7",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    },
+    {
+     "sku": "WR3WNCW080",
+     "title": "8",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    },
+    {
+     "sku": "WR3WNCW090",
+     "title": "9",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    },
+    {
+     "sku": "WR3WNCW100",
+     "title": "10",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    },
+    {
+     "sku": "WR3WNCW110",
+     "title": "11",
+     "price": "49.00",
+     "compare_at_price": "110.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 6852079616080,
+   "title": "Women's Wool Runner Mizzle - Dark Grey (Light Grey Sole)",
+   "handle": "womens-wool-runner-mizzles-dark-grey-light-grey",
+   "product_type": "Shoes",
+   "vendor": "Allbirds",
+   "tags": [
+    "allbirds::carbon-score => 9.1",
+    "allbirds::cfId => color-womens-wool-runner-mizzles-dark-grey-light-grey",
+    "allbirds::complete => true",
+    "allbirds::edition => classic",
+    "allbirds::gender => womens",
+    "allbirds::hue => grey",
+    "allbirds::master => womens-wool-runner-mizzles",
+    "allbirds::material => wool",
+    "allbirds::price-tier => tier-4",
+    "allbirds::silhouette => runner",
+    "collection:apr26",
+    "DNAM BRANDS",
+    "FINAL SALE",
+    "SF OUTLET INVENTORY",
+    "shoprunner",
+    "YCRF_womens-move-shoes",
+    "YGroup_ygroup_womens-wool-runner-mizzles"
+   ],
+   "updated_at": "2026-11-06T13:47:29-08:00",
+   "images": [
+    {
+     "src": "https://cdn.shopify.com/s/files/1/1104/4168/files/A10281M100_Wool_Runner_Mizzle_Side_Global_Mens_Wool_Dark_Grey_Light_Grey.png?v=1776207608"
+    }
+   ],
+   "variants": [
+    {
+     "sku": "A10100W050",
+     "title": "5",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W060",
+     "title": "6",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W070",
+     "title": "7",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W080",
+     "title": "8",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W090",
+     "title": "9",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W100",
+     "title": "10",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    },
+    {
+     "sku": "A10100W110",
+     "title": "11",
+     "price": "62.00",
+     "compare_at_price": "125.00",
+     "available": false
+    }
+   ]
+  }
+ ]
+}

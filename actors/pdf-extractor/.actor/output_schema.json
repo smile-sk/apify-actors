@@ -1,0 +1,18 @@
+{
+ "actorOutputSchemaVersion": 1,
+ "title": "PDF extraction results",
+ "properties": {
+  "dataset": {
+   "type": "string",
+   "title": "Results",
+   "description": "One row per document: source, status, page count, per-page text, tables, characters, truncation marker, pagesDropped (first 20 page numbers outside the document), pagesDroppedCount, pagesOverLimit, the plain reason for a reject, billable (true when the text was delivered and the row qualifies for the document-extracted event), and billingInactive (true only on a row written while the run already knew it could not bill: no pay-per-event pricing or no document-extracted event in the price list). A row whose charge call itself failed is stored before the failure, so it cannot carry that flag: those rows are counted by deliveredUncharged in the summary. Statuses: EXTRACTED, NO_TEXT_LAYER, ENCRYPTED, INVALID_PDF, UNREACHABLE, PRIVATE_TARGET, TOO_LARGE, ERROR, NOT_CHECKED_CAP (the spending cap was reached), NOT_CHECKED_BILLING (billing stopped the run), NOT_CHECKED_LIMIT (beyond maxDocuments), NOT_CHECKED_ERROR (the dataset refused the row after a retry). Only EXTRACTED rows are charged.",
+   "template": "{{links.apiDefaultDatasetUrl}}/items"
+  },
+  "summary": {
+   "type": "string",
+   "title": "Run summary",
+   "description": "Run summary: requested (links sent), processed, delivered (documents whose text was delivered), rowsDelivered (every row written, one per input link), notChecked, cutByMaxDocuments, chargedEvents, billingActive, stopReason (null, spending-cap, charge-error or dataset-write-error; a run that cannot bill is not a stopped run, it reports billingActive=false with stopReason null), byStatus and chargeErrors. datasetWriteErrors counts rows the dataset refused after one retry, datasetWriteUnverified counts rows whose write could not be checked because the dataset would not report its size, datasetItemCount is how many rows the dataset holds at the end (delivery is judged by it, so a refused row is never reported as delivered). A dataset refusal does not stop the list: the run keeps reading the remaining links and stops only after three refusals in a row. A named store keeps the same object per run under RUN_SUMMARY-<runId>. deliveredUncharged counts every row delivered without a charge: the charge call failed, the platform charged nothing, or the run already knew it could not bill. requested always equals processed plus notChecked. maxDocuments is the limit actually applied (0 or less means no limit). datasetItemCount is the number of rows this run wrote (our own count, so it cannot lag); datasetItemCountApi is the same value as the platform reported it when the run finished, and datasetItemCountLag says that the platform number was still behind our own.",
+   "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+  }
+ }
+}

@@ -1,0 +1,75 @@
+{
+  "title": "Speech to text transcription input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "audioUrls": {
+      "title": "Audio file URLs",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One http(s) address per line, any format PyAV reads: mp3, wav, m4a, ogg, opus, flac, webm, mp4. Up to 10 files per run unless maxFiles says otherwise. A private address, a page that is not audio, an oversized file and a file longer than maxMinutesPerFile each come back as a free row with a status and the reason, so nothing disappears and nothing is charged for it.",
+      "prefill": [
+        "https://raw.githubusercontent.com/openai/whisper/main/tests/jfk.flac",
+        "https://raw.githubusercontent.com/ggerganov/whisper.cpp/master/samples/jfk.wav"
+      ]
+    },
+    "model": {
+      "title": "Whisper model",
+      "type": "string",
+      "editor": "select",
+      "enum": ["tiny", "base", "small"],
+      "enumTitles": ["tiny (fastest, roughest)", "base (fast)", "small (default, accurate)"],
+      "default": "small",
+      "description": "All three models are already inside the image, so choosing one never downloads anything at run time. small reads accented speech and names noticeably better than base; tiny is for clean speech when speed matters more than the last percent of accuracy."
+    },
+    "language": {
+      "title": "Language (empty = detect)",
+      "type": "string",
+      "editor": "textfield",
+      "description": "Two or three letter code such as en, de, uk, pl. Empty means the language is detected from the first seconds of audio and reported per file with its probability. Setting it is faster and stops a short file from being guessed wrong."
+    },
+    "maxMinutesPerFile": {
+      "title": "Max minutes per file",
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 120,
+      "description": "A file longer than this is not transcribed, not charged, and comes back as NOT_CHECKED_TOO_LONG with its real length, so a two hour recording cannot quietly eat the whole run."
+    },
+    "maxFiles": {
+      "title": "Max files",
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "The list is cut here; files beyond the limit get a free NOT_CHECKED_LIMIT row. 0 means no limit."
+    },
+    "maxFileMb": {
+      "title": "Max file size (MB)",
+      "type": "integer",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 500,
+      "description": "Download stops at this many bytes. A larger file is not transcribed and not charged, and the row says how big it was."
+    },
+    "includeSegments": {
+      "title": "Include segments with timestamps",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a segments list to every transcript: start, end and text of each spoken phrase. Turn it off when only the plain text matters and the dataset should stay small."
+    },
+    "includeSubtitles": {
+      "title": "Include SRT and VTT",
+      "type": "boolean",
+      "default": false,
+      "description": "Builds ready to use subtitles from the same segments, as srt and vtt strings in the row."
+    },
+    "vadFilter": {
+      "title": "Skip silence (voice activity detection)",
+      "type": "boolean",
+      "default": true,
+      "description": "Drops long silences and music before the model sees them. On a mostly silent file this is the difference between a transcript and a wall of invented sentences, and it makes the run faster."
+    }
+  },
+  "required": []
+}

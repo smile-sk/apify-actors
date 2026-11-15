@@ -1,0 +1,93 @@
+{
+  "actorSpecification": 1,
+  "title": "Teamtailor roles",
+  "description": "One row per open role, with every office of that role.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "DELIVERED for a real role that was charged. Anything else names why the row is not a role and is free: NOT_CHECKED_BOARD_NOT_FOUND, NOT_CHECKED_BOARD_EMPTY, NOT_CHECKED_NO_MATCH, NOT_CHECKED_CAP, NOT_CHECKED_ERROR, INVALID_INPUT."
+    },
+    "board": {
+      "type": "string",
+      "description": "The board host the row came from, for example oatly.teamtailor.com or jobs.tibber.com."
+    },
+    "jobId": {
+      "type": "string",
+      "description": "Job id from the posting itself. One role is one row, even when it lists several offices."
+    },
+    "title": {
+      "type": "string",
+      "description": "Role title as the employer wrote it."
+    },
+    "company": {
+      "type": "string",
+      "description": "Hiring organisation name from the posting."
+    },
+    "employmentType": {
+      "type": "string",
+      "description": "Employment type as the feed writes it, for example FULL_TIME. Several values are joined with a comma."
+    },
+    "directApply": {
+      "type": "boolean",
+      "description": "True when the posting says it accepts a direct application."
+    },
+    "remote": {
+      "type": "boolean",
+      "description": "True when the posting is marked remote: jobLocationType TELECOMMUTE or applicant location requirements are present."
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the first office."
+    },
+    "state": {
+      "type": "string",
+      "description": "Region of the first office."
+    },
+    "country": {
+      "type": "string",
+      "description": "Country of the first office, as the feed writes it."
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Two letter country code of the first office, when the feed sends one."
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal code of the first office."
+    },
+    "locations": {
+      "type": "array",
+      "description": "Every office of this role, not only the first one. 15 of 109 live roles carried more than one, and each of them stays one row."
+    },
+    "publishedAt": {
+      "type": "string",
+      "description": "Publication date from the posting, ISO form."
+    },
+    "validThrough": {
+      "type": "string",
+      "description": "The date the posting says it is valid until, null when it says nothing. 9 of 109 live roles carried one."
+    },
+    "url": {
+      "type": "string",
+      "description": "Public page of the role."
+    },
+    "description": {
+      "type": "string",
+      "description": "Full description, html or text per descriptionFormat. Null when includeDetails is off."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why the row is not a role, for status rows."
+    },
+    "delivered": {
+      "type": "boolean",
+      "description": "True only for a row written and charged in one call."
+    },
+    "billable": {
+      "type": "boolean",
+      "description": "True when the price list carries our event for this run, false when billing is off, null when the price could not be read."
+    }
+  }
+}

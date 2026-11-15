@@ -1,0 +1,164 @@
+{
+ "id": "744000160228509",
+ "name": "Superviseur·e Texture & LookDev - Hybride VFX",
+ "uuid": "7116c375-b57b-415c-abc9-543e8f68be96",
+ "jobId": "a4b4aba6-12d8-4bec-b600-e3f23be04753",
+ "jobAdId": "a7ae7c36-1044-4c8b-8444-d541e4f81609",
+ "defaultJobAd": true,
+ "refNumber": "REF32310N",
+ "company": {
+  "name": "Ubisoft",
+  "identifier": "Ubisoft2"
+ },
+ "location": {
+  "city": "Montreal",
+  "region": "QC",
+  "country": "ca",
+  "remote": false,
+  "hybrid": false,
+  "latitude": "45.5018869",
+  "longitude": "-73.56739189999999",
+  "fullLocation": "Montreal, QC, Canada"
+ },
+ "customField": [
+  {
+   "fieldId": "56c253c2e4b0cabf01d19d37",
+   "fieldLabel": "Organizational Unit",
+   "valueId": "31119fb6-549f-4bcd-9174-4c662c712736",
+   "valueLabel": "Hybride studio"
+  },
+  {
+   "fieldId": "56c2539de4b0cabf01d19d36",
+   "fieldLabel": "Recruitment Programs",
+   "valueId": "cb9660da-dde8-48ec-ba09-d33d9bb77edc",
+   "valueLabel": "N/A"
+  },
+  {
+   "fieldId": "5bb3995c6d8bc56bc081b87d",
+   "fieldLabel": "Contract",
+   "valueId": "b5a86fc0-2681-4b3c-98b6-b73a4be23ef1",
+   "valueLabel": "Permanent"
+  },
+  {
+   "fieldId": "6ada082b6ae170d3b7d5b0cc",
+   "fieldLabel": "MU/zone work location",
+   "valueId": "3af4aecb-6242-4c3a-b822-5582a2c95d50",
+   "valueLabel": "Any Canadian Ubisoft Location"
+  },
+  {
+   "fieldId": "68e4ce369c52964c7125078a",
+   "fieldLabel": "Job Family",
+   "valueId": "f0fbddbb-5538-41ec-a9ea-849548505b2d",
+   "valueLabel": "Art"
+  },
+  {
+   "fieldId": "56d1aa7ae4b0a07f777a4ef4",
+   "fieldLabel": "Brands",
+   "valueId": "default",
+   "valueLabel": "Ubisoft"
+  },
+  {
+   "fieldId": "6904811aa8fa2db78e2ee2ed",
+   "fieldLabel": "Job  Function",
+   "valueId": "8fddd904-710a-4cec-b785-ac7e313a2844",
+   "valueLabel": "Visual Art"
+  },
+  {
+   "fieldId": "691ca2ee342dfb96e5364508",
+   "fieldLabel": "Reference Job",
+   "valueId": "79ab6917-3160-42c7-8c20-9c7b21f0b654",
+   "valueLabel": "Texture/Vegetation Art Lead"
+  },
+  {
+   "fieldId": "6a158e3c77b1f5657b57af9d",
+   "fieldLabel": "Management Unit L0&1 (New)",
+   "valueId": "cdacf122-d5d7-491c-97cc-2411d15ad29c",
+   "valueLabel": "HYBRIDE STUDIO"
+  },
+  {
+   "fieldId": "58b7e4d0e4b09a6d37a0cd8b",
+   "fieldLabel": "Department",
+   "valueId": "13847731",
+   "valueLabel": "Ubisoft"
+  },
+  {
+   "fieldId": "COUNTRY",
+   "fieldLabel": "Country/Region",
+   "valueId": "ca",
+   "valueLabel": "Canada"
+  },
+  {
+   "fieldId": "6904797c56f594d5ed50988d",
+   "fieldLabel": "Work flexibility",
+   "valueId": "adb94eae-8cd3-4e16-8fe3-83940095adbc",
+   "valueLabel": "Hybrid"
+  },
+  {
+   "fieldId": "5def94650389ad3cc4be9d17",
+   "fieldLabel": "OU sub location (select when applicable)",
+   "valueId": "ac8ae7ad-70a6-491d-b848-4625c10b9609",
+   "valueLabel": "N/A"
+  }
+ ],
+ "releasedDate": "2026-11-06T15:01:26.091Z",
+ "creator": {
+  "name": "",
+  "avatarUrl": ""
+ },
+ "postingUrl": "https://jobs.smartrecruiters.com/Ubisoft2/744000160228509-superviseur-e-texture-lookdev-hybride-vfx",
+ "applyUrl": "https://jobs.smartrecruiters.com/Ubisoft2/744000160228509-superviseur-e-texture-lookdev-hybride-vfx?oga=true",
+ "referralUrl": "https://jobs.smartrecruiters.com/external-referrals/company/Ubisoft2/publication/7116c375-b57b-415c-abc9-543e8f68be96?dcr_ci=Ubisoft2",
+ "jobAd": {
+  "sections": {
+   "companyDescription": {
+    "title": "Description de l'entreprise",
+    "text": "<p>Fondé en 1991, Hybride est le premier studio d'effets visuels numériques au Québec. Depuis plus de 30 ans, l'équipe d'Hybride réinvente l'industrie des effets visuels, un projet à la fois.</p><p>Nous sommes à la recherche d’un·e Superviseur·e Texture &amp; LookDev pour diriger notre équipe de texturing et de look development.&#xa0;Le poste allie leadership et travail pratique. Vous dirigerez des projets, développerez et optimiserez les setups de pipeline et les workflows, et participerez au crewing. Vous assurerez aussi le suivi de la performance et du développement de l’équipe, tout en créant vous-même des textures et des shaders photoréalistes pour des assets complexes.</p>"
+   },
+   "jobDescription": {
+    "title": "Description du poste",
+    "text": "<p><strong>Ce que vous ferez&#xa0;</strong></p><p><em>Leadership du département et de l’équipe</em></p><ul><li>Assigner les tâches, encadrer les artistes et veiller à ce que le département livre des assets organiques et hard-surface de très haut niveau pour des productions VFX haut de gamme.</li><li>Participer à l’embauche, aux décisions de crewing, aux évaluations des talents et à la gestion continue de la performance.</li><li>Faire respecter des standards rigoureux de Quality Control (QC) sur tous les assets publiés avant leur livraison aux départements en aval.</li></ul><p><em>Exécution créative et Look Development</em></p><ul><li>Créer des textures très détaillées à partir d’art interne ou de références fournies par le client.</li><li>Diriger le look development et le shading dans Arnold for Houdini, en livrant des matériaux physiquement exacts pour des créatures, des personnages et des assets hard-surface qui tiennent la route en contexte de plan.</li><li>Collaborer étroitement avec l’équipe Lighting pour s’assurer que le lookdev des assets reste photoréaliste de façon constante.</li><li>Développer des shading networks procéduraux optimisés et des material setups sur mesure lorsque la production l’exige.</li></ul><p><em>Pipeline, technique et production</em></p><ul><li>Collaborer avec le Head of CG et les Technical Directors (TDs) pour établir les meilleures pratiques du département au sein du pipeline existant du studio.</li><li>Travailler directement avec les équipes de Production, Modeling, FX, CFX et Lighting pour concevoir des workflows adaptés à chaque séquence et maximiser l’efficacité.</li><li>Soutenir la Production dans le bidding des projets, l’estimation du scope des assets et la gestion des échéanciers afin d’atteindre les jalons de livraison clés.</li><li>Explorer de nouveaux outils et de nouvelles méthodologies pour améliorer l’efficacité du département et rehausser la qualité visuelle.</li><li>Standardiser, ingérer et intégrer les packages de texture et de lookdev livrés par des fournisseurs externes.</li><li>Rédiger et maintenir à jour une documentation technique complète et des guides de pipeline.</li></ul>"
+   },
+   "qualifications": {
+    "title": "Qualifications",
+    "text": "<ul><li>5+ ans d’expérience démontrée à diriger ou superviser des artistes dans un studio de production cinéma ou VFX haut de gamme.</li><li>Expérience démontrée en texturing et en shading de créatures CG organiques complexes et de digital humans.</li><li>Connaissance avancée de Mari/Substance Painter et de Photoshop.</li><li>Expertise approfondie en création de shaders, en précision des matériaux et en AOVs.</li></ul><p><em>ATOUTS</em></p><ul><li>Connaissance d’Arnold et de Houdini</li><li>Connaissance de Nuke</li><li>Expérience avec Copernicus, le Machine Learning et les outils d’IA</li><li>Connaissance approfondie des workflows de création de personnages et de créatures</li></ul>"
+   },
+   "additionalInformation": {
+    "title": "Informations complémentaires",
+    "text": "<p>Notre passion pour l'innovation et la créativité de notre équipe sont reconnues dans toute l'industrie et demeurent la pierre angulaire de notre philosophie de travail. Notre équipe est composée de plus de 200 créateurs hyper qualifiés répartis dans deux espaces de création situés à Piedmont, dans les Laurentides et dans le quartier Mile-End de Montréal.</p><p>Notre répertoire recèle des titres prestigieux que 300, Avatar, Hunger Games et Jurassic World, ainsi que dans les 6 derniers épisodes de la franchise Star Wars et la nouvelle série télévisée haut de gamme Disney+, The Mandalorian, The Book de Boba Fett, Obi Wan Kenobi et Andor.</p><p>Nous sommes d’abord et avant tout de bons êtres humains, qui valorisent les bonnes valeurs humaines, le bien-être et la solidarité.</p><p><strong>Chez Hybride, vous êtes les bienvenu·es tel·les que vous êtes. Nous accueillons la diversité sous toutes ses formes. Nous nous engageons à favoriser un environnement de travail inclusif et respectueux de toutes les différences.</strong></p>"
+   },
+   "videos": {
+    "title": "Videos To Watch",
+    "urls": [
+     "https://www.youtube.com/watch?v=jNBn-wkyzD0"
+    ]
+   }
+  }
+ },
+ "active": true,
+ "visibility": "PUBLIC",
+ "industry": {
+  "id": "entertainment",
+  "label": "Entertainment"
+ },
+ "function": {
+  "id": "art_creative",
+  "label": "Art/Creative"
+ },
+ "department": {
+  "id": 13847731,
+  "label": "Ubisoft"
+ },
+ "experienceLevel": {
+  "id": "mid_senior_level",
+  "label": "Mid-Senior Level"
+ },
+ "typeOfEmployment": {
+  "id": "permanent",
+  "label": "Full-time"
+ },
+ "language": {
+  "code": "fr-CA",
+  "label": "French (Canada)",
+  "labelNative": "français (Canada)"
+ }
+}

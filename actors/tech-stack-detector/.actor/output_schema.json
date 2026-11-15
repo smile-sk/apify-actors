@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Tech stack detector results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Scanned sites",
+      "description": "One row per site. status is OK when the row carries a detection somebody paid for, FILTERED_OUT when the site passed the scan but your own onlyIf or excludeIf removed it (free), NO_TECHNOLOGY_FOUND when the page was read and no signature matched (also free), or NOT_CHECKED_* with the reason in plain words: INVALID (the line is not an http url), DUPLICATE (the same site came earlier), LIMIT (beyond maxSites), PRIVATE_ADDRESS (a host name really answered with a non public address, whether the site itself or a redirect hop, and that hop was never requested), DNS_ERROR (the host name does not resolve or is not a valid host name), TIMEOUT (no answer in timeoutSecs), HTTP_ERROR (4xx or 5xx), NOT_HTML (the answer is a file, not a page), TOO_LARGE (a page over 3 MB), FETCH_ERROR (the page could not be read or redirected more than 3 times), BLOCKED_PAGE (the site answered a challenge page instead of itself, named or not, so its stack is not the stack of the site), NO_CONTENT (the edge answered 202, 203 or 204: accepted, but no page inside), EMPTY_PAGE (the answer carried no readable text at all), and TIME, CAP, BILLING and ERROR when the run stopped before this site for the reason named in the summary. The answer itself: technologies lists every match as name, categories, confidence, evidence and version, where evidence names the mark that matched (a header, a cookie, a script url, a meta tag or a snippet of the markup) and version is filled only where the vendor prints it. technologyNames is the same list flattened for filters and spreadsheets, categories is the sorted set of their categories, detected counts them, versionsFound maps a name to the version when one was read. server and poweredBy repeat the raw headers, because those two say a lot on their own. finalUrl and redirects say where the request ended up. billable is a claim about the price list; the money actually taken is chargedEvents in the summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. requested is how many lines were sent, blank lines included; processed plus filteredOut plus noTechnologyFound plus notChecked always equals requested. delivered counts OK rows, rowsWritten counts every row in the dataset, and chargedEvents is the money really taken, which stays 0 when billing is off for any reason. blockedPages, noContentPages and emptyPages count the answers that were not sites at all, byStatus splits the rows by the status above, byCategory and topTechnologies count what the whole list is built with, and noTechnologyFound counts the pages that were read with nothing recognised. sitesAttempted is how many sites this run really worked on, with the list cut by maxSites left out. onlyIf and excludeIf echo the filters that were applied, billableOnlyWhenMatched says whether a filter was in force, maxSites and cutByMaxSites say how the list was cut, and deadlineCapped says the platform deadline, not the list, ended the run. siteMarginSecs is the worst case the run reserved for one site. datasetItemCountApi is the platform counter, which lags by minutes, so a smaller number there is a lag and not a lost row, and datasetItemCountNote says so when it happens. priceEvent names the charged event, runId and finishedAt close the record.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

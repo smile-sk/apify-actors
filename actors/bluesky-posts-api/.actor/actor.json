@@ -1,0 +1,19 @@
+{
+    "actorSpecification": 1,
+    "name": "bluesky-posts-api",
+    "title": "Bluesky Posts API: profile posts with likes, reposts, replies",
+    "description": "Bluesky actors bill you for a feed you cannot verify: search needs a login and counts come back missing. This one reads any public profile's posts without a key, no login and no browser, and you pay only for a post that lands with its likes, reposts, replies, quotes, languages and dates.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "defaultMemoryMbytes": 512,
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024,
+    "categories": [
+        "SOCIAL_MEDIA",
+        "DEVELOPER_TOOLS",
+        "AUTOMATION"
+    ],
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "dockerfile": "../Dockerfile"
+}

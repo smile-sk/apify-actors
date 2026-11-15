@@ -1,0 +1,389 @@
+{
+ "totalFound": 298,
+ "content": [
+  {
+   "id": "744000160228509",
+   "name": "Superviseur·e Texture & LookDev - Hybride VFX",
+   "uuid": "7116c375-b57b-415c-abc9-543e8f68be96",
+   "jobAdId": "a7ae7c36-1044-4c8b-8444-d541e4f81609",
+   "defaultJobAd": true,
+   "refNumber": "REF32310N",
+   "company": {
+    "identifier": "Ubisoft2",
+    "name": "Ubisoft"
+   },
+   "releasedDate": "2026-11-06T15:01:26.091Z",
+   "location": {
+    "city": "Montreal",
+    "region": "QC",
+    "country": "ca",
+    "remote": false,
+    "hybrid": false,
+    "latitude": "45.5018869",
+    "longitude": "-73.56739189999999",
+    "fullLocation": "Montreal, QC, Canada"
+   },
+   "industry": {
+    "id": "entertainment",
+    "label": "Entertainment"
+   },
+   "department": {
+    "id": "13847731",
+    "label": "Ubisoft"
+   },
+   "function": {
+    "id": "art_creative",
+    "label": "Art/Creative"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "56c253c2e4b0cabf01d19d37",
+     "fieldLabel": "Organizational Unit",
+     "valueId": "31119fb6-549f-4bcd-9174-4c662c712736",
+     "valueLabel": "Hybride studio"
+    },
+    {
+     "fieldId": "56c2539de4b0cabf01d19d36",
+     "fieldLabel": "Recruitment Programs",
+     "valueId": "cb9660da-dde8-48ec-ba09-d33d9bb77edc",
+     "valueLabel": "N/A"
+    },
+    {
+     "fieldId": "5bb3995c6d8bc56bc081b87d",
+     "fieldLabel": "Contract",
+     "valueId": "b5a86fc0-2681-4b3c-98b6-b73a4be23ef1",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "6ada082b6ae170d3b7d5b0cc",
+     "fieldLabel": "MU/zone work location",
+     "valueId": "3af4aecb-6242-4c3a-b822-5582a2c95d50",
+     "valueLabel": "Any Canadian Ubisoft Location"
+    },
+    {
+     "fieldId": "68e4ce369c52964c7125078a",
+     "fieldLabel": "Job Family",
+     "valueId": "f0fbddbb-5538-41ec-a9ea-849548505b2d",
+     "valueLabel": "Art"
+    },
+    {
+     "fieldId": "56d1aa7ae4b0a07f777a4ef4",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "6904811aa8fa2db78e2ee2ed",
+     "fieldLabel": "Job  Function",
+     "valueId": "8fddd904-710a-4cec-b785-ac7e313a2844",
+     "valueLabel": "Visual Art"
+    },
+    {
+     "fieldId": "691ca2ee342dfb96e5364508",
+     "fieldLabel": "Reference Job",
+     "valueId": "79ab6917-3160-42c7-8c20-9c7b21f0b654",
+     "valueLabel": "Texture/Vegetation Art Lead"
+    },
+    {
+     "fieldId": "6a158e3c77b1f5657b57af9d",
+     "fieldLabel": "Management Unit L0&1 (New)",
+     "valueId": "cdacf122-d5d7-491c-97cc-2411d15ad29c",
+     "valueLabel": "HYBRIDE STUDIO"
+    },
+    {
+     "fieldId": "58b7e4d0e4b09a6d37a0cd8b",
+     "fieldLabel": "Department",
+     "valueId": "13847731",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "ca",
+     "valueLabel": "Canada"
+    },
+    {
+     "fieldId": "6904797c56f594d5ed50988d",
+     "fieldLabel": "Work flexibility",
+     "valueId": "adb94eae-8cd3-4e16-8fe3-83940095adbc",
+     "valueLabel": "Hybrid"
+    },
+    {
+     "fieldId": "5def94650389ad3cc4be9d17",
+     "fieldLabel": "OU sub location (select when applicable)",
+     "valueId": "ac8ae7ad-70a6-491d-b848-4625c10b9609",
+     "valueLabel": "N/A"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings/744000160228509",
+   "language": {
+    "code": "fr-CA",
+    "label": "French (Canada)",
+    "labelNative": "français (Canada)"
+   }
+  },
+  {
+   "id": "744000160226335",
+   "name": "Combat Game Designer (F/M/NB)",
+   "uuid": "faa0fb6c-7c59-49e3-8fe5-574a582a405c",
+   "jobAdId": "ff665d8a-d909-490a-93be-632642963dea",
+   "defaultJobAd": true,
+   "refNumber": "REF32241Z",
+   "company": {
+    "identifier": "Ubisoft2",
+    "name": "Ubisoft"
+   },
+   "releasedDate": "2026-11-06T14:57:16.687Z",
+   "location": {
+    "city": "Bordeaux",
+    "region": "Nouvelle-Aquitaine",
+    "country": "fr",
+    "remote": false,
+    "hybrid": false,
+    "latitude": "44.8416106",
+    "longitude": "-0.5810938000000001",
+    "fullLocation": "Bordeaux, Nouvelle-Aquitaine, France"
+   },
+   "industry": {
+    "id": "computer_games",
+    "label": "Computer Games"
+   },
+   "department": {
+    "id": "13847731",
+    "label": "Ubisoft"
+   },
+   "function": {
+    "id": "art_creative",
+    "label": "Art/Creative"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "56c253c2e4b0cabf01d19d37",
+     "fieldLabel": "Organizational Unit",
+     "valueId": "876e3fe3-b548-46ac-ac24-ece9549f3783",
+     "valueLabel": "Bordeaux studio"
+    },
+    {
+     "fieldId": "5bb3995c6d8bc56bc081b87d",
+     "fieldLabel": "Contract",
+     "valueId": "13fc9592-054a-487d-9188-bae103fb70af",
+     "valueLabel": "Fixed Term"
+    },
+    {
+     "fieldId": "6ada082b6ae170d3b7d5b0cc",
+     "fieldLabel": "MU/zone work location",
+     "valueId": "08889926-b1db-4491-a364-c178e54f2253",
+     "valueLabel": "Not applicable"
+    },
+    {
+     "fieldId": "68e4ce369c52964c7125078a",
+     "fieldLabel": "Job Family",
+     "valueId": "7e77a2d9-aaf8-4ca7-b0bd-8c1ce4a9de00",
+     "valueLabel": "Design"
+    },
+    {
+     "fieldId": "56d1aa7ae4b0a07f777a4ef4",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "6904811aa8fa2db78e2ee2ed",
+     "fieldLabel": "Job  Function",
+     "valueId": "7b385e60-bede-4913-979f-be44ad56e0a9",
+     "valueLabel": "Game Design"
+    },
+    {
+     "fieldId": "691ca2ee342dfb96e5364508",
+     "fieldLabel": "Reference Job",
+     "valueId": "d38a456d-6461-4ad5-912e-e216dea69029",
+     "valueLabel": "Game Designer"
+    },
+    {
+     "fieldId": "6a158e3c77b1f5657b57af9d",
+     "fieldLabel": "Management Unit L0&1 (New)",
+     "valueId": "36d02bfd-569a-4aef-9905-8679f578380c",
+     "valueLabel": "CREATIVE NETWORK & PORTFOLIO DEVELOPMENT"
+    },
+    {
+     "fieldId": "58b7e4d0e4b09a6d37a0cd8b",
+     "fieldLabel": "Department",
+     "valueId": "13847731",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "fr",
+     "valueLabel": "France"
+    },
+    {
+     "fieldId": "5937f94ee4b0e8ba74f2a99c",
+     "fieldLabel": "Management Unit L2 (New)",
+     "valueId": "ce90b297-d1c4-4304-ad75-9741b1542647",
+     "valueLabel": "CREATIVE NETWORK"
+    },
+    {
+     "fieldId": "6904797c56f594d5ed50988d",
+     "fieldLabel": "Work flexibility",
+     "valueId": "ccb10278-8410-4710-b0e7-698fc2195139",
+     "valueLabel": "Office-based"
+    },
+    {
+     "fieldId": "5def94650389ad3cc4be9d17",
+     "fieldLabel": "OU sub location (select when applicable)",
+     "valueId": "ac8ae7ad-70a6-491d-b848-4625c10b9609",
+     "valueLabel": "N/A"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings/744000160226335",
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "744000160218459",
+   "name": "Programmeur.euse IU",
+   "uuid": "5cef1a53-a032-4e90-8e87-f8c57b71ed86",
+   "jobAdId": "0ac6d342-5370-4417-a8cf-6f48b906e6ad",
+   "defaultJobAd": true,
+   "refNumber": "REF32290D",
+   "company": {
+    "identifier": "Ubisoft2",
+    "name": "Ubisoft"
+   },
+   "releasedDate": "2026-11-06T14:30:04.768Z",
+   "location": {
+    "city": "Saguenay",
+    "region": "QC",
+    "country": "ca",
+    "remote": false,
+    "hybrid": false,
+    "latitude": "48.4276054",
+    "longitude": "-71.0600102",
+    "fullLocation": "Saguenay, QC, Canada"
+   },
+   "industry": {
+    "id": "computer_games",
+    "label": "Computer Games"
+   },
+   "department": {
+    "id": "13847731",
+    "label": "Ubisoft"
+   },
+   "function": {
+    "id": "information_technology",
+    "label": "Information Technology"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "customField": [
+    {
+     "fieldId": "56c253c2e4b0cabf01d19d37",
+     "fieldLabel": "Organizational Unit",
+     "valueId": "726d3e99-0681-4be9-986f-6525651b476d",
+     "valueLabel": "Saguenay Studio"
+    },
+    {
+     "fieldId": "5bb3995c6d8bc56bc081b87d",
+     "fieldLabel": "Contract",
+     "valueId": "b5a86fc0-2681-4b3c-98b6-b73a4be23ef1",
+     "valueLabel": "Permanent"
+    },
+    {
+     "fieldId": "6ada082b6ae170d3b7d5b0cc",
+     "fieldLabel": "MU/zone work location",
+     "valueId": "08889926-b1db-4491-a364-c178e54f2253",
+     "valueLabel": "Not applicable"
+    },
+    {
+     "fieldId": "68e4ce369c52964c7125078a",
+     "fieldLabel": "Job Family",
+     "valueId": "43fccb43-cd89-4548-ab8b-24ab8e79edec",
+     "valueLabel": "Software Development"
+    },
+    {
+     "fieldId": "56d1aa7ae4b0a07f777a4ef4",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "6904811aa8fa2db78e2ee2ed",
+     "fieldLabel": "Job  Function",
+     "valueId": "2c16614f-3ea8-4915-ac56-ab6a4e515835",
+     "valueLabel": "Software Development Game"
+    },
+    {
+     "fieldId": "691ca2ee342dfb96e5364508",
+     "fieldLabel": "Reference Job",
+     "valueId": "6c6caecc-ad04-415c-aaf1-9769566cf945",
+     "valueLabel": "Software Developer Game UI"
+    },
+    {
+     "fieldId": "6a158e3c77b1f5657b57af9d",
+     "fieldLabel": "Management Unit L0&1 (New)",
+     "valueId": "e1df3931-286e-4c89-9b05-0d21a80c28de",
+     "valueLabel": "VANTAGE STUDIOS"
+    },
+    {
+     "fieldId": "58b7e4d0e4b09a6d37a0cd8b",
+     "fieldLabel": "Department",
+     "valueId": "13847731",
+     "valueLabel": "Ubisoft"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "ca",
+     "valueLabel": "Canada"
+    },
+    {
+     "fieldId": "6904797c56f594d5ed50988d",
+     "fieldLabel": "Work flexibility",
+     "valueId": "ccb10278-8410-4710-b0e7-698fc2195139",
+     "valueLabel": "Office-based"
+    },
+    {
+     "fieldId": "5def94650389ad3cc4be9d17",
+     "fieldLabel": "OU sub location (select when applicable)",
+     "valueId": "8282aec3-a755-4c6d-b27f-88e4344879af",
+     "valueLabel": "Canada"
+    }
+   ],
+   "visibility": "PUBLIC",
+   "ref": "https://api.smartrecruiters.com/v1/companies/Ubisoft2/postings/744000160218459",
+   "language": {
+    "code": "fr-CA",
+    "label": "French (Canada)",
+    "labelNative": "français (Canada)"
+   }
+  }
+ ]
+}

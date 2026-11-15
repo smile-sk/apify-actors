@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "pdf-text-extractor",
+  "title": "PDF Text Extractor API - Text, Tables & Page Ranges",
+  "description": "A 200-page report, one broken link and a scan with no text layer: one of them kills the whole run, or you pay for an empty page. Here every link comes back as a row with text and tables per page, page ranges like 1-3,7, and a plain reason when it could not be read. Unreadable files are free.",
+  "version": "0.9",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

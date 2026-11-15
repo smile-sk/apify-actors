@@ -1,0 +1,104 @@
+{
+  "title": "Workday Jobs API: input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "companies": {
+      "title": "Workday career sites",
+      "type": "array",
+      "description": "One line per employer: the full Workday career site URL, e.g. https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite. A host without the site segment is reported back with a hint, never filled with a guessed default.",
+      "editor": "stringList",
+      "prefill": [
+        "https://unilever.wd3.myworkdayjobs.com/Unilever_Experienced_Professionals"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "title": "Filter by words in the job",
+      "type": "string",
+      "description": "Comma separated. Every word must appear in the job title or its location, e.g. engineer, data, london. Empty = every open job. Jobs the filter drops are never charged.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "countries": {
+      "title": "Filter by country",
+      "type": "array",
+      "description": "Countries you want, e.g. US, Germany, Brazil. Read from the location in every shape Workday writes it: 'US, CA, Santa Clara', 'Plano, TX', 'Toronto, ON', 'Sao Paulo, Brazil', 'United Kingdom - London'. A trailing two-letter segment is a US state or Canadian province, never a country: 'CA' in 'San Francisco, CA' is California, so a 'Canada' filter returns Canadian jobs only. A row that names no country at all ('5 Locations', a bare city) is resolved from its own detail record before the filter decides, and is dropped only if that says nothing. Empty = every country.",
+      "editor": "stringList",
+      "prefill": [],
+      "items": {
+        "type": "string"
+      }
+    },
+    "location": {
+      "title": "Filter by location",
+      "type": "string",
+      "description": "Case-insensitive substring of the job location, e.g. Berlin, Remote, United States. Empty = all locations.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "onlyRemote": {
+      "title": "Only remote jobs",
+      "type": "boolean",
+      "description": "true = keep only jobs whose location says remote / work from home / anywhere.",
+      "default": false
+    },
+    "maxJobsPerCompany": {
+      "title": "Max jobs per employer",
+      "type": "integer",
+      "description": "Workday returns 20 postings per request, so 200 jobs is 10 requests. Your keywords also go to Workday's own search, so a match deep in a big board is still found. A board bigger than this is flagged `truncated` in BOARD_REPORT with the real total - never silently cut.",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "includeDescription": {
+      "title": "Include full job description",
+      "type": "boolean",
+      "description": "Each description costs one extra request (~0.7 s measured), so it is opt-in and capped by the next field.",
+      "default": false
+    },
+    "maxDescriptionsPerCompany": {
+      "title": "Description cap per employer",
+      "type": "integer",
+      "description": "How many of the delivered jobs get a full description. The rest still arrive with title, location and apply URL.",
+      "default": 40,
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "maxCompanies": {
+      "title": "Max employers per run",
+      "type": "integer",
+      "description": "Boards are read in parallel; a cap keeps one run inside a sane time budget. The default reads every URL you pass (up to 200); anything dropped above the cap is counted in SUMMARY.boardsSkippedByMaxCompanies and written to the log - never silently.",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 200
+    },
+    "includeEmptyCompanies": {
+      "title": "Report boards that gave nothing",
+      "type": "boolean",
+      "description": "true = push a NO_JOBS or an error row for every board that delivered nothing, so a zero is visible in the dataset instead of an empty table. Such rows are free.",
+      "default": false
+    },
+    "cacheMinutes": {
+      "title": "Cache window (minutes)",
+      "type": "integer",
+      "description": "A repeated run inside this window reuses the answer instead of hitting the same board again. 0 turns the cache off.",
+      "default": 60,
+      "minimum": 0,
+      "maximum": 10080
+    },
+    "maxCountryProbes": {
+      "title": "Country lookups for vague locations",
+      "type": "integer",
+      "description": "A row whose location reads two ways ('Bangalore, In' = Indiana or India, 'San Francisco, CA' = California or Canada) or names no country at all ('5 Locations', 'Berlin') costs one extra request to read its country from the job's own detail record. This is the budget for the WHOLE run, across all boards. Rows still unproven when it is spent are counted in SUMMARY.rowsWithoutCountry, not delivered and not charged - a guess is never billed. A row that already names a different city than your location filter is not probed and not called lost: your own filter would have dropped it anyway.",
+      "default": 400,
+      "minimum": 0,
+      "maximum": 5000
+    }
+  },
+  "required": [
+    "companies"
+  ]
+}

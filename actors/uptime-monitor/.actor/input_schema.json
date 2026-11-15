@@ -1,0 +1,70 @@
+{
+  "title": "Uptime Monitor API input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "URLs to check",
+      "type": "array",
+      "description": "Public HTTP(S) URLs or bare domains. Bare domains use HTTPS. Duplicate normalized URLs are checked once. Query strings are kept: two URLs that differ only by query are checked separately.",
+      "editor": "stringList",
+      "prefill": [
+        "https://example.com",
+        "https://apify.com"
+      ]
+    },
+    "expectedStatusCodes": {
+      "title": "Expected HTTP status codes",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "Health rule: the response is healthy only when its final status code is in this list. Leave empty for the default HTTP 200-399 rule.",
+      "editor": "json"
+    },
+    "maxResponseTimeMs": {
+      "title": "Maximum healthy response time (ms)",
+      "type": "integer",
+      "description": "Health rule: a response slower than this is marked slow_response. Leave empty to disable.",
+      "minimum": 1
+    },
+    "timeoutSec": {
+      "title": "Probe timeout (seconds)",
+      "type": "integer",
+      "description": "Timeout per probe attempt.",
+      "default": 15,
+      "minimum": 3,
+      "maximum": 60
+    },
+    "maxItems": {
+      "title": "Maximum URLs to check",
+      "type": "integer",
+      "description": "Input cap: only the first N unique URLs are checked. The coverage summary reports the rest.",
+      "default": 200,
+      "minimum": 1
+    },
+    "concurrency": {
+      "title": "Concurrent checks",
+      "type": "integer",
+      "description": "How many URLs are probed in parallel.",
+      "default": 8,
+      "minimum": 1,
+      "maximum": 32
+    },
+    "cacheMinutes": {
+      "title": "Cache window (minutes)",
+      "type": "integer",
+      "description": "A fresh observation from another run within this window is reused for free and marked fromCache. The cache key includes the health rules. Zero disables the cache.",
+      "default": 5,
+      "minimum": 0
+    },
+    "timeBudgetSeconds": {
+      "title": "Time budget (seconds)",
+      "type": "integer",
+      "description": "Upper bound on the checking phase. When it is exhausted, the coverage summary reports omitted_by_time_budget. Leave empty for the default.",
+      "default": 3300,
+      "minimum": 60
+    }
+  },
+  "required": ["urls"]
+}

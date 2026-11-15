@@ -1,0 +1,62 @@
+{
+ "@context": "https://schema.org",
+ "@type": "ProductGroup",
+ "name": "Fit Seamless Cropped Leggings",
+ "url": "https://www.gymshark.com/products/gymshark-fit-seamless-cropped-leggings-smokey-grey",
+ "image": [
+  "https://cdn.shopify.com/s/files/1/0156/6146/products/FitCroppedLeggingsSmokeyGreyGLLG42761218.A-Edit_ZH_ZH.jpg?v=1614161349"
+ ],
+ "hasVariant": [
+  {
+   "@type": "Product",
+   "name": "Fit Seamless Cropped Leggings",
+   "sku": "GLLG4276-SMG",
+   "size": "xs",
+   "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": 9,
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/OutOfStock",
+    "seller": {
+     "@type": "Organization",
+     "name": "Gymshark | We Do Gym"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Fit Seamless Cropped Leggings",
+   "sku": "GLLG4276-SMG",
+   "size": "s",
+   "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": 9,
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+     "@type": "Organization",
+     "name": "Gymshark | We Do Gym"
+    }
+   }
+  },
+  {
+   "@type": "Product",
+   "name": "Fit Seamless Cropped Leggings",
+   "sku": "GLLG4276-SMG",
+   "size": "m",
+   "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": 9,
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/OutOfStock",
+    "seller": {
+     "@type": "Organization",
+     "name": "Gymshark | We Do Gym"
+    }
+   }
+  }
+ ]
+}

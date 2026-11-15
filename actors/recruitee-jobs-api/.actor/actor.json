@@ -1,0 +1,20 @@
+{
+  "actorSpecification": 1,
+  "name": "recruitee-jobs-api",
+  "title": "Recruitee Jobs API - All Offers, Every Office, Descriptions",
+  "description": "A Recruitee board arrives as one 1.9 MB answer that ignores page and limit, so partial scrapers lose rows. Here one offer stays one row even with several offices, salary arrives as real numbers, and you pay 1.50 per 1,000 offers.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

@@ -1,0 +1,7 @@
+tests/
+storage/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.bak
+*.bak_*

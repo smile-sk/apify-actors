@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "app-details-api",
+  "title": "App Details API - iOS App Store and Google Play",
+  "description": "You should not pay twice for one app detail: most app scrapers cover only one store. This one reads the iOS App Store and Google Play in a single run, charges only for an app that landed, and names every id it could not find.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 512
+}

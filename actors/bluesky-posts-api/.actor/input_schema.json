@@ -1,0 +1,40 @@
+{
+    "title": "Bluesky posts input",
+    "description": "Profiles to read and how many posts to take from each.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "actors": {
+            "title": "Profiles",
+            "type": "array",
+            "description": "Bluesky handles (bsky.app), dids or profile urls. Example: https://bsky.app/profile/bsky.app",
+            "editor": "stringList",
+            "prefill": ["bsky.app", "jay.bsky.team"],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "maxPostsPerActor": {
+            "title": "Max posts per profile",
+            "type": "integer",
+            "description": "How many posts to take from each profile, newest first. Pagination is 50 posts per request, so the ceiling is 500.",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 500
+        },
+        "includeReposts": {
+            "title": "Include reposts",
+            "type": "boolean",
+            "description": "Off by default: a repost is somebody else's post shown on this profile. The feed kind is reported in the feedKind field either way.",
+            "default": false
+        },
+        "includeReplies": {
+            "title": "Include replies",
+            "type": "boolean",
+            "description": "Off by default: replies are posts the profile wrote to somebody else. The field isReply says it either way.",
+            "default": false
+        }
+    },
+    "required": ["actors"]
+}

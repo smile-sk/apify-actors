@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Text to speech output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Clips",
+      "description": "One row per line: the text, the voice, the length and the store key of the audio.",
+      "template": "https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&clean=true&fields=text,status,reason,voice,format,seconds,audioKey,billable"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters of the run, stored as RUN_SUMMARY-<runId> in the named store text-to-speech-api-summary.",
+      "template": "https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/RUN_SUMMARY-{RUN_ID}"
+    }
+  }
+}

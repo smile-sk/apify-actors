@@ -1,0 +1,18 @@
+{
+ "actorOutputSchemaVersion": 1,
+ "title": "WHOIS and DNS results",
+ "properties": {
+  "dataset": {
+   "type": "string",
+   "title": "Results",
+   "description": "One row per domain. status is REGISTERED, AVAILABLE (the registry says the name is not registered), or NOT_CHECKED_* with the reason written in plain words: NO_RDAP (this TLD has no registry API), SOURCE (the registry did not answer), INVALID (the line is not a domain), DUPLICATE (the same domain came earlier), LIMIT (beyond maxDomains), TIME (the run was close to the platform deadline), CAP (the spending cap was reached), BILLING (the run could not bill), ERROR (the dataset refused the row after a retry). registered is true, false or null and null never means false. createdAt, expiresAt, updatedAt are the registry dates as written, ageDays and daysUntilExpiry are derived from them and stay null when the registry does not publish that date (the .de registry publishes only a change date). billable is true only on a row with a delivered registry answer; the money actually taken is in the run summary. dns carries nameservers, mx, txt, spf, dmarc and dmarcPolicy, and dnsResolver names the resolver that answered (system, 8.8.8.8 or 1.1.1.1) so an empty record list is never confused with a closed resolver.",
+   "template": "{{links.apiDefaultDatasetUrl}}/items"
+  },
+  "summary": {
+   "type": "string",
+   "title": "Run summary",
+   "description": "Run summary. requested is how many lines were sent, uniqueDomains how many different domains they held, duplicates how many lines repeated a domain, processed plus notChecked always equals requested, delivered counts REGISTERED and AVAILABLE rows, rowsDelivered counts every row written, chargedEvents is what the platform actually charged, billingActive says whether this run could bill at all, stopReason is null, spending-cap, charge-error or dataset-write-error. byStatus is the full breakdown. cutByMaxDomains is the tail the limit cut, maxDomains the limit actually applied. deliveredUncharged counts rows delivered without money: the charge call failed, the platform charged nothing, or the run knew it could not bill. datasetItemCount is our own count of written rows, datasetItemCountApi the same number as the platform reported it, and datasetItemCountLag says the platform number was behind. rdapBootstrapTlds is how many TLDs the IANA bootstrap mapped in this run, deadlineCapped says the platform deadline stopped the list early. The named store keeps one object per run under RUN_SUMMARY-<runId>.",
+   "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+  }
+ }
+}

@@ -1,0 +1,126 @@
+{
+  "title": "Personio jobs input",
+  "description": "Read one or more public Personio boards and get every open position.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "boards": {
+      "title": "Boards",
+      "description": "Personio company names, or full career site URLs. Example: ottonova, stark, https://ottonova.jobs.personio.de/. Duplicates are read once.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "editor": "stringList",
+      "prefill": [
+        "thermondo",
+        "ottonova"
+      ]
+    },
+    "includeDetails": {
+      "title": "Include descriptions",
+      "description": "Put the position description into each row. The feed already carries it, so this only decides whether it lands in your dataset (rows get large).",
+      "type": "boolean",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "descriptionFormat": {
+      "title": "Description format",
+      "description": "html keeps the employer markup as it is; text strips tags, decodes entities and keeps the section headings. Ignored when includeDetails is off.",
+      "type": "string",
+      "default": "html",
+      "enum": [
+        "html",
+        "text"
+      ],
+      "editor": "select"
+    },
+    "language": {
+      "title": "Feed language",
+      "description": "Two letter code the board should answer in, for example de or en. Empty means the employer's default, which is what the career page shows. A board that has no translation falls back to its own language.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "maxJobsPerBoard": {
+      "title": "Max positions per board",
+      "description": "How many matching positions to process per board. 0 means no limit. Positions past the limit are counted, never charged.",
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "editor": "number",
+      "prefill": 5
+    },
+    "keywords": {
+      "title": "Keywords",
+      "description": "Comma separated phrases; a position matches when any phrase occurs in its title, department, occupation, category or the employer's keyword list. Example: engineer, data scientist. Empty means no keyword filter.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "department": {
+      "title": "Department contains",
+      "description": "Case insensitive substring of the department.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "category": {
+      "title": "Recruiting category contains",
+      "description": "Case insensitive substring of the recruiting category the employer picked.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "employmentType": {
+      "title": "Employment type contains",
+      "description": "For example permanent or internship.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "seniority": {
+      "title": "Seniority contains",
+      "description": "For example experienced, entry-level, lead.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "occupationCategory": {
+      "title": "Occupation category contains",
+      "description": "Personio's own occupation category, for example accounting_and_finance.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "city": {
+      "title": "Office contains",
+      "description": "Case insensitive substring of any office of the position, not only the main one.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "remoteOnly": {
+      "title": "Remote only",
+      "description": "Keep positions whose office name or description says remote or homeoffice. The feed carries no remote flag, so this reads the text the employer wrote.",
+      "type": "boolean",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "createdAfter": {
+      "title": "Created after",
+      "description": "Only positions created on or after this date. Format YYYY-MM-DD.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout (seconds)",
+      "description": "How long one board request may take before it is counted as unreadable.",
+      "type": "integer",
+      "default": 60,
+      "minimum": 5,
+      "editor": "number"
+    }
+  }
+}

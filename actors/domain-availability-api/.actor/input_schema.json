@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "type": "object",
+  "title": "Domain list input",
+  "properties": {
+    "domains": {
+      "title": "Domains",
+      "type": "array",
+      "editor": "stringList",
+      "description": "Domains to check, one per line. A full URL or an email is accepted and the domain is taken out of it. One row per domain comes back, with the registry verdict or with the reason it could not be checked.",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "example.com",
+        "this-domain-is-free-2026.com",
+        "https://apify.com/pricing",
+        "not a domain"
+      ]
+    },
+    "maxDomains": {
+      "title": "Max domains",
+      "type": "integer",
+      "editor": "number",
+      "description": "How many domains one run checks. The rest come back as free status rows with the reason maxDomains.",
+      "default": 500,
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "concurrency": {
+      "title": "Concurrent lookups",
+      "type": "integer",
+      "editor": "number",
+      "description": "How many registries are asked at the same time. Higher is faster, but a public RDAP bootstrap service may rate limit a large burst.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 12
+    },
+    "requestTimeoutSecs": {
+      "title": "Timeout per registry, seconds",
+      "type": "integer",
+      "editor": "number",
+      "description": "How long one registry may take before the domain is reported as unverified and not charged.",
+      "default": 10,
+      "minimum": 2,
+      "maximum": 30
+    }
+  },
+  "required": [
+    "domains"
+  ]
+}

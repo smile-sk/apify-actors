@@ -1,0 +1,28 @@
+{
+  "actorSpecification": 1,
+  "name": "arxiv-paper-api",
+  "title": "arXiv Paper API - Metadata by ID, No Key, Free for Missing",
+  "description": "Junk lines and ids arXiv never had vanish quietly: they come back free with the reason instead of a billed row. Send ids or links, get title, authors, abstract, categories, DOI and PDF links.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AI",
+    "EDUCATION"
+  ],
+  "defaultMemoryMbytes": 256,
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {}
+    }
+  }
+}

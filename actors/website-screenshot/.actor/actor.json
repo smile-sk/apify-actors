@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "name": "website-screenshot-visual-diff",
+  "title": "Website Screenshot API: Full-Page PNG & Visual Diff",
+  "description": "Reviewed complaints under screenshot actors: full page asked, above-the-fold returned; a failed shot still charged. Here fullPage is on by default and the charge fires only after the image is saved. Pixel diff against the previous run of the same URL.",
+  "version": "0.3",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 512,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024,
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
+}

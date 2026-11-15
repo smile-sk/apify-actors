@@ -1,0 +1,102 @@
+{
+  "title": "Teamtailor Jobs API input",
+  "description": "Give one or more Teamtailor boards: a company name, a host or a full URL.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "boards": {
+      "title": "Boards",
+      "type": "array",
+      "description": "Teamtailor boards to read, one per item: a company name like oatly, a host like oatly.teamtailor.com, a self-hosted board like jobs.tibber.com, or a full URL. An address with no board gets a free NOT_CHECKED_BOARD_NOT_FOUND row instead of a silent empty run.",
+      "editor": "stringList",
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "tibber",
+        "oatly"
+      ]
+    },
+    "includeDetails": {
+      "title": "Include descriptions",
+      "type": "boolean",
+      "description": "Include the full description of every role. On by default: on a live board that is the whole text of the posting, already inside the same answer, so no extra request is made per role.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "descriptionFormat": {
+      "title": "Description format",
+      "type": "string",
+      "description": "html keeps the employer markup, text strips the tags and keeps the line breaks.",
+      "editor": "select",
+      "enum": [
+        "html",
+        "text"
+      ],
+      "enumTitles": [
+        "Html",
+        "Text"
+      ],
+      "default": "html"
+    },
+    "maxJobsPerBoard": {
+      "title": "Max roles per board",
+      "type": "integer",
+      "description": "How many matching roles to process per board. 0 means no limit. Roles past the limit are counted in the summary and never charged.",
+      "default": 0,
+      "minimum": 0,
+      "editor": "number",
+      "prefill": 5
+    },
+    "keywords": {
+      "title": "Keywords",
+      "type": "string",
+      "description": "Comma separated phrases; a role matches when any phrase occurs in its title or company. Example: engineer, data. Empty means no keyword filter.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "employmentType": {
+      "title": "Employment type contains",
+      "type": "string",
+      "description": "Keep only roles whose employment type contains this text, for example FULL_TIME. The feed writes full time and part time roles in upper case.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "city": {
+      "title": "City contains",
+      "type": "string",
+      "description": "Keep only roles with at least one office in this city. Every office of a multi-location role is checked, not only the first one.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "country": {
+      "title": "Country",
+      "type": "string",
+      "description": "Keep only roles in this country: a two letter code like NL is compared for equality, a longer name like Netherlands is matched against the country name. Both are checked across every office of the role.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "remoteOnly": {
+      "title": "Remote only",
+      "type": "boolean",
+      "description": "Keep only roles the employer marked as remote. The feed says so itself through jobLocationType TELECOMMUTE or applicant location requirements, so this is a fact and not a guess from the word remote in the title.",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "publishedAfter": {
+      "title": "Published after",
+      "type": "string",
+      "description": "Keep only roles published after this date, ISO form like 2026-10-01. Empty means no date filter.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout, seconds",
+      "type": "integer",
+      "description": "How long one board may take before it is reported as unreadable. A large board answers in about a second, so the default is generous.",
+      "default": 60,
+      "minimum": 5,
+      "editor": "number"
+    }
+  }
+}

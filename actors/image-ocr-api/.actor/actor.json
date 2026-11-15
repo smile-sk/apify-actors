@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "image-ocr-api",
+  "title": "Image OCR API - Text and Word Boxes from JPG, PNG, WebP",
+  "description": "The busiest image OCR actors wrap Google Lens, so a captcha leaves you without text. This one carries its own recogniser: text, confidence and word boxes from every picture, and a picture with no text costs nothing.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "AI",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

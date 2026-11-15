@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Phone number validation results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Results",
+      "description": "One row per input line: the line as given, status, the reason for a reject, E.164, international, national and RFC 3966 formats, type, country, SMS capability, time zones, duplicate marker and the price claim for the row (billable). What was actually charged is counted in the run summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counts by status, unique valid numbers, chargedEvents (what was charged) and deliveredUncharged (rows delivered with no money taken), duplicates, stopReason (completed, spending-cap, charge-error, billing-not-active, billing-price-unknown, cancelled), pricingEventPriced and billingActive (null when the price list was unreadable, never a false true), truncation and chargeErrors. Read the run-scoped key RUN_SUMMARY-<runId>: the named store phone-validator-summary is shared by the whole account, so the plain RUN_SUMMARY can be overwritten by a parallel run. A copy is left in the run store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

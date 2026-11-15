@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "seo-audit-api",
+  "title": "SEO Audit API - On-Page Score, Issues and Fixes",
+  "description": "Most SEO checkers fetch raw html, so a javascript page scores as an empty shell and you still pay for the row. This one opens every url in its own Chromium: a 0-100 score, each issue with severity and a fix, and a page it could not read comes back free with a reason.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start",
+    "memoryJustification": "A Chromium renderer is what performs the audit: one browser stays open for the whole run, so 1024 MB is not enough for more than a single tab and the run would die mid page without a summary."
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 8192,
+  "defaultMemoryMbytes": 4096
+}

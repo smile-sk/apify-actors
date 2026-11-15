@@ -1,0 +1,92 @@
+{
+  "title": "PDF OCR input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "pdfUrls": {
+      "title": "PDF urls",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One pdf url per line. Each document is read once: the embedded text layer is used where a page has one, and the scans are recognised with Tesseract. A line that is not an http url, a repeat of an earlier line and a line beyond maxDocuments come back as their own free row with the reason.",
+      "prefill": [
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      ]
+    },
+    "maxDocuments": {
+      "title": "Max documents",
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "description": "The list is cut here and the rest comes back free with status NOT_CHECKED_LIMIT. 0 means the default of 10, and the summary reports the number actually applied."
+    },
+    "maxPagesPerDocument": {
+      "title": "Max pages per document",
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "description": "Pages beyond this are not read and not charged, and the row of the last read page says how many were left. 0 means every page."
+    },
+    "pages": {
+      "title": "Pages to read",
+      "type": "string",
+      "editor": "textfield",
+      "default": "",
+      "description": "A page range like 1-5,9 for every document, or leave it empty to read from the first page. Numbering starts at 1, and a range that does not fit the document is reported in the summary."
+    },
+    "languages": {
+      "title": "OCR languages",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "eng",
+        "eng+rus",
+        "eng+ukr",
+        "eng+rus+ukr",
+        "rus",
+        "ukr"
+      ],
+      "enumTitles": [
+        "English",
+        "English + Russian",
+        "English + Ukrainian",
+        "English + Russian + Ukrainian",
+        "Russian",
+        "Ukrainian"
+      ],
+      "default": "eng",
+      "description": "Language packs that ship inside the image. More languages slow the recognition down, and a page in a language that is not in the list comes back with wrong words rather than with an error."
+    },
+    "ocrMode": {
+      "title": "When to run OCR",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "auto",
+        "always",
+        "never"
+      ],
+      "enumTitles": [
+        "auto: text layer first, OCR only for pages without one",
+        "always: OCR every page, ignore the text layer",
+        "never: text layer only, a page without one is free"
+      ],
+      "default": "auto",
+      "description": "auto is what a mixed document needs: a digital page is read exactly and instantly, and only a scanned page goes through OCR. always is for a scan wrapped in a pdf with a broken text layer. never never pays for OCR time."
+    },
+    "dpi": {
+      "title": "Render DPI for OCR",
+      "type": "integer",
+      "default": 200,
+      "minimum": 120,
+      "maximum": 400,
+      "description": "How large a scanned page is rendered before recognition. 200 reads ordinary 10 to 12 point print; 300 helps with small print and costs roughly twice the time; below 150 small print starts to fail."
+    },
+    "includeWords": {
+      "title": "Include word boxes",
+      "type": "boolean",
+      "default": false,
+      "description": "Adds every recognised word with its box and confidence, which is what a form parser or a redaction tool needs. It makes each row several times larger, so it is off by default."
+    }
+  },
+  "required": []
+}

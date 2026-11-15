@@ -1,0 +1,130 @@
+{
+ "metadata": {
+  "channelMetadataRenderer": {
+   "title": "MrBeast",
+   "externalId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+   "channelUrl": "https://www.youtube.com/channel/UCX6OQ3DkcsbYNE6H8uQQuVA"
+  }
+ },
+ "header": {
+  "subscriberCountText": {
+   "accessibility": {
+    "accessibilityData": {
+     "label": "30.7 million subscribers"
+    }
+   },
+   "simpleText": "30.7M subscribers"
+  }
+ },
+ "contents": {
+  "twoColumnBrowseResultsRenderer": {
+   "tabs": [
+    {
+     "tabRenderer": {
+      "title": "Home",
+      "endpoint": {
+       "clickTrackingParams": "CCoQ8JMBGAYiEwiXjIaU1IKYAxXBhPQHHbBXEuzKAQTN-InT",
+       "commandMetadata": {
+        "webCommandMetadata": {
+         "url": "/@MrBeast/featured",
+         "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+         "rootVe": 3611,
+         "apiUrl": "/youtubei/v1/browse"
+        }
+       },
+       "browseEndpoint": {
+        "browseId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+        "params": "EghmZWF0dXJlZPIGBAoCMgA%3D",
+        "canonicalBaseUrl": "/@MrBeast"
+       }
+      }
+     }
+    },
+    {
+     "tabRenderer": {
+      "title": "Videos",
+      "endpoint": {
+       "clickTrackingParams": "CCkQ8JMBGAciEwiXjIaU1IKYAxXBhPQHHbBXEuzKAQTN-InT",
+       "commandMetadata": {
+        "webCommandMetadata": {
+         "url": "/@MrBeast/videos",
+         "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+         "rootVe": 3611,
+         "apiUrl": "/youtubei/v1/browse"
+        }
+       },
+       "browseEndpoint": {
+        "browseId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+        "params": "EgZ2aWRlb3PyBgQKAjoA",
+        "canonicalBaseUrl": "/@MrBeast"
+       }
+      }
+     }
+    },
+    {
+     "tabRenderer": {
+      "title": "Shorts",
+      "endpoint": {
+       "clickTrackingParams": "CCgQ8JMBGAgiEwiXjIaU1IKYAxXBhPQHHbBXEuzKAQTN-InT",
+       "commandMetadata": {
+        "webCommandMetadata": {
+         "url": "/@MrBeast/shorts",
+         "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+         "rootVe": 3611,
+         "apiUrl": "/youtubei/v1/browse"
+        }
+       },
+       "browseEndpoint": {
+        "browseId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+        "params": "EgZzaG9ydHPyBgUKA5oBAA%3D%3D",
+        "canonicalBaseUrl": "/@MrBeast"
+       }
+      }
+     }
+    },
+    {
+     "tabRenderer": {
+      "title": "Shows",
+      "endpoint": {
+       "clickTrackingParams": "CCcQ8JMBGAkiEwiXjIaU1IKYAxXBhPQHHbBXEuzKAQTN-InT",
+       "commandMetadata": {
+        "webCommandMetadata": {
+         "url": "/@MrBeast/shows",
+         "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+         "rootVe": 3611,
+         "apiUrl": "/youtubei/v1/browse"
+        }
+       },
+       "browseEndpoint": {
+        "browseId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+        "params": "EgVzaG93c_IGBAoCYgA%3D",
+        "canonicalBaseUrl": "/@MrBeast"
+       }
+      }
+     }
+    },
+    {
+     "tabRenderer": {
+      "title": "Posts",
+      "endpoint": {
+       "clickTrackingParams": "CCYQ8JMBGAoiEwiXjIaU1IKYAxXBhPQHHbBXEuzKAQTN-InT",
+       "commandMetadata": {
+        "webCommandMetadata": {
+         "url": "/@MrBeast/posts",
+         "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+         "rootVe": 3611,
+         "apiUrl": "/youtubei/v1/browse"
+        }
+       },
+       "browseEndpoint": {
+        "browseId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+        "params": "EgVwb3N0c_IGBAoCSgA%3D",
+        "canonicalBaseUrl": "/@MrBeast"
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

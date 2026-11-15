@@ -1,0 +1,126 @@
+{
+  "title": "Workable jobs input",
+  "description": "Read one or more public Workable boards and get every open posting.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "boards": {
+      "title": "Boards",
+      "description": "Workable board identifiers (the part before workable.com), or full board URLs. Example: celsius, prx, https://apply.workable.com/fuku/. Duplicates are read once.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "editor": "stringList",
+      "prefill": [
+        "celsius",
+        "fuku"
+      ]
+    },
+    "includeDetails": {
+      "title": "Include descriptions",
+      "description": "Put the posting description into each row. The board call already carries it, so this only decides whether it lands in your dataset (rows get large).",
+      "type": "boolean",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "descriptionFormat": {
+      "title": "Description format",
+      "description": "html keeps the employer markup as it is; text strips tags, decodes entities and collapses whitespace. Ignored when includeDetails is off.",
+      "type": "string",
+      "default": "html",
+      "enum": [
+        "html",
+        "text"
+      ],
+      "editor": "select"
+    },
+    "maxJobsPerBoard": {
+      "title": "Max postings per board",
+      "description": "How many matching postings to process per board. 0 means no limit. Postings past the limit are counted, never charged.",
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "editor": "number",
+      "prefill": 5
+    },
+    "sortBy": {
+      "title": "Sort postings by",
+      "description": "Which date decides the order before maxJobsPerBoard is applied.",
+      "type": "string",
+      "default": "published",
+      "enum": [
+        "published",
+        "created"
+      ],
+      "editor": "select"
+    },
+    "keywords": {
+      "title": "Keywords",
+      "description": "Comma separated phrases; a posting matches when any phrase occurs in its title, department or function. Example: engineer, data scientist. Empty means no keyword filter.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "department": {
+      "title": "Department contains",
+      "description": "Case insensitive substring of the department.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "function": {
+      "title": "Function contains",
+      "description": "Case insensitive substring of the function.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "industry": {
+      "title": "Industry contains",
+      "description": "Case insensitive substring of the industry.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "employmentType": {
+      "title": "Employment type contains",
+      "description": "Case insensitive substring, for example Full-time or Contract.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "country": {
+      "title": "Country",
+      "description": "Country name or ISO code; a posting matches when any of its locations is in that country. Example: DE or Germany.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "remoteOnly": {
+      "title": "Remote only",
+      "description": "Keep postings the board itself flags as remote.",
+      "type": "boolean",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "publishedAfter": {
+      "title": "Published after",
+      "description": "YYYY-MM-DD; keeps postings published on or after that day.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout (seconds)",
+      "description": "Timeout for one board call. A very large board can take a while.",
+      "type": "integer",
+      "default": 60,
+      "minimum": 5,
+      "editor": "number"
+    }
+  },
+  "required": [
+    "boards"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Open Graph & Meta Tags API",
+  "description": "Read any list of pages and get the metadata a link preview needs: title, description, Open Graph and Twitter tags with absolute URLs, canonical, language, charset, icons, JSON-LD types and a preview verdict.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Pages to read",
+      "type": "array",
+      "description": "One row per page. A page that answers 403 or 404, a domain that does not resolve, a non-HTML body and a page with no metadata at all cost nothing. The same page sent twice is delivered free.",
+      "editor": "stringList",
+      "prefill": [
+        "https://apify.com/",
+        "https://github.com/apify"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxUrls": {
+      "title": "Pages per run",
+      "type": "integer",
+      "description": "How many pages to read. 0 or less means no limit. Pages beyond the limit come back as rows with the status NOT_CHECKED_LIMIT naming the limit, so nothing disappears silently.",
+      "default": 100,
+      "minimum": 0
+    },
+    "timeoutSecs": {
+      "title": "Timeout per page, seconds",
+      "type": "number",
+      "description": "How long one page may take before it is reported as UNREACHABLE with the reason timeout. A timeout costs nothing.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 120
+    },
+    "maxRedirects": {
+      "title": "Redirects to follow",
+      "type": "integer",
+      "description": "Redirects are followed by hand so every hop is checked against private addresses. 0 means do not follow at all: the answer comes back as a REDIRECT row with its own status code and costs nothing.",
+      "default": 5,
+      "minimum": 0,
+      "maximum": 20
+    },
+    "includeJsonLd": {
+      "title": "Include JSON-LD types",
+      "type": "boolean",
+      "description": "Count the application/ld+json blocks and list their @type values, including @graph children. Turn it off to keep rows smaller; a page whose only metadata was JSON-LD then comes back NO_METADATA and costs nothing.",
+      "default": true
+    },
+    "userAgent": {
+      "title": "User-Agent",
+      "type": "string",
+      "description": "Send your own User-Agent when a site answers differently to a browser one. Empty means the actor's default browser string.",
+      "editor": "textfield",
+      "default": ""
+    }
+  },
+  "required": []
+}

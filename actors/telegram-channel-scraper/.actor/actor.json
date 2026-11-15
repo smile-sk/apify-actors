@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "telegram-channel-scraper",
+  "title": "Telegram Channel Scraper - Posts, Views, Reactions",
+  "description": "Most Telegram scrapers return an empty dataset and call it a day: a group, a dead username and a channel with the preview switched off all look the same. Here every channel gets a free row that says what happened, and only delivered posts are charged.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "SOCIAL_MEDIA",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 256
+}

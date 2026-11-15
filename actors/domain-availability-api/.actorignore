@@ -1,0 +1,3 @@
+tests/
+storage/
+__pycache__/

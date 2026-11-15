@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Broken Link Checker API results",
+    "description": "One row per URL: url, statusCode, broken, errorType, error, finalUrl, redirectCount, responseTimeMs, slow, retriesUsed, expectedStatusCodes, source, fromCache, checkedAt, cachedAt. Charged: URLs that were actually checked and delivered. Not charged: invalid URLs, private targets (direct or behind a redirect), cached rows.",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Results",
+            "description": "One row per URL",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

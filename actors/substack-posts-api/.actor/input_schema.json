@@ -1,0 +1,38 @@
+{
+  "title": "Substack publications to read",
+  "description": "Send one or more Substack publications. A bare subdomain is enough.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "publications": {
+      "title": "Publications",
+      "type": "array",
+      "description": "Substack publications: a host such as www.thefp.com or a bare subdomain such as platformer.",
+      "editor": "stringList",
+      "prefill": [
+        "www.thefp.com",
+        "platformer.substack.com"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxPostsPerPublication": {
+      "title": "Max posts per publication",
+      "type": "integer",
+      "description": "How many posts to sell per publication. Default 50, maximum 500.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "includeBodyText": {
+      "title": "Include the free preview text",
+      "type": "boolean",
+      "description": "Add the public preview text the archive returns for every post. Off by default.",
+      "default": false
+    }
+  },
+  "required": [
+    "publications"
+  ]
+}

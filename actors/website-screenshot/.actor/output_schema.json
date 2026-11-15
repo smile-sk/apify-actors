@@ -1,0 +1,25 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Website Screenshot API output",
+  "description": "One record per run: the screenshot, the change ratio versus the previous run, and the diff image when something changed.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Run result",
+      "description": "Change ratio, baseline key and metadata of this run.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "screenshot": {
+      "type": "string",
+      "title": "Screenshot",
+      "description": "The captured image. The key is `screenshot.png`, or `screenshot.jpeg` when the input asks for jpeg; the exact key is also in every dataset row as `screenshotKey`.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/screenshot.png"
+    },
+    "diff": {
+      "type": "string",
+      "title": "Diff image",
+      "description": "Changed pixels highlighted in red. Present only when the page differs from the baseline.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/diff.png"
+    }
+  }
+}

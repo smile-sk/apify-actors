@@ -1,0 +1,44 @@
+{
+ "rdapConformance": [
+  "rdap_level_0",
+  "denic_version_0"
+ ],
+ "notices": [
+  {
+   "title": "Terms and Conditions of Use",
+   "description": [
+    "The above data may only be used within the scope of technical or administrative necessities of Internet operation or to remedy legal problems. The use for other purposes, in particular for advertising, is not permitted. The DENIC RDAP service doesn't disclose any information concerning the domain holder, general request and abuse contact. This information can be obtained through use of our web-based whois service available at the DENIC website: http://www.denic.de/en/domains/whois-service/web-whois.html"
+   ]
+  }
+ ],
+ "ldhName": "google.de",
+ "status": [
+  "active"
+ ],
+ "nameservers": [
+  {
+   "ldhName": "ns1.google.com.",
+   "objectClassName": "nameserver"
+  },
+  {
+   "ldhName": "ns2.google.com.",
+   "objectClassName": "nameserver"
+  },
+  {
+   "ldhName": "ns3.google.com.",
+   "objectClassName": "nameserver"
+  },
+  {
+   "ldhName": "ns4.google.com.",
+   "objectClassName": "nameserver"
+  }
+ ],
+ "events": [
+  {
+   "eventAction": "last changed",
+   "eventDate": "2018-03-12T21:44:25+01:00"
+  }
+ ],
+ "entities": [],
+ "objectClassName": "domain"
+}

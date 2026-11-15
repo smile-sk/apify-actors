@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "image-compressor",
+  "title": "Image Compressor API - Batch JPG, PNG, WebP to Target Size",
+  "description": "Most image compressors bill every image they touch, even when the file did not get smaller. This one charges only when the delivered image really shrank: if nothing was saved you get the original back free, with the reason on the row.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "phone-number-validator",
+  "title": "Phone Number Validator - Bulk Validate, Format & Clean",
+  "description": "Phone validators charge per number and still return lines you never sent. Here every line comes back as given with a plain reason when it fails, and you pay only for delivered lines with a new valid number. Junk, duplicates and extra numbers in a line are free.",
+  "version": "0.2",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "minMemoryMbytes": 128,
+  "maxMemoryMbytes": 1024,
+  "defaultMemoryMbytes": 256
+}

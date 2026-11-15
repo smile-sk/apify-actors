@@ -1,0 +1,55 @@
+{
+  "title": "URLs to look up in the Wayback Machine",
+  "description": "Send pages, hosts or full links. Each URL the archive holds history for becomes one paid row; a URL it never saw comes back free with a reason.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "URLs",
+      "type": "array",
+      "description": "Pages to look up: a bare host such as example.com, a host with a path such as apify.com/pricing, or a full http/https link. The last line in the default list has no snapshots, so it comes back free.",
+      "editor": "stringList",
+      "prefill": [
+        "example.com",
+        "https://apify.com/pricing",
+        "this-domain-never-existed-xyz-2026.com"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "maxSnapshotsPerUrl": {
+      "title": "Latest versions per URL",
+      "type": "integer",
+      "description": "How many of the newest distinct versions to return for each URL, collapsed by content digest so identical copies do not repeat. Default 20, maximum 100.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "from": {
+      "title": "Window start (optional)",
+      "type": "string",
+      "description": "Only count snapshots taken on or after this moment. Format YYYY, YYYYMM, YYYYMMDD or YYYYMMDDhhmmss. An empty value means the whole history; a malformed value stops the run before any request.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "to": {
+      "title": "Window end (optional)",
+      "type": "string",
+      "description": "Only count snapshots taken on or before this moment, same formats as the window start.",
+      "editor": "textfield",
+      "default": ""
+    },
+    "maxUrls": {
+      "title": "Maximum URLs per run",
+      "type": "integer",
+      "description": "How many lines of the list this run reads. Default and maximum 200; a line past the cap comes back as a free NOT_CHECKED_CAP row that names the cap.",
+      "default": 200,
+      "minimum": 1,
+      "maximum": 200
+    }
+  },
+  "required": [
+    "urls"
+  ]
+}

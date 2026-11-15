@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Bluesky posts",
+    "description": "One row per delivered post, plus free status rows that explain what was not delivered.",
+    "properties": {
+        "dataset": {
+            "title": "Posts",
+            "type": "string",
+            "description": "Every delivered post carries actorInput, postId, uri, url, text, createdAt, indexedAt, langs, isReply, feedKind, authorHandle, authorDid, authorName, profileHandle, profileDid, profileName, followersCount, postsCount, likeCount, repostCount, replyCount, quoteCount, bookmarkCount, embedType and status. Rows with a status other than OK carry a reason instead of data: no post id, no text, no author and no url.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "title": "Run summary",
+            "type": "string",
+            "description": "Counters: actorsRequested/attempted/read/empty/duplicate/failed/invalid/limited/cutByBudget, postsSeen/delivered/duplicate/filteredByKind/withoutText/capped, pagesRead/pagesFailed, pageErrors, rowsWritten, byStatus, chargedEvents, deliveredUncharged, chargeUncertain, writeErrors, billingActive, priceNote, priceEvent, maxPostsPerActor, includeReposts, includeReplies, counterMismatch, stopReason, datasetNote, finishedAt. Status codes: OK, INVALID_INPUT, DUPLICATE, NO_POSTS_FOUND, NOT_CHECKED_LIMIT, NOT_CHECKED_TIME, NOT_CHECKED_ERROR, NOT_CHECKED_CAP, NOT_CHECKED_BILLING, NOT_CHECKED_CHARGE_UNVERIFIED. DUPLICATE means the same profile arrived in another form (handle, did or url) and was read once. NOT_CHECKED_LIMIT is one free row per profile that reached maxPostsPerActor: more posts may exist at the source, and postsLimited counts those profiles, not the posts behind the limit. Stop reasons: spending-cap, billing-price-unknown, charge-error, dataset-write-error, deadline.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}

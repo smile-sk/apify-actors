@@ -1,0 +1,19 @@
+{
+  "actorSpecification": 1,
+  "name": "pump-fun-new-token-monitor",
+  "title": "Pump.fun New Token Monitor - On-Chain Dev Check",
+  "description": "Launches disappear before a page refreshes, and most feeds show a copy, not the chain. Read the pump.fun program itself: creator wallet, what they bought at birth, the bonding curve at that second, and the signature.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "AUTOMATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

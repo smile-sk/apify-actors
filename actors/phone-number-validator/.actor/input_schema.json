@@ -1,0 +1,32 @@
+{
+  "title": "Phone number validator input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "numbers": {
+      "title": "Numbers to validate",
+      "type": "array",
+      "description": "One number per line. Messy lines are fine: tel: links, labels such as Phone or Tel, (0) trunk prefixes, 00 international prefixes, spaces, dashes, dots, slashes, full-width and Arabic-Indic digits, extensions (ext, x, #, dob). Up to 10,000 lines per run.",
+      "editor": "stringList",
+      "prefill": [
+        "+1 (202) 555-0173 ext. 42",
+        "tel:+44 20 7946 0018",
+        "+380 44 123 45 67",
+        "call me maybe"
+      ]
+    },
+    "text": {
+      "title": "Or paste a list (optional)",
+      "type": "string",
+      "description": "Used only when 'Numbers to validate' is empty. One number per line; a pasted column from a spreadsheet works too.",
+      "editor": "textarea"
+    },
+    "defaultCountry": {
+      "title": "Default country for local numbers (ISO-2, optional)",
+      "type": "string",
+      "description": "Two letters such as UA, US, GB, DE. Needed only for numbers written without a country code (for example 044 123 45 67). Empty means auto: only numbers with a country code are read, the rest come back with a reason instead of a guess.",
+      "editor": "textfield"
+    }
+  },
+  "required": []
+}

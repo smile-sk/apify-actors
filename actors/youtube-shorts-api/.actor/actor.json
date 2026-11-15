@@ -1,0 +1,23 @@
+{
+    "actorSpecification": 1,
+    "name": "youtube-shorts-api",
+    "title": "YouTube Shorts API - Channel Shorts with Views",
+    "description": "Most Shorts scrapers quietly drop what they cannot read, so you pay for a list that looks complete and is not. This actor returns one row per Short with views, title, thumbnail and link, and every channel it could not read comes back free with the reason.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "categories": [
+        "SOCIAL_MEDIA",
+        "DEVELOPER_TOOLS",
+        "SEO_TOOLS"
+    ],
+    "defaultMemoryMbytes": 512,
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 4096,
+    "meta": {
+        "templateId": "python-start"
+    },
+    "dockerfile": "Dockerfile",
+    "readme": "README.md",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json"
+}

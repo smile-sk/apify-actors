@@ -1,0 +1,47 @@
+{
+    "title": "YouTube Channel API",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "channels": {
+            "title": "Channels",
+            "type": "array",
+            "description": "One or more channels: a handle (@MrBeast), a channel url or a channel id (UC...). Each channel is read once and gives its own rows.",
+            "editor": "stringList",
+            "prefill": [
+                "@MrBeast",
+                "@Google"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "maxVideosPerChannel": {
+            "title": "Max videos per channel",
+            "type": "integer",
+            "description": "Stop after this many videos for each channel. Paging follows the page's own continuation token, about 30 videos per page.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 1000,
+            "editor": "number"
+        },
+        "region": {
+            "title": "Region",
+            "type": "string",
+            "description": "Two letter country code that shapes the mix, for example US or DE.",
+            "default": "US",
+            "editor": "textfield"
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "description": "Two letter language code for titles and labels, for example en or de.",
+            "default": "en",
+            "editor": "textfield"
+        }
+    },
+    "required": [
+        "channels"
+    ]
+}

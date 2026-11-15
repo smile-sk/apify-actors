@@ -1,0 +1,15 @@
+{
+  "url": "https://getbootstrap.com/",
+  "status": 200,
+  "contentType": "text/html; charset=utf-8",
+  "bytes": 45732,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "cache-control": "max-age=600",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-ber1080025-BER",
+    "x-cache": "HIT"
+  },
+  "fetchedAt": "2026-11-11"
+}

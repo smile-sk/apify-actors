@@ -1,0 +1,61 @@
+{
+  "title": "Image OCR input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "imageUrls": {
+      "title": "Image urls",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One image url per line: jpeg, png, webp, gif, bmp, tiff or heic. Each picture is read once and recognized inside the actor, so no key and no OCR service is needed. A line that is not an http url, a repeat and a line beyond maxImages come back as their own free row with the reason.",
+      "prefill": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Fish_Creek_%28AU%29%2C_Welcome_Sign_--_2019_--_150820.jpg/1280px-Fish_Creek_%28AU%29%2C_Welcome_Sign_--_2019_--_150820.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e9/1917_Foto-Scan_Rechnung.jpg"
+      ]
+    },
+    "maxImages": {
+      "title": "Max images",
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "description": "The list is cut here and the rest comes back free with status NOT_CHECKED_LIMIT. 0 means the default of 10, and the summary reports the number actually applied."
+    },
+    "languages": {
+      "title": "OCR languages",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "eng",
+        "eng+rus",
+        "eng+ukr",
+        "eng+rus+ukr",
+        "rus",
+        "ukr"
+      ],
+      "enumTitles": [
+        "English",
+        "English + Russian",
+        "English + Ukrainian",
+        "English + Russian + Ukrainian",
+        "Russian",
+        "Ukrainian"
+      ],
+      "default": "eng",
+      "description": "Language packs that ship inside the actor. More than one slows recognition, so ask only for the ones your pictures really use."
+    },
+    "includeWordBoxes": {
+      "title": "Include word boxes",
+      "type": "boolean",
+      "default": true,
+      "description": "Every word with its x, y, width, height and confidence. Turn it off when only the plain text is needed: rows get much smaller."
+    },
+    "maxPixels": {
+      "title": "Max pixels",
+      "type": "integer",
+      "default": 40000000,
+      "minimum": 0,
+      "description": "A picture larger than this is scaled down before recognition and the row says so in scaled. Keeps a 200 megapixel phone panorama from running the container out of memory."
+    }
+  },
+  "required": []
+}

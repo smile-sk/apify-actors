@@ -1,0 +1,86 @@
+{
+  "title": "Text to speech input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "texts": {
+      "title": "Texts",
+      "type": "array",
+      "description": "One piece of text per line. Each line becomes one audio clip.",
+      "editor": "stringList",
+      "prefill": [
+        "Welcome to the text to speech actor. Every line of this list becomes one audio clip.",
+        "The second line is a separate clip, made by the same voice in the same run."
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "text": {
+      "title": "Single text",
+      "type": "string",
+      "description": "Used only when the texts list is empty.",
+      "editor": "textarea"
+    },
+    "voice": {
+      "title": "Voice",
+      "type": "string",
+      "description": "Neural voice baked into the image.",
+      "editor": "select",
+      "default": "en-us-lessac",
+      "enum": [
+        "en-us-lessac",
+        "en-us-amy",
+        "ru-ru-irina",
+        "uk-ua-ukrainian"
+      ],
+      "enumTitles": [
+        "English, US, Lessac (female)",
+        "English, US, Amy (female)",
+        "Russian, Irina (female)",
+        "Ukrainian, Ukrainian TTS (female)"
+      ]
+    },
+    "format": {
+      "title": "Audio format",
+      "type": "string",
+      "description": "wav is uncompressed, mp3 is smaller. Both are made inside the image.",
+      "editor": "select",
+      "default": "wav",
+      "enum": [
+        "wav",
+        "mp3"
+      ],
+      "enumTitles": [
+        "WAV",
+        "MP3"
+      ]
+    },
+    "speed": {
+      "title": "Speed",
+      "type": "number",
+      "description": "1.0 is the voice's natural speed, 0.5 is twice as slow, 2.0 twice as fast.",
+      "editor": "number",
+      "default": 1,
+      "minimum": 0.5,
+      "maximum": 2
+    },
+    "maxClips": {
+      "title": "Max clips",
+      "type": "integer",
+      "description": "Lines past this limit are refused and free.",
+      "editor": "number",
+      "default": 10,
+      "minimum": 1
+    },
+    "maxCharactersPerLine": {
+      "title": "Max characters per line",
+      "type": "integer",
+      "description": "A longer line is refused before anything is synthesised, and it is free.",
+      "editor": "number",
+      "default": 5000,
+      "minimum": 1
+    }
+  },
+  "required": []
+}

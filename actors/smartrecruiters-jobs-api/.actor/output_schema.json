@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "SmartRecruiters jobs output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Postings",
+      "description": "One row per posting: jobId, company, companyName, jobTitle, department, function, industry, experienceLevel, employmentType, location, city, region, countryCode, address, postalCode, latitude, longitude, remote, hybrid, refNumber, releasedDate, language, url, salaryMin, salaryMax, salaryCurrency, salaryPeriod (null when the employer publishes no salary) and, when includeDetails is on, jobDescription, qualifications, additionalInformation, companyDescription and detailFetched. Rows that are not postings carry a status instead: NOT_CHECKED_BOARD_NOT_FOUND when SmartRecruiters has no such board, NOT_CHECKED_BOARD_EMPTY when the board exists and has no open postings, NOT_CHECKED_ERROR when the board could not be read, INVALID_INPUT for a string that is not an identifier. DELIVERED rows are charged; every row with a NOT_CHECKED_* or INVALID_INPUT status sits in the dataset and costs nothing.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Stored in the named key-value store smartrecruiters-jobs-api-summary as RUN_SUMMARY and as RUN_SUMMARY-<runId>, because one named store is shared by the whole account and two runs at once would overwrite each other. Keys: runId, companiesAsked, companiesDeduplicated, companiesOk, companiesNotFound, companiesEmpty, companiesError, companiesInvalid, companiesNotChecked, jobsAsked, jobsSeen, jobsDelivered, jobsUndelivered, jobsUnverified, jobsNotProcessed, jobsNotRead, filteredOut, filteredBy, duplicatesSkipped, pagesRead, pagesFailed, truncatedCompanies, byStatus, detailsFetched, detailFailures, detailsSkipped, requests, byCompany, chargedEvents, deliveredUncharged, chargeUncertain, billingActive, writeFailures, datasetItemCount, datasetItemCountLag, counterMismatch, askedMismatch, companyCounterMismatch, truncatedMismatch, stopReason, elapsedSecs, maxJobsPerCompany, includeDetails, maxDetails, requestPaceSecs, query, country, releasedAfter, countryIgnored, releasedAfterIgnored, lastBoardError. The counters add up: jobsSeen = jobsDelivered + filteredOut + jobsUndelivered + jobsUnverified + jobsNotProcessed, jobsAsked = jobsSeen + jobsNotRead, and companiesAsked = companiesOk + companiesNotFound + companiesEmpty + companiesError + companiesInvalid + companiesNotChecked. duplicatesSkipped counts postings the board answered twice, which are delivered and charged once. truncatedCompanies counts boards whose list was cut short and equals the number of boards flagged truncated in byCompany (a board nobody owns or a board that could not be read is not truncated). byStatus counts the rows of each status. A mismatch is written into the summary as counterMismatch, askedMismatch, companyCounterMismatch or truncatedMismatch instead of being rounded away. A run that delivered nothing always says why: no board read, no such board, empty board, or your filters dropped everything.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

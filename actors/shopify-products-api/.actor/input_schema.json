@@ -1,0 +1,72 @@
+{
+  "title": "Shopify catalog monitor input",
+  "description": "Which stores to read, how many products from each, and whether to deliver only what changed.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "stores": {
+      "title": "Stores or product URLs",
+      "description": "Shopify store domains (allbirds.com, gymshark.com) or product URLs (https://www.allbirds.com/products/womens-wool-runner). A store gives its whole catalog, a product URL gives that one product.",
+      "type": "array",
+      "editor": "stringList",
+      "items": {"type": "string"},
+      "default": ["allbirds.com"]
+    },
+    "maxProductsPerStore": {
+      "title": "Max products per store",
+      "description": "Hard stop per store. 250 is one catalog page; 0 means no limit, and the run then stops at 40 pages (10000 products).",
+      "type": "integer",
+      "default": 250,
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "onlyChanges": {
+      "title": "Only what changed since the last run",
+      "description": "Compare this catalog with the snapshot this Actor stored for the same store and deliver a row only when the product is new, changed price, went out of stock or came back. The first run on a store is the baseline: every product is new, and the summary says so.",
+      "type": "boolean",
+      "default": false
+    },
+    "inStockOnly": {
+      "title": "Only products in stock",
+      "description": "Drop products whose every variant is unavailable. Dropped products are counted in the summary, never written as empty rows.",
+      "type": "boolean",
+      "default": false
+    },
+    "minPrice": {
+      "title": "Min price",
+      "description": "Drop products cheaper than this in the store currency. 0 means no lower bound.",
+      "type": "number",
+      "default": 0,
+      "minimum": 0
+    },
+    "maxPrice": {
+      "title": "Max price",
+      "description": "Drop products more expensive than this in the store currency. 0 means no upper bound.",
+      "type": "number",
+      "default": 0,
+      "minimum": 0
+    },
+    "nameContains": {
+      "title": "Title contains",
+      "description": "Case-insensitive substring match on the product title. Empty keeps everything.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "includeVariants": {
+      "title": "Include variants",
+      "description": "Write the full variant list (sku, title, price, stock) into every row. Turn it off for a lighter dataset; variantCount stays either way.",
+      "type": "boolean",
+      "default": true
+    },
+    "requestPaceSecs": {
+      "title": "Pause between stores (seconds)",
+      "description": "Polite delay between two stores, and it also keeps you clear of a storefront rate limit. 0.5 is the default; pages inside one store are read four at a time.",
+      "type": "number",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 30
+    }
+  },
+  "required": ["stores"]
+}

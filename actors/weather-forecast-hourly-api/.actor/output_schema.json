@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Weather rows",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Weather rows",
+      "description": "One row per place. Paid rows carry the coordinates, the units, the hourly series and the daily high and low; rows that could not be read carry status, reason and billable false, so the free rows have no data fields to fill.",
+      "template": "https://api.apify.com/v2/datasets/{{run.defaultDatasetId}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters for the run: locationsRequested, locationsDelivered, chargedEvents, chargeUncertain, deliveredUnverified, byStatus, counterMismatch, stopReason, the source with its CC-BY attribution, and the free statuses NOT_CHECKED_LIMIT, NOT_CHECKED_CAP, NOT_CHECKED_TIME, NOT_CHECKED_BILLING, NOT_CHECKED_ERROR.",
+      "template": "https://api.apify.com/v2/key-value-stores/{{run.defaultKeyValueStoreId}}/records/RUN_SUMMARY"
+    }
+  }
+}

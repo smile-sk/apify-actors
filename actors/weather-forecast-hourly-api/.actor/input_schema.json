@@ -1,0 +1,56 @@
+{
+  "title": "Weather Forecast API input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "locations": {
+      "title": "Places",
+      "type": "array",
+      "description": "Coordinates as latitude,longitude, one pair per row, for example 50.45,30.52. Every pair that is not a real point comes back free with the reason.",
+      "editor": "stringList",
+      "prefill": [
+        "50.45,30.52",
+        "52.52,13.40",
+        "48.85,2.35"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "units": {
+      "title": "Units",
+      "type": "string",
+      "description": "metric: celsius, km/h, mm. imperial: fahrenheit, mph, inch (precipitation is converted too, not just relabelled).",
+      "default": "metric",
+      "enum": [
+        "metric",
+        "imperial"
+      ]
+    },
+    "maxLocations": {
+      "title": "Max places per run",
+      "type": "integer",
+      "description": "Every place past this number still gets a free row that says it was not attempted.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "hours": {
+      "title": "Hours of the series",
+      "type": "integer",
+      "description": "How many points of the series to return per place, 1 to 72. Near the point the source is hourly; past that it gives a 6 or 12 hour step, and each entry says which step it came from in precipitationStepHours.",
+      "default": 24,
+      "minimum": 1,
+      "maximum": 72
+    },
+    "includeDaily": {
+      "title": "Include the daily high and low",
+      "type": "boolean",
+      "description": "Add one entry per day with the minimum and maximum temperature and the precipitation sum, computed from the same series.",
+      "default": true
+    }
+  },
+  "required": [
+    "locations"
+  ]
+}

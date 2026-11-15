@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "name": "workday-jobs-api",
+  "title": "Workday Jobs API: Every Opening From Any Career Site",
+  "description": "Reviews under Workday scrapers: apply links that lead to a page which does not exist, and one career site per run. Here the link comes from Workday's own externalUrl, and one run walks many career sites. Country, timeType, posted date, real totals.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "defaultMemoryMbytes": 512
+}

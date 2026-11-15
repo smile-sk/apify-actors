@@ -1,0 +1,104 @@
+{
+    "title": "YouTube Search API",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "queries": {
+            "title": "Search phrases",
+            "type": "array",
+            "description": "One or more keyword phrases. Each phrase is searched once and gives its own rows.",
+            "editor": "stringList",
+            "prefill": [
+                "python tutorial",
+                "ai news"
+            ],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "maxResultsPerQuery": {
+            "title": "Max videos per phrase",
+            "type": "integer",
+            "description": "Stop after this many videos for each phrase. Paging follows the page's own continuation token.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 500,
+            "editor": "number"
+        },
+        "sortBy": {
+            "title": "Sort by",
+            "type": "string",
+            "description": "relevance keeps YouTube's own order; views puts the most watched first. YouTube ignores date and rating sorting here, so they are not offered; use uploadDate for fresh videos.",
+            "enum": [
+                "relevance",
+                "views"
+            ],
+            "enumTitles": [
+                "Relevance",
+                "View count"
+            ],
+            "default": "relevance",
+            "editor": "select"
+        },
+        "uploadDate": {
+            "title": "Uploaded within",
+            "type": "string",
+            "description": "Restrict the page to recent videos. This is the honest way to get fresh results, because the endpoint ignores date sorting.",
+            "enum": [
+                "any",
+                "hour",
+                "today",
+                "week",
+                "month",
+                "year"
+            ],
+            "enumTitles": [
+                "Any time",
+                "Past hour",
+                "Today",
+                "Past week",
+                "Past month",
+                "Past year"
+            ],
+            "default": "any",
+            "editor": "select"
+        },
+        "videoDuration": {
+            "title": "Video length",
+            "type": "string",
+            "description": "Filter by length: short is under 4 minutes, long is over 20.",
+            "enum": [
+                "any",
+                "short",
+                "medium",
+                "long"
+            ],
+            "enumTitles": [
+                "Any length",
+                "Short (under 4 min)",
+                "Medium (4-20 min)",
+                "Long (over 20 min)"
+            ],
+            "default": "any",
+            "editor": "select"
+        },
+        "region": {
+            "title": "Region",
+            "type": "string",
+            "description": "Two letter country code that shapes the result mix, for example US, DE or UA.",
+            "default": "US",
+            "editor": "textfield"
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "description": "Two letter language code for titles and labels, for example en or de.",
+            "default": "en",
+            "editor": "textfield"
+        }
+    },
+    "required": [
+        "queries"
+    ]
+}

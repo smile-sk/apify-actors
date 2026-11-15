@@ -1,0 +1,32 @@
+{
+  "title": "WHOIS and DNS lookup input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "domains": {
+      "title": "Domains, links or emails",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One domain per line. A full link or an email is accepted and only the host is looked up, so https://www.example.com/pricing becomes example.com. Up to 100 domains per run.",
+      "prefill": [
+        "google.com",
+        "apify.com",
+        "this-domain-does-not-exist-xz9q.com"
+      ]
+    },
+    "includeDns": {
+      "title": "Also read DNS records",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds NS, MX, TXT, SPF and DMARC to every domain that has registry data, plus the resolver that answered. Turn it off when only the registration facts are needed: it makes a run faster."
+    },
+    "maxDomains": {
+      "title": "Max domains",
+      "type": "integer",
+      "default": 50,
+      "minimum": 0,
+      "description": "The list is cut here. Domains beyond the limit come back as rows with status NOT_CHECKED_LIMIT, their own line in input, and are not charged. 0 means no limit, and the summary reports the number actually applied."
+    }
+  },
+  "required": []
+}

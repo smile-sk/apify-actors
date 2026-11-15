@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "YouTube search results",
+    "description": "One row per video, plus free status rows that explain what was not delivered.",
+    "properties": {
+        "dataset": {
+            "title": "Videos",
+            "type": "string",
+            "description": "Every delivered video has query, videoId, url, title, channel, channelId, views, viewsText, publishedText, publishedDaysAgo, durationText, durationSeconds, isLive, badges, description and thumbnailUrl. Rows with status other than OK carry a reason instead of data.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "title": "Run summary",
+            "type": "string",
+            "description": "Counters, chargedEvents, byStatus, stopReason, datasetNote and counterMismatch. shortsSkipped counts Shorts shelf entries on the pages that were read: YouTube renders them as shortsLockupViewModel rather than videoRenderer, so they never become rows and are counted here. Status codes: OK, INVALID_INPUT, DUPLICATE, NO_RESULTS_FOUND, NOT_CHECKED_LIMIT, NOT_CHECKED_TIME, NOT_CHECKED_ERROR, NOT_CHECKED_CAP, NOT_CHECKED_BILLING, NOT_CHECKED_CHARGE_UNVERIFIED. Stop reasons: spending-cap, billing-price-unknown, charge-error, dataset-write-error, deadline.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}

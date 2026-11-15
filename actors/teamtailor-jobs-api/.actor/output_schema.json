@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Teamtailor roles output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Roles",
+      "description": "One row per open role: board, jobId, title, company, employmentType, directApply, remote, city, state, country, countryCode, postalCode and locations (every office, not only the first), publishedAt, validThrough, url and, when includeDetails is on, description. Rows that are not a role carry a status instead: NOT_CHECKED_BOARD_NOT_FOUND when nothing answers at that address (the feed answers 404), NOT_CHECKED_BOARD_EMPTY when the board exists and has no open role, NOT_CHECKED_NO_MATCH when every role was filtered out, NOT_CHECKED_CAP for a role the spending cap stopped, NOT_CHECKED_ERROR when a board could not be read or the run had to stop, INVALID_INPUT for a string that is not a board identifier. DELIVERED rows are charged; every other row sits in the dataset and costs nothing.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters that close inside the summary: boardsAsked = boardsOk + boardsEmpty + boardsNotFound + boardsInvalid + boardsError + boardsSkipped; positionsOnBoard = positionsUnparsable + positionsMerged + filteredOut + positionsSeen; positionsSeen = positionsNotRead + positionsProcessed; positionsProcessed = delivered + jobsUnverified + positionsNotProcessed. Also positionsRead, delivered, statusRows, chargedEvents, deliveredUncharged, chargeUncertain, jobsUnverified, boardsDeduplicated, truncatedBoards, byBoard, byStatus, stopReason, datasetItemsExpected, datasetItemCountRaw, datasetItemCount and datasetItemCountNote. When a counter does not close the summary carries countersMismatch naming it, and truncatedMismatch when the truncated flags disagree with a recount.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY-{{runId}}"
+    }
+  }
+}

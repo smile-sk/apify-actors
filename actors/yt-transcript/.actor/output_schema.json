@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "YouTube Transcript API output",
+  "description": "One record per video: the transcript, its timestamped segments, SRT/VTT subtitles, metadata, or the reason the video produced no transcript.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Transcripts",
+      "description": "Dataset with one row per video: transcript text, segments, srt, vtt, language, status.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "App details",
+  "description": "One row per delivered app, plus free status rows that explain what was not delivered.",
+  "properties": {
+    "dataset": {
+      "title": "Apps",
+      "type": "string",
+      "description": "Every delivered app carries actorInput, actorIndex, platform, appId, storeId, title, developer, rating, ratingsCount, reviewsCount, installs, installsExact, price, currency, free, genres, version, released, lastUpdated, contentRating, adSupported, offersInAppPurchases, minimumOs, fileSizeBytes, languages, country, iconUrl, storeUrl, status and billable. Rows with a status other than OK carry reason instead of data: no appId, no title, no icon and no storeUrl.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "description": "Counters: appsRequested, appsAttempted, appsRead, appsNotFound, appsInvalid, appsDuplicate, appsFailed, appsLimited, appsCutByBudget, appsCutByStop, appsCutByDeadline, appsDelivered, appsCapped, rowsWritten, byStatus, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, writeErrors, summaryWriteErrors, billingActive, priceEvent, priceNote, country, lang, platform, includeDescription, maxApps, counterMismatch, stopReason, datasetNote, startedAt, finishedAt. Status codes: OK, INVALID_INPUT, DUPLICATE, NOT_FOUND, NOT_CHECKED_LIMIT, NOT_CHECKED_TIME, NOT_CHECKED_ERROR, NOT_CHECKED_CAP, NOT_CHECKED_BILLING. Stop reasons: dataset-write-error, billing-price-unknown, spending-cap, charge-error, deadline.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

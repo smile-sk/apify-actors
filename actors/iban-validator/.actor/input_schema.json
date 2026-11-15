@@ -1,0 +1,27 @@
+{
+    "title": "IBAN Validator: Checksum, Country & SEPA",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "ibans": {
+            "title": "IBANs to check",
+            "type": "string",
+            "description": "One per line. Spaces and dashes are ignored, so you can paste them exactly as your bank prints them. Up to 10,000 per run.",
+            "editor": "textarea",
+            "prefill": "DE89 3704 0044 0532 0130 00\nGB82 WEST 1234 5698 7654 32\nDE89 3704 0044 0532 0130 01"
+        },
+        "text": {
+            "title": "Or paste a document (optional)",
+            "type": "string",
+            "description": "Used only when 'IBANs to check' is empty: IBANs are pulled out of an invoice, an email or any pasted text, in the order they appear.",
+            "editor": "textarea"
+        },
+        "bics": {
+            "title": "BICs (optional, same order as the IBANs)",
+            "type": "string",
+            "description": "8 or 11 characters, one per line. We prove one thing about them: the country inside the BIC must match the IBAN. We do not claim to know the account's bank.",
+            "editor": "textarea"
+        }
+    },
+    "required": []
+}

@@ -1,0 +1,89 @@
+{
+  "title": "pump.fun new token monitor input",
+  "description": "How long to watch, how many tokens to keep, and which of them you care about.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "durationSecs": {
+      "title": "Watch for (seconds)",
+      "description": "How long the run listens to the chain. 90 by default (an automated platform check expects the whole run under five minutes, and a container restart eats a minute); 3600 is one hour. The run stops itself at this limit and says so in the summary. If the platform gives the run less time than this (ACTOR_TIMEOUT_AT), the window is shortened to fit and the summary says durationCappedByPlatform.",
+      "type": "integer",
+      "default": 90,
+      "minimum": 10,
+      "maximum": 3600
+    },
+    "maxTokens": {
+      "title": "Stop after this many tokens",
+      "description": "Hard stop on delivered rows. 0 means no limit and the run ends by duration only.",
+      "type": "integer",
+      "default": 200,
+      "minimum": 0,
+      "maximum": 5000
+    },
+    "minDevBuyPercent": {
+      "title": "Creator bought at least (% of supply)",
+      "description": "Keep only tokens where the creator bought this share of the total supply in the creation transaction. 0 keeps every token. A creator who bought nothing has devBuyTokens 0 and devBuyPercent 0.",
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "maxDevBuyPercent": {
+      "title": "Creator bought at most (% of supply)",
+      "description": "Drop tokens where the creator grabbed more than this share at birth. 100 keeps every token.",
+      "type": "number",
+      "default": 100,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "onlyNewCreators": {
+      "title": "Only creators new in this run",
+      "description": "Keep a token only if this run has not already seen another launch by the same creator address. This is history inside the run, not the creator's whole on-chain past: chain-wide history is planned, not promised here.",
+      "type": "boolean",
+      "default": false
+    },
+    "nameContains": {
+      "title": "Name contains",
+      "description": "Case-insensitive substring match on the token name. Empty keeps everything.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "symbolContains": {
+      "title": "Symbol contains",
+      "description": "Case-insensitive substring match on the token symbol. Empty keeps everything.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "includeDevBuy": {
+      "title": "Read the creator's buy from the transaction",
+      "description": "One RPC call per token to read the creator's token balance change in the creation transaction. With this off, devBuyTokens and devBuyPercent stay null (not zero: unknown is not the same as nothing) and the filters above cannot be applied, so the run says so and keeps every token.",
+      "type": "boolean",
+      "default": true
+    },
+    "rpcUrl": {
+      "title": "Your own Solana HTTP RPC (optional)",
+      "description": "Use your own endpoint to avoid the public rate limit. Empty means the public https://api.mainnet-beta.solana.com.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "rpcWsUrl": {
+      "title": "Your own Solana websocket RPC (optional)",
+      "description": "Websocket endpoint for live logs. Empty means the public wss://api.mainnet-beta.solana.com, which drops connections under load; the actor then keeps working by polling the HTTP endpoint and marks those rows source poll. The fallback samples the stream and says how much it missed in the summary.",
+      "type": "string",
+      "default": "",
+      "editor": "textfield"
+    },
+    "rpcPaceSecs": {
+      "title": "Seconds between RPC calls",
+      "description": "Minimum pause between two RPC calls. The default 2.5 is the only interval measured to pass the public endpoint cleanly (0.3 s earned 429 within ten calls). A paid endpoint of your own takes 0.1 or less, and then the HTTP fallback covers far more of the stream.",
+      "type": "number",
+      "default": 2.5,
+      "minimum": 0,
+      "maximum": 10
+    }
+  },
+  "required": []
+}

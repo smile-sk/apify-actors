@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Personio jobs output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Positions",
+      "description": "One row per position: board, jobId, title, subcompany, department, recruitingCategory, employmentType, seniority, schedule, occupation, occupationCategory, keywords, city and locations (every office, not only the main one), createdAt, url, applyUrl and, when includeDetails is on, description and descriptionSections. Rows that are not positions carry a status instead: NOT_CHECKED_BOARD_NOT_FOUND when the company has no Personio board (its feed is empty and the career page answers 404), NOT_CHECKED_BOARD_EMPTY when the board exists and has no open position, NOT_CHECKED_CAP for a position the spending cap stopped, NOT_CHECKED_ERROR when a board could not be read or the run had to stop, INVALID_INPUT for a string that is not a board identifier. DELIVERED rows are charged; every other row sits in the dataset and costs nothing.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Counters that close inside the summary: boardsAsked = boardsOk + boardsEmpty + boardsNotFound + boardsInvalid + boardsError + boardsSkipped; positionsOnBoard = positionsUnparsable + positionsMerged + filteredOut + positionsSeen; positionsSeen = positionsNotRead + positionsProcessed; positionsProcessed = delivered + jobsUnverified + positionsNotProcessed. Also positionsRead, positionsMerged, deliveredUncharged, chargeUncertain, jobsUnverified, boardsDeduplicated, truncatedBoards, byBoard, byStatus, stopReason and runId. This summary is also kept in the named store personio-jobs-api-summary under the key RUN_SUMMARY-<runId>, because the key value store inside the run keeps only one RUN_SUMMARY and a second run would overwrite it. truncated means only that a board's list is short; truncatedBoards is checked against the per-board counters and prints truncatedMismatch when they disagree. Any sum that does not close prints a *Mismatch field instead of being rounded away.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

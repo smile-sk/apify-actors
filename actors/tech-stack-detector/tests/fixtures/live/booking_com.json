@@ -1,0 +1,13 @@
+{
+  "url": "https://www.booking.com/",
+  "status": 202,
+  "contentType": "text/html; charset=utf-8",
+  "bytes": 8859,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "server": "CloudFront",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 8c9e327cce3b09fb843449fe1e01ca12.cloudfront.net (CloudFront)"
+  },
+  "fetchedAt": "2026-11-11"
+}

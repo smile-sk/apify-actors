@@ -1,0 +1,23 @@
+{
+    "actorSpecification": 1,
+    "name": "youtube-search-results-api",
+    "title": "YouTube Search API - Video Results by Keyword",
+    "description": "You should not have to copy YouTube results by hand page by page. This actor searches by keyword, pages deep with the continuation token and returns one row per video: title, channel, views, age, duration and url.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "categories": [
+        "SOCIAL_MEDIA",
+        "DEVELOPER_TOOLS",
+        "SEO_TOOLS"
+    ],
+    "defaultMemoryMbytes": 512,
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 4096,
+    "meta": {
+        "templateId": "python-start"
+    },
+    "dockerfile": "Dockerfile",
+    "readme": "README.md",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json"
+}

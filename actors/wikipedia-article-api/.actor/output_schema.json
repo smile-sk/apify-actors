@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Wikipedia articles",
+  "description": "The articles dataset and the run summary.",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "title": "Articles",
+      "type": "string",
+      "template": "https://api.apify.com/v2/datasets/{{datasetId}}/items",
+      "description": "One row per article. Paid rows carry the article fields and billable true; every other row is a free status row with a reason and no article data. Status rows are written in batches of up to 100, so sort by actorIndex to get the input order back."
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY",
+      "description": "Counters of the run: requested, attempted, delivered, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, cutByLimit, byStatus, counterMismatch, stopReason, datasetNote, firstFailure and priceNote. The bare RUN_SUMMARY lives in the default store of the run; a copy under RUN_SUMMARY-<runId> is kept in the named store wikipedia-article-summary so two runs do not overwrite each other."
+    }
+  }
+}

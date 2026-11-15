@@ -1,0 +1,23 @@
+{
+    "actorSpecification": 1,
+    "name": "youtube-channel-api",
+    "title": "YouTube Channel API - Videos, Views & Subs",
+    "description": "Most channel scrapers never tell you which channels failed, and a list you build by hand goes stale before you paste it. This actor returns one row per video with views, age, duration and link, and every channel it could not read comes back free with the reason.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "categories": [
+        "SOCIAL_MEDIA",
+        "DEVELOPER_TOOLS",
+        "SEO_TOOLS"
+    ],
+    "defaultMemoryMbytes": 512,
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 4096,
+    "meta": {
+        "templateId": "python-start"
+    },
+    "dockerfile": "Dockerfile",
+    "readme": "README.md",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json"
+}

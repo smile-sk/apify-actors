@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "app-reviews-api",
+  "title": "App Reviews API - iOS App Store & Google Play Reviews",
+  "description": "You should not pay for a run that comes back empty, yet most app review actors split iOS and Android, cap the feed and bill it anyway. This one reads both stores by their open feeds, keeps the developer reply, and charges only for a review that landed.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS",
+    "SEO_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 512
+}

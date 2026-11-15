@@ -1,0 +1,24 @@
+{
+  "actorSpecification": 1,
+  "title": "pump.fun new token row",
+  "description": "One creation, read from the pump.fun program on Solana mainnet.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mint": {"title": "Mint", "description": "Token mint address.", "type": "string"},
+    "name": {"title": "Name", "description": "Token name as written in the creation event.", "type": "string"},
+    "symbol": {"title": "Symbol", "description": "Token symbol from the creation event.", "type": "string"},
+    "uri": {"title": "Metadata URI", "description": "Where the token's off-chain metadata lives, as written by the creator.", "type": "string"},
+    "creator": {"title": "Creator", "description": "Creator address from the creation event.", "type": "string"},
+    "createdAt": {"title": "Created at", "description": "Creation time from the on-chain event, ISO 8601 UTC.", "type": "string"},
+    "ageSeconds": {"title": "Age (seconds)", "description": "Seconds between the creation and this row.", "type": "number"},
+    "devBuyTokens": {"title": "Creator buy, tokens", "description": "Tokens the creator bought in the creation transaction. null when it was not read.", "type": ["number", "null"]},
+    "devBuyPercent": {"title": "Creator buy, % of supply", "description": "The same buy as a share of the total supply. null when it was not read.", "type": ["number", "null"]},
+    "virtualSolReserves": {"title": "Virtual SOL reserves", "description": "Virtual SOL on the bonding curve at creation, in SOL.", "type": "number"},
+    "realSolReserves": {"title": "Real SOL reserves", "description": "Real SOL on the bonding curve at creation, in SOL.", "type": "number"},
+    "curveProgressPercent": {"title": "Curve progress", "description": "Share of the 85 SOL the curve fills before the token migrates.", "type": "number"},
+    "creatorTokensThisRun": {"title": "Creator launches this run", "description": "How many creations by the same creator this run had already seen before this one.", "type": "integer"},
+    "signature": {"title": "Creation transaction", "description": "Signature of the transaction that created the token.", "type": "string"},
+    "source": {"title": "Source", "description": "stream for the live logs subscription, poll for the HTTP fallback.", "type": "string"}
+  }
+}

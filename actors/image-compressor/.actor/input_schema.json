@@ -1,0 +1,95 @@
+{
+  "title": "Image compressor input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "imageUrls": {
+      "title": "Image urls",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One http(s) url per line. Each url is read once: a repeat, a line that is not a url and a line beyond maxImages come back as their own free row with the reason. The file signature decides whether the bytes are an image, never the file name or the content type.",
+      "prefill": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"
+      ]
+    },
+    "targetKB": {
+      "title": "Target size in KB (0 = no target)",
+      "type": "integer",
+      "editor": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 25600,
+      "description": "The weight every delivered image should fit under. The encoder lowers quality until the file fits, and only then scales the picture down, because a sharp photo beats a blurry one. 0 means no target: the image is re-encoded at your quality and nothing else. The row says whether the target was reached, and an image that cannot be squeezed under it is delivered at the smallest size found, priced the same."
+    },
+    "quality": {
+      "title": "Quality",
+      "type": "integer",
+      "editor": "number",
+      "default": 80,
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Encoder quality for JPEG, WebP and AVIF, and the ceiling of the search when targetKB is set: the search never goes above this number. 80 is the point where a photo stops looking different at half the size; below 60 artefacts show on gradients. PNG is lossless and ignores it."
+    },
+    "format": {
+      "title": "Output format",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "keep",
+        "webp",
+        "jpeg",
+        "png",
+        "avif"
+      ],
+      "enumTitles": [
+        "Keep the source format (default)",
+        "WebP - smallest for the web, keeps transparency",
+        "JPEG - universal, no transparency",
+        "PNG - lossless, keeps transparency",
+        "AVIF - smallest of all, slowest to encode"
+      ],
+      "default": "keep",
+      "description": "Keep means the format stays the one the bytes already have, so a compressor does not quietly convert your png into a jpeg. A source format this actor cannot write back (gif, heic, tiff, bmp) is delivered as jpeg, and the row names the source format it came from. Naming a format asks for a conversion."
+    },
+    "maxWidth": {
+      "title": "Max width in pixels (0 = keep)",
+      "type": "integer",
+      "editor": "number",
+      "default": 0,
+      "minimum": 0,
+      "description": "A wider image is scaled down to this width and never upscaled. 0 keeps every pixel: this actor sells weight, not dimensions, and it does not resize unless you ask."
+    },
+    "maxHeight": {
+      "title": "Max height in pixels (0 = keep)",
+      "type": "integer",
+      "editor": "number",
+      "default": 0,
+      "minimum": 0,
+      "description": "The same limit for the height. 0 keeps every pixel."
+    },
+    "stripMetadata": {
+      "title": "Strip metadata",
+      "type": "boolean",
+      "editor": "checkbox",
+      "default": true,
+      "description": "Drops EXIF, GPS, camera and software tags from the delivered file, which is usually a few kilobytes of the weight and all of the privacy. The orientation itself is applied to the pixels first, so a phone photo stays upright. Turn it off only when the metadata is the point."
+    },
+    "background": {
+      "title": "Background for transparency",
+      "type": "string",
+      "editor": "textfield",
+      "default": "#FFFFFF",
+      "description": "The colour an image with transparency is flattened onto when the delivered format has no alpha channel, which is JPEG. A hex colour like #FFFFFF or #000000."
+    },
+    "maxImages": {
+      "title": "Max images",
+      "type": "integer",
+      "editor": "number",
+      "default": 20,
+      "minimum": 0,
+      "description": "The list is cut here and the rest comes back free with status NOT_CHECKED_LIMIT. 0 means the default of 20, and the summary reports the number actually applied."
+    }
+  },
+  "required": []
+}

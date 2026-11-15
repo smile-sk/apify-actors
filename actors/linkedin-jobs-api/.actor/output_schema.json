@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "LinkedIn jobs results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Jobs",
+      "description": "One row per job. status is OK when the row carries a job, or NOT_CHECKED_* with the reason in plain words: LIMIT (beyond maxJobs), TIME (the run ran out of time), BLOCKED (a wall answered instead of the job), ERROR (the page could not be read), CAP (the spending cap was reached), BILLING (the price could not be read), and NO_JOBS_FOUND when the search itself carried nothing. A job row carries: jobId, url, title, company, location, postedAt, postedText, employmentType, seniorityLevel, jobFunction, industries, applyUrl, applicants, description, descriptionCharacters, companyUrl, fetchedAt, input and inputIndex. A status row carries none of those fields: only the reason, so a free row is never the product. billable is a claim about the price list; the money actually taken is chargedEvents in the summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. jobsSeen counts every card the pages carried, jobsUnique drops repeats, jobsDelivered counts the rows sold, chargedEvents is the money really taken, deliveredUncharged is a batch that landed in the dataset without a confirmed charge, chargeUncertain is a batch whose fate is unknown. byStatus splits the rows by status, rowsWritten counts every row in the dataset. billingActive and priceNote say how the run stood with the price; null means the price could not be read, not that billing is off. counterMismatch is true when jobsDelivered is not chargedEvents plus deliveredUncharged. stopReason names why the walk ended early: deadline, wall, spending-cap, charge-error, billing-price-unknown or dataset-write-error.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

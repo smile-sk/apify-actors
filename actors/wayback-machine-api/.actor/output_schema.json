@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Wayback history",
+  "description": "The URLs dataset and the run summary.",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "title": "URLs",
+      "type": "string",
+      "template": "https://api.apify.com/v2/datasets/{{datasetId}}/items",
+      "description": "One row per URL. Paid rows carry firstSnapshotAt, lastSnapshotAt, versionsReturned, capturesRead and latestVersions with billable true; every other row is a free status row with a reason and no history. Status rows are written in batches of up to 100, so sort by actorIndex to get the input order back."
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY",
+      "description": "Counters of the run: requested, attempted, delivered, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, urlsNotFound, urlsInvalid, cutByLimit, byStatus, counterMismatch, stopReason, datasetNote, firstFailure and priceNote. The bare RUN_SUMMARY lives in the default store of the run; a copy under RUN_SUMMARY-<runId> is kept in the named store wayback-machine-summary so two runs do not overwrite each other."
+    }
+  }
+}

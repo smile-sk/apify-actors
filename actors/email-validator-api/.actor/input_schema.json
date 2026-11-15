@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "type": "object",
+  "title": "Email list input",
+  "properties": {
+    "emails": {
+      "title": "Email addresses",
+      "type": "array",
+      "editor": "stringList",
+      "description": "The addresses to check. One row per address comes back, with a verdict or with the reason it could not be checked.",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "prefill": [
+        "someone@gmail.com",
+        "info@ukr.net",
+        "bad@@example.com",
+        "test@mailinator.com"
+      ]
+    },
+    "checkDns": {
+      "title": "Check the domain in DNS",
+      "type": "boolean",
+      "editor": "checkbox",
+      "description": "Ask a public resolver for the MX record of each domain. Turn it off to get only the format verdict, which costs nothing.",
+      "default": true
+    },
+    "maxEmails": {
+      "title": "Max addresses",
+      "type": "integer",
+      "editor": "number",
+      "description": "How many addresses one run checks. The rest come back as free status rows with the reason maxEmails.",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 200
+    }
+  },
+  "required": [
+    "emails"
+  ]
+}

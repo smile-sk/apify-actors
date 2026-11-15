@@ -1,0 +1,13 @@
+{
+  "url": "https://tailwindcss.com/",
+  "status": 200,
+  "contentType": "text/html; charset=utf-8",
+  "bytes": 878001,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "public, max-age=0, must-revalidate",
+    "server": "cloudflare",
+    "x-powered-by": "Next.js"
+  },
+  "fetchedAt": "2026-11-11"
+}

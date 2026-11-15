@@ -1,0 +1,20 @@
+{
+  "actorSpecification": 1,
+  "name": "teamtailor-jobs-api",
+  "title": "Teamtailor Jobs API - All Offices, Remote & Expiry",
+  "description": "Teamtailor scrapers silently keep only the first office of a multi-location role and lose remote flags and expiry dates. This reads the board's own public JSON feed: one row per role, every office, 1.50 per 1,000 roles.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "linkedin-jobs-api",
+  "title": "LinkedIn Jobs API - Job Listings with Full Descriptions",
+  "description": "A LinkedIn job list without descriptions is not a job board, it is a list of titles: the full page answers with a sign-in wall. This actor opens a real browser window and delivers the description, company, location, seniority, employment type and apply link.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "JOBS",
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

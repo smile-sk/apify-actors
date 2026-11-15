@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "PyPI packages",
+  "description": "The packages dataset and the run summary.",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "title": "Packages",
+      "type": "string",
+      "template": "https://api.apify.com/v2/datasets/{{datasetId}}/items",
+      "description": "One row per line. Paid rows carry name, version, summary, license, requiresPython, homepage, repository, author, pythonVersions, dependencies, dependenciesCount, dependenciesTruncated, classifiers, releaseCount, firstRelease, latestRelease, filesInRelease, releaseSizeBytes, source, actorIndex, actorInput and billable true; every other row is a free status row with status, reason and no package fields. Status rows are written in batches of up to 100, so sort by actorIndex to get the input order back."
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY",
+      "description": "Counters of the run: requested, attempted, delivered, rowsWritten, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, writeErrors, cappedNotCharged, packagesNotFound, packagesRefused, packagesInvalid, packagesDuplicate, cutByLimit, cutByDeadline, cutByStop, byStatus, counterMismatch, stopReason, datasetNote, firstFailure, billingActive, priceNote, eventName, maxPackages, source and runId. A copy under RUN_SUMMARY-<runId> is kept in the named store pypi-package-summary."
+    }
+  }
+}

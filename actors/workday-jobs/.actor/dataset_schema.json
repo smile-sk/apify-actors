@@ -1,0 +1,41 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "company": { "type": "string", "description": "Employer (Workday tenant) the job belongs to." },
+        "tenant": { "type": "string", "description": "Workday tenant parsed from the URL, e.g. nvidia." },
+        "site": { "type": "string", "description": "Workday site segment parsed from the URL, e.g. NVIDIAExternalCareerSite." },
+        "jobId": { "type": "string", "description": "Requisition id from the board, e.g. JR2022712." },
+        "jobTitle": { "type": "string", "description": "Job title as published." },
+        "location": { "type": "string", "description": "Primary location as published." },
+        "additionalLocations": { "type": "array", "description": "Other locations the same requisition covers." },
+        "country": { "type": "string", "description": "Country from the job detail, when Workday reports it." },
+        "postedOn": { "type": "string", "description": "Raw posting age as the board words it, e.g. 'Posted 3 Days Ago'." },
+        "postedDaysAgo": { "type": "integer", "description": "The same age as a number of days; 0 means today." },
+        "startDate": { "type": "string", "description": "Real publication date from the job detail." },
+        "timeType": { "type": "string", "description": "Full time, part time and so on." },
+        "remote": { "type": "boolean", "description": "true when the location says remote, work from home or anywhere." },
+        "url": { "type": "string", "description": "Direct link to the posting." },
+        "jobDescription": { "type": "string", "description": "Full description, only with includeDescription and inside its cap." },
+        "status": { "type": "string", "description": "FOUND for a real job, NO_JOBS or an error code for a board that gave nothing." },
+        "reason": { "type": "string", "description": "Why a board gave nothing - HTTP status or a hint about the URL." },
+        "fromCache": { "type": "boolean", "description": "true when this row came from the cache instead of a live request." },
+        "fetchedAt": { "type": "string", "description": "When the row was produced, ISO 8601." }
+    },
+    "views": {
+        "overview": {
+            "title": "Jobs",
+            "transformation": { "fields": ["company", "jobTitle", "location", "remote", "postedOn", "url"] },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": { "label": "Company" },
+                    "jobTitle": { "label": "Title" },
+                    "location": { "label": "Location" },
+                    "remote": { "label": "Remote" },
+                    "postedOn": { "label": "Posted" },
+                    "url": { "label": "Apply" }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "title": "PyPI Package Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "packages": {
+      "title": "PyPI project names",
+      "type": "array",
+      "description": "PyPI project names. Each line is either a name (requests), a name with a version (requests==2.31.0) or a project link (https://pypi.org/project/requests/). A name PyPI does not have comes back free with a reason.",
+      "editor": "stringList",
+      "prefill": [
+        "requests",
+        "numpy==2.0.0",
+        "not-a-real-package-xyz-12345"
+      ]
+    },
+    "maxPackages": {
+      "title": "Max packages",
+      "type": "integer",
+      "description": "Read at most this many packages. The rest comes back as a free status row with the reason, never as a silent cut.",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "includeDependencies": {
+      "title": "Include dependencies",
+      "type": "boolean",
+      "description": "Put the release dependencies (requires_dist, first 50) into the row. Off keeps rows small.",
+      "default": true
+    }
+  },
+  "required": [
+    "packages"
+  ]
+}

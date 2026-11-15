@@ -1,0 +1,79 @@
+{
+  "title": "Image converter input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "imageUrls": {
+      "title": "Image urls",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One http(s) url per line. Each url is read once: a repeat, a line that is not a url and a line beyond maxImages come back as their own free row with the reason. The file signature decides whether the bytes are an image, never the file name or the content type.",
+      "prefill": [
+        "https://www.w3.org/Icons/w3c_home.png",
+        "https://www.w3.org/Icons/valid-html401.png"
+      ]
+    },
+    "format": {
+      "title": "Convert to",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "webp",
+        "jpeg",
+        "png",
+        "avif"
+      ],
+      "enumTitles": [
+        "WebP - smallest for the web, keeps transparency",
+        "JPEG - universal, no transparency",
+        "PNG - lossless, keeps transparency",
+        "AVIF - smallest of all, slowest to encode"
+      ],
+      "default": "webp",
+      "description": "The format every delivered image is written in. WebP is the safe default for the web: it keeps transparency and is far smaller than JPEG at the same quality. PNG is for lossless work, JPEG for the widest compatibility, AVIF for the smallest files at the cost of encoding time."
+    },
+    "quality": {
+      "title": "Quality",
+      "type": "integer",
+      "default": 82,
+      "minimum": 1,
+      "maximum": 100,
+      "description": "Encoder quality for JPEG, WebP and AVIF. 82 is the point where a photo stops looking different at half the size; below 60 artefacts show on gradients, above 90 the files grow fast for very little gain. PNG ignores it."
+    },
+    "maxWidth": {
+      "title": "Max width in pixels",
+      "type": "integer",
+      "default": 2000,
+      "minimum": 0,
+      "description": "A wider image is scaled down to this width and never upscaled. Aspect ratio is kept, so the height follows the width. 0 means no width limit."
+    },
+    "maxHeight": {
+      "title": "Max height in pixels",
+      "type": "integer",
+      "default": 2000,
+      "minimum": 0,
+      "description": "The same limit for the height. An image that fits both limits is left at its own size. 0 means no height limit."
+    },
+    "stripMetadata": {
+      "title": "Strip metadata",
+      "type": "boolean",
+      "default": true,
+      "description": "Drops EXIF, GPS, camera and software tags from the converted file. The orientation itself is applied to the pixels first, so a phone photo stays upright. Turn it off only when the metadata is the point."
+    },
+    "background": {
+      "title": "Background for transparency",
+      "type": "string",
+      "editor": "textfield",
+      "default": "#FFFFFF",
+      "description": "The colour an image with transparency is flattened onto when the target format has no alpha channel, which is JPEG. A hex colour like #FFFFFF or #000000."
+    },
+    "maxImages": {
+      "title": "Max images",
+      "type": "integer",
+      "default": 20,
+      "minimum": 0,
+      "description": "The list is cut here and the rest comes back free with status NOT_CHECKED_LIMIT. 0 means the default of 20, and the summary reports the number actually applied."
+    }
+  },
+  "required": []
+}

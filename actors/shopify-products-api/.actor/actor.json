@@ -1,0 +1,19 @@
+{
+  "actorSpecification": 1,
+  "name": "shopify-products-api",
+  "title": "Shopify Products API - Catalog, Prices & Stock",
+  "description": "Store catalogs often close /products.json, and a silent empty dataset reads as an empty shop. This Actor walks the whole chain: products.json, sitemap, then the product page JSON-LD, and when a store blocks them all it names the HTTP code instead of pretending the shop is empty.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "ECOMMERCE",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 512,
+  "readme": "./README.md"
+}

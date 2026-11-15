@@ -1,0 +1,18 @@
+{
+ "actorOutputSchemaVersion": 1,
+ "title": "Speech to text transcripts",
+ "properties": {
+  "dataset": {
+   "type": "string",
+   "title": "Transcripts and statuses",
+   "description": "One row per input line, in input order. A transcribed file carries status TRANSCRIBED, text, charCount, wordCount, language and languageProbability (how sure the model is about the detected language), model, durationSecs, audioMinutes, bytes, contentType, fileName, url, index, billable, segments with start, end and text of every spoken phrase (when includeSegments is on), and srt plus vtt strings (when includeSubtitles is on). Every file that was not transcribed keeps its identity (index, url, fileName) and carries a status and a plain reason instead of text: NOT_CHECKED_INVALID_URL (the line is not an http or https address), NOT_CHECKED_PRIVATE_TARGET (a local or private address, refused before any request), NOT_CHECKED_FETCH_ERROR (the server answered with an error or a timeout), NOT_CHECKED_TOO_LARGE (over maxFileMb), NOT_CHECKED_UNSUPPORTED (the bytes are not audio PyAV can decode, or carry no audio stream), NOT_CHECKED_TOO_LONG (longer than maxMinutesPerFile), NOT_CHECKED_TIME (the run was out of time), NOT_CHECKED_LIMIT (cut by maxFiles), NOT_CHECKED_DUPLICATE, NOT_CHECKED_BILLING (the price of the run could not be read, so nothing was delivered and nothing was charged), NOT_CHECKED_CAP (the spending cap was reached) and NOT_CHECKED_ERROR (the dataset refused the row or the model failed). Only rows with status TRANSCRIBED are charged.",
+   "template": "{{links.apiDefaultDatasetUrl}}/items"
+  },
+  "summary": {
+   "type": "string",
+   "title": "Run summary",
+   "description": "Kept in the key-value store under RUN_SUMMARY-<runId>, with a plain RUN_SUMMARY copy in the same store (the default store of a run belongs to that run alone, so the copy cannot be overwritten by another run) and that plain key is what the template points at. Files: filesAsked, filesUnique, filesInvalid (not a URL), duplicateFiles, filesCutByLimit, filesTranscribed, filesCap, filesWriteError, filesModelError, filesChargeUnverified (the write raised and the dataset count could not settle whether the row landed, so it is not written twice). Audio: audioMinutes is the summed length of the files actually transcribed, so the buyer can compare it with the price. Money: rowsDelivered (every row written, free ones included), chargedEvents (what the platform really charged), deliveredUncharged, billingActive and billingReason, stopReason (null, spending-cap, charge-error, dataset-write-error, deadline, transcription-error or empty-input), chargeErrors with the rows whose write or charge failed and the error text. Settings actually applied: model, threads, languageRequested, maxMinutesPerFile, maxFileMb, maxFiles, vadFilter, includeSegments, includeSubtitles. datasetItemCount is our own count of written rows, datasetItemCountApi the same number as the platform reported, datasetItemCountNote says when the platform number was missing or behind. counterMismatch appears if the statuses do not add up to filesAsked, moneyMismatch if transcribed rows do not equal charged plus uncharged. durationSecs and versions (apify, httpx, faster-whisper, ctranslate2, av) close the picture.",
+   "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+  }
+ }
+}

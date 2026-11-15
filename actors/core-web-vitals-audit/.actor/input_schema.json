@@ -1,0 +1,63 @@
+{
+  "title": "Core Web Vitals audit input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Page urls",
+      "type": "array",
+      "editor": "stringList",
+      "description": "One page url per line. Every page is opened in a real Chromium and measured once. A line that is not a url comes back as its own free row with the reason, and a url that repeats is free as well.",
+      "prefill": [
+        "https://example.com",
+        "https://apify.com",
+        "https://developer.mozilla.org"
+      ]
+    },
+    "maxPages": {
+      "title": "Max pages",
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "description": "The list is cut here, and urls beyond the limit come back free with status NOT_CHECKED_LIMIT. 0 means the default of 10, and the summary reports the number actually applied."
+    },
+    "strategy": {
+      "title": "Device",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "mobile",
+        "desktop"
+      ],
+      "enumTitles": [
+        "Mobile: 4x slower CPU, slow 4G",
+        "Desktop: no CPU slowdown, 10 Mbps"
+      ],
+      "default": "mobile",
+      "description": "mobile emulates a mid range phone the way Lighthouse does: 4x CPU slowdown and slow 4G. desktop uses a fast connection with no CPU slowdown. The row says which profile was used, so two runs are only comparable on the same profile."
+    },
+    "settleSecs": {
+      "title": "Settle seconds after load",
+      "type": "integer",
+      "default": 2,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "How long the page keeps running after the load event before the numbers are read. Lazy images, web fonts and late layout shifts land in this window; 0 reads the numbers immediately after load."
+    },
+    "pageTimeoutSecs": {
+      "title": "Page timeout, seconds",
+      "type": "integer",
+      "default": 45,
+      "minimum": 5,
+      "maximum": 120,
+      "description": "A page that does not finish loading in this many seconds comes back free with status NOT_CHECKED_TIMEOUT. Raising it costs run time, not money."
+    },
+    "ignoreHttpsErrors": {
+      "title": "Ignore HTTPS certificate errors",
+      "type": "boolean",
+      "default": false,
+      "description": "Turn this on only for a staging site with a self signed certificate. Every other run checks the certificate normally."
+    }
+  },
+  "required": []
+}

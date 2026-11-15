@@ -1,0 +1,19 @@
+{
+  "actorSpecification": 1,
+  "name": "broken-link-checker",
+  "title": "Broken Link Checker API - 404s, Redirects & Retries",
+  "description": "Checkers that mark working links broken and cannot send your own headers sell a 403 from a bot-hating site as broken. Every check here retries timeouts, 5xx and 429, honours Retry-After, takes your User-Agent and Authorization headers, and blocked, private or invalid URLs cost nothing.",
+  "version": "0.1",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 512,
+  "defaultMemoryMbytes": 512,
+  "buildTag": "latest",
+  "categories": [
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS"
+  ],
+  "readme": "./README.md"
+}

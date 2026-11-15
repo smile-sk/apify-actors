@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "YouTube channel videos",
+    "description": "One row per video, plus free status rows that explain what was not delivered.",
+    "properties": {
+        "dataset": {
+            "title": "Videos",
+            "type": "string",
+            "description": "Every delivered video has channelInput, channelId, channelTitle, channelSubscribersText, videoId, url, title, views, viewsText, ageText, ageDays, durationText, durationSeconds, position and thumbnailUrl. Rows with a status other than OK carry a reason instead of data.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "title": "Run summary",
+            "type": "string",
+            "description": "Counters, chargedEvents, byStatus, stopReason, datasetNote and counterMismatch. Status codes: OK, INVALID_INPUT, DUPLICATE, NO_VIDEOS_FOUND, NOT_CHECKED_LIMIT, NOT_CHECKED_TIME, NOT_CHECKED_ERROR, NOT_CHECKED_CAP, NOT_CHECKED_BILLING, NOT_CHECKED_CHARGE_UNVERIFIED. Stop reasons: spending-cap, billing-price-unknown, charge-error, dataset-write-error, deadline.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}

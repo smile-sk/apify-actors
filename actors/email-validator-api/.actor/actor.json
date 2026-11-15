@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "email-validator-api",
+  "title": "Email Validator API - Syntax, MX and Domain Checks",
+  "description": "You should not pay for a guess: most email checkers cannot prove a mailbox exists, because SMTP is closed. This one reports format, domain and MX, and charges only for an address it actually checked against DNS.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "LEAD_GENERATION",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultMemoryMbytes": 256
+}

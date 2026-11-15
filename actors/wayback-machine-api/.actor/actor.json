@@ -1,0 +1,28 @@
+{
+  "actorSpecification": 1,
+  "name": "wayback-machine-api",
+  "title": "Wayback Machine API - First Seen, Last Seen & Versions",
+  "description": "A page that was never archived is not data, yet it lands as a billed row. This one bills only URLs the archive really holds: earliest snapshot, latest change and the distinct versions, read from the Internet Archive CDX API with no key and no browser.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "categories": [
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "defaultMemoryMbytes": 256,
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {}
+    }
+  }
+}

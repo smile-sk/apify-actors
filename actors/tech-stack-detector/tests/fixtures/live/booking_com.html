@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <style>
+            body {
+                font-family: "Arial";
+            }
+        </style>
+        <script type="text/javascript" nonce="17943971801300.4182806132711868">
+            function getAjaxObject() {
+                var ajax;
+                if (window.XMLHttpRequest) {
+                    try {
+                        ajax = new window.XMLHttpRequest(); // XMLHttpRequest (Mozilla, Opera, Safari, etc.)
+                    } catch (e) {
+                        return false;
+                    }
+                } else {
+                    var msXML = new Array( // XMLHttpRequest (IE with ActiveX)
+                        "Msxml2.XMLHTTP.5.0",
+                        "Msxml2.XMLHTTP.4.0",
+                        "Msxml2.XMLHTTP.3.0",
+                        "Msxml2.XMLHTTP",
+                        "Microsoft.XMLHTTP"
+                    );
+                    for (var i = 0; i < msXML.length; i++) {
+                        // We want to get the best we can
+                        try {
+                            ajax = new ActiveXObject(msXML[i]);
+                            break;
+                        } catch (e) {
+                            return false;
+                        }
+                    }
+                }
+                return ajax;
+            }
+
+            function sendAjaxRequest(url, data, callback) {
+                const xhr = getAjaxObject();
+                if (!xhr) {
+                    callback(new Error('Unable to create XMLHttpRequest object'), null);
+                    return;
+                }
+
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Accept', 'application/json');
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            try {
+                                const response = JSON.parse(xhr.responseText);
+                                callback(null, response);
+                            } catch (error) {
+                                callback(error, null);
+                            }
+                        } else {
+                            callback(new Error('HTTP error! status: ' + xhr.status), null);
+                        }
+                    }
+                };
+
+                xhr.onerror = function() {
+                    callback(new Error('Network error'), null);
+                };
+
+                xhr.send(JSON.stringify(data));
+            }
+
+            function reportChallengeError(log, challengeError) {
+                try {
+                    sendAjaxRequest(
+                        'https://reports.booking.com/chal_report', {
+                            log: log,
+                            message: challengeError.message,
+                            stack: challengeError.stack
+                        }, (e, response) => {
+                            if (e) {
+                                console.error('Request failed:', e);
+                            } else {
+                                console.log('Success:', response);
+                            }
+                        }
+                    );
+                } catch (e) {}
+            }
+
+            function setupErrorHandling() {
+                // Handle JavaScript errors
+                window.addEventListener('error', function(event) {
+                    var error = {
+                        message: event.message,
+                        stack: event.error ? event.error.stack : ''
+                    };
+
+                    reportChallengeError('javascript_error', error);
+                });
+
+                // Handle unhandled promise rejections
+                window.addEventListener('unhandledrejection', function(event) {
+                    var error = {
+                        message: event.reason && event.reason.message ? event.reason.message : 'Unhandled Promise Rejection',
+                        stack: event.reason && event.reason.stack ? event.reason.stack : ''
+                    };
+
+                    reportChallengeError('promise_rejection', error);
+                });
+            }
+
+            // Initialize error handling
+            setupErrorHandling();
+     
+        </script>
+        <script type="text/javascript" nonce="17943971801300.4182806132711868">
+            window.awsWafCookieDomainList = ['booking.com'];
+        </script>
+        <script type="text/javascript" src="https://www.booking.com/__challenge_h78IRKX3kpQxScCExxShBNwRUlb/d8c14d4960ca/a18a4859af9c/challenge.js" nonce="17943971801300.4182806132711868"></script>
+        <script type="text/javascript" nonce="17943971801300.4182806132711868">
+            const maxLocationLength = 2047 - "&chal_t=1760623098515&force_referer=".length;
+            function searchStringWithNewParam(search, key, value) {
+                value = encodeURIComponent(value);
+                if (!search.startsWith('?')) {
+                    return search + `?${key}=${value}`;
+                } else if (search.endsWith('&')) {
+                    return search + `${key}=${value}`;
+                } else {
+                    return search + `&${key}=${value}`;
+                }
+            }
+
+            // Drops every existing entry of key; other params are kept byte for byte.
+            function searchStringWithoutParam(search, key) {
+                const kept = search.replace(/^\?/, '').split('&').filter(function (part) {
+                    return part !== '' && part.split('=')[0] !== key;
+                });
+                return kept.length ? '?' + kept.join('&') : '';
+            }
+
+            function getNewUrlWithAddedParameter(location, parameters) {
+                let newSearch = location.search;
+
+                for (let parameterName of Object.keys(parameters)) {
+                    newSearch = searchStringWithNewParam(
+                        searchStringWithoutParam(newSearch, parameterName),
+                        parameterName,
+                        parameters[parameterName]
+                    );
+                }
+
+                let newHref = `${location.pathname}${newSearch}${location.hash}`;
+                if (newHref.length < maxLocationLength) {
+                    return newHref;
+                }
+                return null;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="challenge-container"></div>
+        <script type="text/javascript" nonce="17943971801300.4182806132711868">
+            let newHref;
+            try {
+                setTimeout(() => {
+                    try {
+                        reportChallengeError("Reloaded without updating url", new Error(""));
+                    } catch (e) {}
+                    document.location.reload();
+                }, 20000);
+                let referrer = document.referrer;
+                let availableLength = maxLocationLength - document.location.href.length;
+
+                if (encodeURIComponent(referrer).length > availableLength) {
+                    let parsedReferrer = new URL(referrer);
+                    referrer = parsedReferrer.origin;
+                    if (encodeURIComponent(referrer + parsedReferrer.pathname).length < availableLength) {
+                        referrer = referrer + parsedReferrer.pathname;
+                    }
+                }
+                let parameters = {
+                    chal_t: 1794397180130,
+                    force_referer: referrer,
+                };
+                newHref = getNewUrlWithAddedParameter(document.location, parameters);
+            } catch (e) {
+                reportChallengeError("Failed while getting new href", e);
+            }
+
+            newHref = newHref || document.location.href;
+            AwsWafIntegration.saveReferrer();
+            AwsWafIntegration.checkForceRefresh().then((forceRefresh) => {
+                if (forceRefresh) {
+                    AwsWafIntegration.forceRefreshToken().then(() => {
+                        window.location.href = newHref;
+                    });
+                } else {
+                    AwsWafIntegration.getToken().then(() => {
+                        window.location.href = newHref;
+                    });
+                }
+            });
+        </script>
+        <noscript>
+            <h1>JavaScript is disabled</h1>
+            In order to continue, we need to verify that you're not a robot.
+            This requires JavaScript. Enable JavaScript and then reload the page.
+        </noscript>
+    </body>
+</html> 
+        

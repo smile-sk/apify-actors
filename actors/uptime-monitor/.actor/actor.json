@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "uptime-monitor-api",
+  "title": "Uptime Monitor API - Website Status, SSL & Response Time",
+  "description": "An uptime check that calls everything healthy because it silently dropped the slow sites is worse than none: you learn it from your customers. This actor reports every URL it could not check, with the reason, and pays only for URLs it really checked. Status codes, redirects, TLS expiry.",
+  "version": "0.1",
+  "meta": {
+    "actorId": "tZEwMONJTCrYDUyHt"
+  },
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 512,
+  "defaultMemoryMbytes": 512,
+  "buildTag": "latest",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "readme": "./README.md"
+}

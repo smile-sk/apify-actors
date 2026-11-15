@@ -1,0 +1,90 @@
+{
+  "title": "LinkedIn jobs input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keywords": {
+      "title": "Search keywords",
+      "type": "string",
+      "editor": "textfield",
+      "prefill": "python developer",
+      "description": "The phrase you would type into the LinkedIn job search, for example python developer. Required: an empty search is refused before anything is opened or charged."
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "editor": "textfield",
+      "prefill": "United States",
+      "description": "A place name, for example United States or Berlin. Empty searches LinkedIn globally."
+    },
+    "maxJobs": {
+      "title": "Max jobs",
+      "type": "integer",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 250,
+      "description": "Jobs are sold per delivered row, so this is the ceiling that protects your budget. Jobs past it come back free with status NOT_CHECKED_LIMIT."
+    },
+    "datePosted": {
+      "title": "Posted within",
+      "type": "string",
+      "enum": [
+        "any",
+        "past24h",
+        "pastWeek",
+        "pastMonth"
+      ],
+      "default": "any",
+      "editor": "select",
+      "description": "The filter is sent to LinkedIn and, when the page carries a date, applied again in code so a silent ignore cannot slip through."
+    },
+    "experience": {
+      "title": "Experience level",
+      "type": "string",
+      "enum": [
+        "any",
+        "internship",
+        "entry",
+        "associate",
+        "mid-senior",
+        "director",
+        "executive"
+      ],
+      "default": "any",
+      "editor": "select",
+      "description": "Filtered by LinkedIn itself."
+    },
+    "remote": {
+      "title": "Workplace",
+      "type": "string",
+      "enum": [
+        "any",
+        "onsite",
+        "hybrid",
+        "remote"
+      ],
+      "default": "any",
+      "editor": "select",
+      "description": "Filtered by LinkedIn itself."
+    },
+    "includeDescription": {
+      "title": "Open each job page for the full description",
+      "type": "boolean",
+      "default": true,
+      "description": "Opening each job page costs time but is the difference between a list of titles and a product. Turn it off for a fast list of cards without descriptions.",
+      "groupCaption": "Depth",
+      "groupDescription": "Opening each job page costs time but is the difference between a list of titles and a product."
+    },
+    "maxSearches": {
+      "title": "Search lenses",
+      "type": "integer",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 3,
+      "description": "A guest search carries 60 job cards and page offsets do not work, so depth comes from date windows: unfiltered, past week, past 24 hours. Each carries its own 60 cards and they overlap only partly (measured: 14 shared ids). 3 is the maximum."
+    }
+  },
+  "required": [
+    "keywords"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Domain availability",
+  "description": "One row per domain, with the registry verdict or with the reason it could not be checked.",
+  "properties": {
+    "dataset": {
+      "title": "Domains",
+      "type": "string",
+      "description": "A checked domain carries input, inputIndex, domain, tld, verdict (available or registered), available, registrar, registeredAt, expiresAt, updatedAt, statuses, nameservers, httpStatus and status. Rows with status INVALID, DUPLICATE, NOT_CHECKED_UNKNOWN, NOT_CHECKED_LIMIT, NOT_CHECKED_CAP, NOT_CHECKED_TIME, NOT_CHECKED_BILLING or NOT_CHECKED_ERROR carry a reason and none of the verdict fields: domain, tld, verdict and available stay null, so a free row can never be read as a verdict. available is true only when the registry answered 404 for the name; it never means we could not tell. billable is the claim of the row, the money actually taken lives in the run summary (chargedEvents).",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "description": "Counters: requested, domainsAttempted, domainsChecked (rows that got a verdict and were charged), chargedEvents, rowsWritten, byStatus, chargeErrors, writeErrors, deliveredUnverified, chargeUncertain, stopReason (spending-cap, charge-limit, charge-error, billing-price-unknown, deadline, unexpected-error), counterMismatch, billingActive, pricingEvent and datasetNote. The run writes this object under RUN_SUMMARY and under RUN_SUMMARY-<runId> in the run's key-value store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "tech-stack-detector",
+  "title": "Tech Stack Detector API - CMS, Ecommerce & Frameworks",
+  "description": "Most tech stack detectors bill a page they never read: a timeout or a 404 still lands in your bill. This one reads the page, names the CMS, framework and analytics it found with the evidence that matched, and charges nothing when it found nothing or your filter says no.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "LEAD_GENERATION",
+    "SEO_TOOLS",
+    "DEVELOPER_TOOLS"
+  ],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 512
+}

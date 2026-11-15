@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Shopify catalog monitor output",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Products",
+      "description": "One row per product: store, handle, title, price (lowest variant price), priceMax, compareAtPrice, currency, availability, variantCount, variants, tags, productUrl, imageUrl, updatedAt, source (json, product-json, page) and, when onlyChanges is on, change (new, price-down, price-up, out-of-stock, back-in-stock) with previousPrice. Rows that are not a product carry a status instead: NO_PRICE for a product the store publishes without a price, NOT_CHECKED_BLOCKED when a store refused every path, NOT_CHECKED_PRIVATE_TARGET for a host that resolves into a private network, NOT_CHECKED_ERROR when product pages could not be read, INVALID_INPUT for a string that is not a store. DELIVERED rows are charged; NO_PRICE and NOT_CHECKED_* rows sit in the dataset but are not charged, so a product without a price or a store that blocked every path costs nothing.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Stored in the named key-value store shopify-products-api-summary as RUN_SUMMARY and as RUN_SUMMARY-<runId>, because one named store is shared by the whole account and two runs at once would overwrite each other. Keys: storesAsked, storesDeduplicated (input lines folded into one store), duplicatesSkipped, runId, counterMismatch, storeCounterMismatch, storesOk, storesBlocked, storesEmpty, invalidInputs, storesNotChecked, productsSeen, productsDelivered, productsUndelivered, productsUnverified, productsNotChecked, noPrice, filteredOut, filteredBy, pagesRead, pagesFailed, skippedOffsite, truncatedStores, requests, modeBreakdown, changes, changesBy, chargedEvents, deliveredUncharged, chargeUncertain, billingActive, datasetItemCount, datasetItemCountLag, writeFailures (failed write attempts), stopReason, elapsedSecs, maxProductsPerStore, onlyChanges, requestPaceSecs, baselineStores, lastStoreError. productsByStore holds one entry per store: read, delivered, undelivered, unverified, notChecked, noPrice, filteredOut, pages, pagesFailed, skippedOffsite, truncated, truncatedReason. The counters add up: productsSeen = productsDelivered + noPrice + filteredOut + productsUndelivered + productsUnverified (a row whose write the dataset counter could not confirm is neither delivered nor lost), and storesAsked = storesOk + storesBlocked + storesEmpty + invalidInputs + storesNotChecked. A mismatch is written into the summary as counterMismatch or storeCounterMismatch instead of being rounded away. A run that delivered nothing always says why: no store read, store refused every path with its HTTP codes, or your filters dropped everything.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

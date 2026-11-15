@@ -1,0 +1,4 @@
+apify==4.2.1
+pyOpenSSL==26.4.0
+cryptography==50.0.2
+certifi==2026.10.23

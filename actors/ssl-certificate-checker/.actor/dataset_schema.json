@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "SSL Certificate Checker API results",
+    "description": "One row per checked host: verdict, dual validation, anchor root, expiry, TLS details",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Results",
+            "description": "One row per host. Verdicts: ok, breaks-2027-04-15, invalid-today, unreachable. Unreachable rows, cache hits and invalid input are free.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

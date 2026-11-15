@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "arXiv papers",
+  "description": "The papers dataset and the run summary.",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "title": "Papers",
+      "type": "string",
+      "template": "https://api.apify.com/v2/datasets/{{datasetId}}/items",
+      "description": "One row per id. Paid rows carry arxivId, version, title, authors, publishedAt, updatedAt, primaryCategory, categories, comment, journalRef, doi, absUrl, pdfUrl and billable true; every other row is a free status row with a reason and no paper. Status rows are written in batches of up to 100, so sort by actorIndex to get the input order back."
+    },
+    "summary": {
+      "title": "Run summary",
+      "type": "string",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY",
+      "description": "Counters of the run: requested, attempted, delivered, chargedEvents, deliveredUncharged, deliveredUnverified, chargeUncertain, writeErrors, papersNotFound, papersInvalid, cutByLimit, byStatus, counterMismatch, stopReason, datasetNote, firstFailure and priceNote. A copy under RUN_SUMMARY-<runId> is kept in the named store arxiv-paper-summary."
+    }
+  }
+}

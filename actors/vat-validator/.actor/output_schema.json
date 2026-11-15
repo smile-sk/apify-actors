@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "VAT check results",
+    "description": "One row per VAT number: the verdict, the reason, and the company data VIES returned. Charged: VALID, INVALID_VIES (VIES answered no), INVALID_CHECKSUM, NOT_IN_VIES (country outside VIES, national checksum passed). Not charged: INVALID_FORMAT (wrong shape), UNVERIFIED (VIES did not answer), NOT_CHECKED (VIES switched off), UNSUPPORTED_COUNTRY, NOT_ATTEMPTED (the run stopped or ran out of time), ERROR (our own failure on that row).",
+    "properties": {
+        "dataset": {
+            "type": "string",
+            "title": "Results",
+            "description": "One row per VAT number",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

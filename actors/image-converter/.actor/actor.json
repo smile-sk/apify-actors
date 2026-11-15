@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "image-converter",
+  "title": "Image Converter & Compressor: WebP, AVIF, HEIC, JPG, PNG",
+  "description": "Most image converters bill every file they touch, even files they cannot decode. This one charges only for a converted image you can download: the signature decides what an image is, a broken or non image file comes back free with a reason, and converted files land in the run store plus a zip.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "minMemoryMbytes": 1024,
+  "maxMemoryMbytes": 4096,
+  "defaultMemoryMbytes": 1024
+}

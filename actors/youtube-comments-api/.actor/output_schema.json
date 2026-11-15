@@ -1,0 +1,18 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "YouTube comments results",
+  "properties": {
+    "dataset": {
+      "type": "string",
+      "title": "Comments",
+      "description": "One row per comment. status is OK when the row carries a comment, or NOT_CHECKED_* with the reason in plain words: INVALID_VIDEO (the line is not a video), DUPLICATE (the same video came earlier), NO_COMMENTS (the watch page exposes no comment section, comments may be turned off), UNAVAILABLE (YouTube answered 404), LIMIT (beyond maxVideos or maxCommentsPerVideo), READ_ERROR, TIME, BILLING, and the spending cap stops the run. A comment row carries: videoId, commentId, parentCommentId and isReply (replies are their own rows and are read after the top level comments, into whatever the budget left), author, authorChannelId, authorIsVerified, authorIsCreator, text, likes and likesText (the number parsed, the original text kept beside it), replyCount and replyCountText, heartedByCreator (true only when the comment carries the creator's heart mark; the toolbar label YouTube prints is the same on every record, measured 180 of 180, and is never used as the fact), pinnedText (Pinned by @channel, when YouTube shows it), publishedTimeText, url, input and inputIndex (the line it belongs to), plus videoTitle, videoChannel and videoCommentsCountText. publishedTimeText is what YouTube prints, a relative age like '6 years ago': the payload carries no absolute date, so none is invented. billable is a claim about the price list; the money actually taken is chargedEvents in the summary.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Run summary. videosRequested is the number of input lines and always equals videosAttempted plus videosStopped plus the invalid, duplicate and limited lines. videosCutByBudget counts read videos that ran out of their own maxCommentsPerVideo budget: it is a property of an attempted video, not a line of input, so it is never added to that sum. commentsSeen counts every comment record the pages carried, and always equals commentsDelivered plus commentsSkippedNoText (an emoji-only comment has nothing to sell and is never charged) plus commentsDuplicate plus commentsUndelivered. chargedEvents is the money really taken, deliveredUncharged a batch that is in the dataset and was not paid for, chargeUncertain a batch whose fate is unknown. byStatus splits the rows by status, pagesRead counts the continuation pages read, repliesDelivered the rows that are replies (a quarter of the budget is held back for them). billingActive, priceNote and priceEvent say how the run stood with the price: null billingActive means the price could not be read, not that billing is off. counterMismatch is true when the numbers above do not add up, countersNote names the gap. stopReason is empty when the list finished.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+    }
+  }
+}

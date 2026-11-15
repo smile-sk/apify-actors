@@ -1,0 +1,14 @@
+{
+  "url": "https://www.imdb.com/",
+  "status": 202,
+  "contentType": "text/html; charset=UTF-8",
+  "bytes": 1997,
+  "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "server": "Server",
+    "cache-control": "no-store, max-age=0",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 206cd6659fc2a40ab3a7b7f282b0b78c.cloudfront.net (CloudFront)"
+  },
+  "fetchedAt": "2026-11-11"
+}

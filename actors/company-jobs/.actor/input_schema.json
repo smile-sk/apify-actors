@@ -1,0 +1,72 @@
+{
+    "title": "Company Jobs API: input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "companies": {
+            "title": "Companies to check",
+            "type": "array",
+            "description": "One line per company: a domain (stripe.com), a careers URL (https://jobs.lever.co/leverdemo) or any ATS board slug. Every company is resolved on its own and reported back, so a company with no open roles is visible in the run report instead of vanishing.",
+            "editor": "stringList",
+            "prefill": ["linear.app", "monzo.com"],
+            "items": { "type": "string" }
+        },
+        "keywords": {
+            "title": "Filter by job title",
+            "type": "string",
+            "description": "Only jobs whose title contains any of these words, comma separated - e.g. engineer, sales, python. Empty = every open job. You are not charged for jobs the filter drops.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "location": {
+            "title": "Filter by location",
+            "type": "string",
+            "description": "Case-insensitive substring of the job location, e.g. London, Berlin, US. Empty = all locations.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "onlyRemote": {
+            "title": "Only remote jobs",
+            "type": "boolean",
+            "description": "true = keep only jobs the company itself marks as remote.",
+            "default": false
+        },
+        "includeDescription": {
+            "title": "Include full job descriptions",
+            "type": "boolean",
+            "description": "true = add the complete job description as plain text to every row. Rows become much larger; the price per job does not change.",
+            "default": false
+        },
+        "maxJobsPerCompany": {
+            "title": "Max jobs per company",
+            "type": "integer",
+            "description": "Safety stop per company. 0 = every matching job on the board. When the cap keeps jobs back, the number is reported as jobsOverMaxJobsPerCompany in the summary, so a capped board never reads as a complete one.",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 5000
+        },
+        "maxCompanies": {
+            "title": "Max companies per run",
+            "type": "integer",
+            "description": "Safety stop: the run never touches more than this many companies. Default 50. A longer list is cut here, and every company beyond the limit is reported as NOT_CHECKED_MAX_COMPANIES with the reason (and becomes a dataset row when includeEmptyCompanies is true). The summary reports companiesAsked as the number of distinct companies your list named (case-insensitive repeats collapse, companiesDeduplicated says how many input lines that merged), and companiesOverMaxCompanies as how many of them the limit kept out.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "includeEmptyCompanies": {
+            "title": "Add a row for companies with no jobs",
+            "type": "boolean",
+            "description": "false = companies without jobs are listed in the run report (storage key COMPANY_REPORT) only. true = every one of them also becomes a dataset row, so nothing is missed downstream: NO_JOBS (board read, nothing matched), FAILED (board not resolved, with the reason), NOT_CHECKED_CAP and NOT_CHECKED_MAX_COMPANIES (never read, with the reason), DUPLICATE_BOARD (same board as another input row).",
+            "default": false
+        },
+        "cacheMinutes": {
+            "title": "Reuse a recent result for this many minutes",
+            "type": "integer",
+            "description": "Checking the same company again inside this window is served from this account's own cache instead of hitting the board once more: faster runs, and the source sees no duplicate traffic. 0 = always fetch live. A company we could not resolve is cached for half the window only, so a board that was briefly down recovers quickly.",
+            "default": 60,
+            "minimum": 0,
+            "maximum": 10080
+        }
+    },
+    "required": ["companies"]
+}
